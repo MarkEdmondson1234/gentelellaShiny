@@ -166,8 +166,8 @@ In production the Shiny app would be running on a server and user's start at the
 
 Set the security code to be static (default it changes each launch of `googleAuthR`) via options, e.g. `options(googleAuthR.securitycode = "gentelellXXXXXXX")` in the top of `server.R`
 
-Generate the login URL with the security code, and use as the login link in the `./www/production/login.html` file.
+Generate the login URL with the security code, and use as the login link in the `login.html` file.
 
 ![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/googleLogin.png)
 
-The `login.html` file can then be used, with `index.html` holding logic to not show content without logging in.
+The `login.html` file can then be used for logins, with the Shiny app holding logic to not show content without logging in (e.g. `req(auth())`)
