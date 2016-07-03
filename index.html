@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Gentelella Shiny by MarkEdmondson1234</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Gentelella Shiny</h1>
+          <h2>This is an R Shiny HTML Template version of the gentelella bootstrap theme.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/MarkEdmondson1234/gentelellaShiny/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/MarkEdmondson1234/gentelellaShiny/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/MarkEdmondson1234/gentelellaShiny" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="gentelellashiny" class="anchor" href="#gentelellashiny" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>gentelellaShiny</h1>
+
+<p><a href="https://travis-ci.org/MarkEdmondson1234/gentelellaShiny"><img src="https://travis-ci.org/MarkEdmondson1234/gentelellaShiny.svg?branch=master" alt="Travis-CI Build Status"></a></p>
+
+<p>This is an R <a href="http://shiny.rstudio.com/articles/templates.html">Shiny HTML Template</a> version of the <a href="https://github.com/puikinsh/gentelella">gentelella bootstrap theme</a>.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>A unique looking Shiny dashboard</li>
+<li>Login authentication page (requires <a href="https://github.com/MarkEdmondson1234/googleAuthR"><code>googleAuthR</code></a>)</li>
+<li>Profile name and picture pulled from G+ (requires <a href="https://github.com/MarkEdmondson1234/googleID"><code>googleID</code></a>)</li>
+<li>Dynamic headline tiles</li>
+<li>Dynamic progress bar visualisation</li>
+<li>Custom box for plots including date picker in header</li>
+<li>Custom collapsible box for dashboard elements</li>
+</ul>
+
+<p>A demo app for viewing GoogleAnalytics data is available by running <code>runExample()</code></p>
+
+<h2>
+<a id="screenshot-after-logging-in" class="anchor" href="#screenshot-after-logging-in" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshot after logging in</h2>
+
+<p>The demo uses <code>googleAnalyticsR</code> to download data, so won't look like much if you login with an account with no GA :)  Replace with your own data source and everything else will work though. </p>
+
+<p><img src="https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/raw/master/gentellelaShinydemo.png" alt=""></p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+
+<div class="highlight highlight-source-r"><pre><span class="pl-e">devtools</span><span class="pl-k">::</span>install_github(<span class="pl-s"><span class="pl-pds">"</span>MarkEdmondson1234/gentelellaShiny<span class="pl-pds">"</span></span>)</pre></div>
+
+<p>For logins you also need <code>GoogleID</code></p>
+
+<div class="highlight highlight-source-r"><pre><span class="pl-e">devtools</span><span class="pl-k">::</span>install_github(<span class="pl-s"><span class="pl-pds">"</span>MarkEdmondson1234/googleID<span class="pl-pds">"</span></span>)</pre></div>
+
+<p>For the demo to work it uses <code>googleAnalyticsR</code></p>
+
+<div class="highlight highlight-source-r"><pre>install.packages(<span class="pl-s"><span class="pl-pds">"</span>googleAnalyticsR<span class="pl-pds">"</span></span>)</pre></div>
+
+<h2>
+<a id="elements" class="anchor" href="#elements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Elements</h2>
+
+<h3>
+<a id="top-tiles" class="anchor" href="#top-tiles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Top tiles</h3>
+
+<p>A tile to show headline metrics</p>
+
+<p><img src="https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/raw/master/top_tiles.png" alt=""></p>
+
+<h3>
+<a id="plot-box" class="anchor" href="#plot-box" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plot Box</h3>
+
+<p>A box with datepicker for plots</p>
+
+<p><img src="https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/plot_box.png" alt=""></p>
+
+<h3>
+<a id="collapsible-box" class="anchor" href="#collapsible-box" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Collapsible box</h3>
+
+<p>A box to display other dashboard content</p>
+
+<p><img src="https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/dash_box.png" alt=""></p>
+
+<h3>
+<a id="progress-bars" class="anchor" href="#progress-bars" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Progress bars</h3>
+
+<p>For showing things like performance against target</p>
+
+<p><img src="https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/progress_bars.png" alt=""></p>
+
+<h3>
+<a id="other-shiny-elements" class="anchor" href="#other-shiny-elements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other Shiny elements</h3>
+
+<p>Any other Shiny UI elements can also be used, including <code>htmlwidgets</code>.  A couple of examples are shown below:</p>
+
+<h4>
+<a id="google-analytics-dropdown" class="anchor" href="#google-analytics-dropdown" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Google Analytics dropdown</h4>
+
+<p>From <code>googleAnalyticsR</code>, a UI to selet GA view:</p>
+
+<p><img src="https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/ga_dropdown.png" alt=""></p>
+
+<h4>
+<a id="gauge" class="anchor" href="#gauge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gauge</h4>
+
+<p>From <code>flexdashboards</code>:</p>
+
+<p><img src="https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/guage_demo.png" alt=""></p>
+
+<h2>
+<a id="to-use" class="anchor" href="#to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To use</h2>
+
+<p>A special function <code>gentelellaPage()</code> has been created that you pass normal ui.R elements to, that will then render each parameter in order to each row of content on the page.</p>
+
+<p>If you want more items to appear in one row, then pass them in a <code>shiny::tagList</code></p>
+
+<p>Example:</p>
+
+<h3>
+<a id="in-uir" class="anchor" href="#in-uir" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>In ui.R</h3>
+
+<div class="highlight highlight-source-r"><pre><span class="pl-c">## to appear in one row</span>
+<span class="pl-smi">boxRow</span> <span class="pl-k">&lt;-</span> tagList(
+  dashboard_box(uiOutput(<span class="pl-s"><span class="pl-pds">"</span>progress_bar2<span class="pl-pds">"</span></span>), <span class="pl-v">box_title</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Targets<span class="pl-pds">"</span></span>),
+  dashboard_box(gaugeOutput(<span class="pl-s"><span class="pl-pds">"</span>gauge1<span class="pl-pds">"</span></span>), <span class="pl-v">box_title</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Flexdashboard Gauge<span class="pl-pds">"</span></span>, <span class="pl-v">menuItems</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>),
+  dashboard_box(p(<span class="pl-s"><span class="pl-pds">"</span>More interesting stuff<span class="pl-pds">"</span></span>))
+)
+
+<span class="pl-c">## each parameter holds UI elements that are rendered per row in order down the content page</span>
+gentelellaPage(
+  column(<span class="pl-v">width</span> <span class="pl-k">=</span> <span class="pl-c1">12</span>, <span class="pl-e">googleAnalyticsR</span><span class="pl-k">::</span>authDropdownUI(<span class="pl-s"><span class="pl-pds">"</span>auth_dropdown<span class="pl-pds">"</span></span>)),
+  tileCountRow(tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e1<span class="pl-pds">"</span></span>), tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e2<span class="pl-pds">"</span></span>), tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e3<span class="pl-pds">"</span></span>),
+               tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e4<span class="pl-pds">"</span></span>), tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e5<span class="pl-pds">"</span></span>), tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e6<span class="pl-pds">"</span></span>)),
+  graph_box(dygraphOutput(<span class="pl-s"><span class="pl-pds">"</span>trend_plot<span class="pl-pds">"</span></span>),
+            <span class="pl-v">datepicker</span> <span class="pl-k">=</span> dateRangeInput(<span class="pl-s"><span class="pl-pds">"</span>datepicker_id<span class="pl-pds">"</span></span>, <span class="pl-c1">NULL</span>, <span class="pl-v">start</span> <span class="pl-k">=</span> Sys.Date() <span class="pl-k">-</span> <span class="pl-c1">300</span>)),
+  <span class="pl-smi">boxRow</span>
+)
+</pre></div>
+
+<p><code>gentelellaPage()</code> also includes some named parameters to set options such as sidebar menu items, title tag and footer images.</p>
+
+<div class="highlight highlight-source-r"><pre><span class="pl-c">## create menu items for sidebar using sidebarElement</span>
+<span class="pl-smi">menuItems</span> <span class="pl-k">&lt;-</span> <span class="pl-k">list</span>(
+  sideBarElement(<span class="pl-s"><span class="pl-pds">"</span> Home <span class="pl-pds">"</span></span>,
+                 <span class="pl-v">icon</span> <span class="pl-k">=</span> icon(<span class="pl-s"><span class="pl-pds">"</span>home<span class="pl-pds">"</span></span>),
+                 <span class="pl-k">list</span>(a(<span class="pl-v">href</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>index.html<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Dashboard<span class="pl-pds">"</span></span>),
+                      a(<span class="pl-v">href</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>index2.html<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Dashboard2<span class="pl-pds">"</span></span>),
+                      a(<span class="pl-v">href</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>index3.html<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Dashboard3<span class="pl-pds">"</span></span>))                        
+  ),
+  sideBarElement(<span class="pl-s"><span class="pl-pds">"</span> Contact <span class="pl-pds">"</span></span>,
+                 <span class="pl-v">icon</span> <span class="pl-k">=</span> icon(<span class="pl-s"><span class="pl-pds">"</span>envelope<span class="pl-pds">"</span></span>),
+                 <span class="pl-k">list</span>(a(<span class="pl-v">href</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>http://twitter.com/HoloMarkeD<span class="pl-pds">"</span></span>, 
+                        HTML(paste(icon(<span class="pl-s"><span class="pl-pds">"</span>twitter<span class="pl-pds">"</span></span>), <span class="pl-s"><span class="pl-pds">"</span>@HoloMarkeD<span class="pl-pds">"</span></span>))),
+                      a(<span class="pl-v">href</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>http://code.markedmondson.me<span class="pl-pds">"</span></span>, 
+                        HTML(paste(icon(<span class="pl-s"><span class="pl-pds">"</span>rss<span class="pl-pds">"</span></span>), <span class="pl-s"><span class="pl-pds">"</span> Blog<span class="pl-pds">"</span></span>))),
+                      a(<span class="pl-v">href</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>https://github.com/MarkEdmondson1234/gentelellaShiny<span class="pl-pds">"</span></span>, 
+                        HTML(paste(icon(<span class="pl-s"><span class="pl-pds">"</span>github<span class="pl-pds">"</span></span>), <span class="pl-s"><span class="pl-pds">"</span> Github<span class="pl-pds">"</span></span>))))                        
+  ),
+  sideBarElement(column(<span class="pl-v">width</span> <span class="pl-k">=</span> <span class="pl-c1">12</span>, <span class="pl-e">googleAuthR</span><span class="pl-k">::</span>googleAuthUI(<span class="pl-s"><span class="pl-pds">"</span>auth<span class="pl-pds">"</span></span>),
+                        <span class="pl-v">icon</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>)
+  ))
+
+gentelellaPage(
+  tileCountRow(tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e1<span class="pl-pds">"</span></span>), tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e2<span class="pl-pds">"</span></span>), tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e3<span class="pl-pds">"</span></span>),
+               tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e4<span class="pl-pds">"</span></span>), tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e5<span class="pl-pds">"</span></span>), tileCountUI(<span class="pl-s"><span class="pl-pds">"</span>e6<span class="pl-pds">"</span></span>)),
+
+  <span class="pl-c">## start named parameters:</span>
+  <span class="pl-v">menuItems</span> <span class="pl-k">=</span> <span class="pl-smi">menuItems</span>,
+  <span class="pl-v">title_tag</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Shiny HTML Template<span class="pl-pds">"</span></span>,
+  <span class="pl-v">site_title</span> <span class="pl-k">=</span> a(<span class="pl-v">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>site_title<span class="pl-pds">"</span></span>, icon(<span class="pl-s"><span class="pl-pds">"</span>eye<span class="pl-pds">"</span></span>), span(<span class="pl-s"><span class="pl-pds">"</span>Shiny HTML<span class="pl-pds">"</span></span>)),
+  <span class="pl-v">footer</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Made in Denmark<span class="pl-pds">"</span></span>
+)</pre></div>
+
+<p>There is no support for different layouts other than the defaults in <code>gentelellaPage()</code>, in that case use <code>shiny::htmlTemplate</code> directly and edit <code>index.html</code> to include your R code blocks in <code>{{ brackets }}</code></p>
+
+<h3>
+<a id="example-files" class="anchor" href="#example-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example files</h3>
+
+<p>A demo app for viewing GoogleAnalytics data is available by running <code>runExample()</code>.  </p>
+
+<p>It will start up a login page and a (logged out) Shiny dashboard.  Use the login page or the login button on the Shiny app to start. </p>
+
+<p>In production the Shiny app would be running on a server and user's start at the login page.</p>
+
+<h3>
+<a id="login-page" class="anchor" href="#login-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Login page</h3>
+
+<p><code>googleAuthUI</code> creates a login URL that includes a security code.  </p>
+
+<p>Set the security code to be static (default it changes each launch of <code>googleAuthR</code>) via options, e.g. <code>options(googleAuthR.securitycode = "gentelellXXXXXXX")</code> in the top of <code>server.R</code></p>
+
+<p>Generate the login URL with the security code, and use as the login link in the <code>login.html</code> file.</p>
+
+<p><img src="https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/googleLogin.png" alt=""></p>
+
+<p>The <code>login.html</code> file can then be used for logins, with the Shiny app holding logic to not show content without logging in (e.g. <code>req(auth())</code>)</p>
+        </section>
+
+        <footer>
+          Gentelella Shiny is maintained by <a href="https://github.com/MarkEdmondson1234">MarkEdmondson1234</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
