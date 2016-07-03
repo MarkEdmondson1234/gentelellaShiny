@@ -4,8 +4,6 @@
 
 This is an R [Shiny HTML Template](http://shiny.rstudio.com/articles/templates.html) version of the [gentelella bootstrap theme](https://github.com/puikinsh/gentelella).
 
-It will eventually become a package.
-
 ## Features
 
 * A unique looking Shiny dashboard
@@ -20,7 +18,25 @@ It will eventually become a package.
 
 The demo uses `googleAnalyticsR` to download data, so won't look like much if you login with an account with no GA :)  Replace with your own data source and everything else will work though. 
 
-![](gentellelaShinydemo.png)
+![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/raw/master/gentellelaShinydemo.png)
+
+## Install
+
+```r
+devtools::install_github("MarkEdmondson1234/gentelellaShiny")
+```
+
+For logins you also need `GoogleID`
+
+```r
+devtools::install_github("MarkEdmondson1234/googleID")
+```
+
+For the demo to work it uses `googleAnalyticsR`
+
+```r
+install.packages("googleAnalyticsR")
+```
 
 ## Elements
 
@@ -29,26 +45,26 @@ The demo uses `googleAnalyticsR` to download data, so won't look like much if yo
 
 A tile to show headline metrics
 
-![](top_tiles.png)
+![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/raw/master/top_tiles.png)
 
 ### Plot Box
 
 A box with datepicker for plots
 
-![](plot_box.png)
+![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/plot_box.png)
 
 ### Collapsible box
 
 A box to display other dashboard content
 
-![](dash_box.png)
+![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/dash_box.png)
 
 
 ### Progress bars
 
 For showing things like performance against target
 
-![](progress_bars.png)
+![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/progress_bars.png)
 
 ### Other Shiny elements
 
@@ -58,13 +74,13 @@ Any other Shiny UI elements can also be used, including `htmlwidgets`.  A couple
 
 From `googleAnalyticsR`, a UI to selet GA view:
 
-![](ga_dropdown.png)
+![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/ga_dropdown.png)
 
 #### Gauge
 
 From `flexdashboards`:
 
-![](guage_demo.png)
+![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/guage_demo.png)
 
 ## To use
 
@@ -141,6 +157,6 @@ Set the security code to be static (default it changes each launch of `googleAut
 
 Generate the login URL with the security code, and use as the login link in the `./www/production/login.html` file.
 
-![](googleLogin.png)
+![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/blob/master/googleLogin.png)
 
 The `login.html` file can then be used, with `index.html` holding logic to not show content without logging in.
