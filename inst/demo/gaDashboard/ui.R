@@ -15,8 +15,9 @@ options(googleAuthR.webapp.client_secret = "mE7rHl0-iNtzyI1MQia-mg1o")
 
 boxRow <- tagList(
   dashboard_box(uiOutput("progress_bar2"), box_title = "Targets"),
-  dashboard_box(gaugeOutput("gauge1"), box_title = "Flexdashboard Gauge", menuItems = NULL),
-  dashboard_box(p("More interesting stuff"))
+  dashboard_box(gaugeOutput("gauge1"), p("We are doing great!"),
+                box_title = "Flexdashboard Gauge", menuItems = NULL),
+  dashboard_box(p("Something interesting"))
 )
 
 menuItems <- list(

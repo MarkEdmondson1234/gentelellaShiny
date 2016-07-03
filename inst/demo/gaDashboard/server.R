@@ -7,6 +7,7 @@ library(dygraphs)
 library(zoo)
 library(ggplot2)
 library(flexdashboard)
+
 options(shiny.port = 1221)
 options(googleAuthR.scopes.selected = c("https://www.googleapis.com/auth/userinfo.email",
                                         "https://www.googleapis.com/auth/userinfo.profile",
@@ -78,6 +79,7 @@ function(input, output, session){
   session_data <- reactive({
 
     req(access_token())
+    req(selected_id())
 
     s1 <- Sys.Date() - 60
     e1 <- Sys.Date() - 30
@@ -93,12 +95,6 @@ function(input, output, session){
       order = order_type("sessions", "DESCENDING", "DELTA"),
       shiny_access_token = access_token()
     )
-
-  })
-
-  output$delta <- renderDataTable({
-
-    session_data()
 
   })
 
@@ -121,15 +117,6 @@ function(input, output, session){
     )
 
   })
-
-  # output$trend_plot <- renderPlot({
-  #
-  #   req(trend_data())
-  #   trend_data <- trend_data()
-  #
-  #   ggplot(trend_data, aes(x = date, y = sessions)) + geom_line() + theme_minimal()
-  #
-  # })
 
   output$trend_plot <- renderDygraph({
 
@@ -200,7 +187,16 @@ function(input, output, session){
       e2.going_well = if(sd[sd$medium == "referral","sessions.d1"] - sd[sd$medium == "referral","sessions.d2"] > 0) TRUE else FALSE,
       e3.value = sd[sd$medium == "organic","sessions.d1"],
       e3.change_value = sd[sd$medium == "organic","sessions.d1"] - sd[sd$medium == "organic","sessions.d2"],
-      e3.going_well = if(sd[sd$medium == "organic","sessions.d1"] - sd[sd$medium == "organic","sessions.d2"] > 0) TRUE else FALSE
+      e3.going_well = if(sd[sd$medium == "organic","sessions.d1"] - sd[sd$medium == "organic","sessions.d2"] > 0) TRUE else FALSE,
+      e4.value = sd[sd$medium == "(none)","users.d1"],
+      e4.change_value = sd[sd$medium == "(none)","users.d1"] - sd[sd$medium == "(none)","users.d2"],
+      e4.going_well = if(sd[sd$medium == "(none)","users.d1"] - sd[sd$medium == "(none)","users.d2"] > 0) TRUE else FALSE,
+      e5.value = sd[sd$medium == "referral","users.d1"],
+      e5.change_value = sd[sd$medium == "referral","users.d1"] - sd[sd$medium == "referral","users.d2"],
+      e5.going_well = if(sd[sd$medium == "referral","users.d1"] - sd[sd$medium == "referral","users.d2"] > 0) TRUE else FALSE,
+      e6.value = sd[sd$medium == "organic","users.d1"],
+      e6.change_value = sd[sd$medium == "organic","users.d1"] - sd[sd$medium == "organic","users.d2"],
+      e6.going_well = if(sd[sd$medium == "organic","users.d1"] - sd[sd$medium == "organic","users.d2"] > 0) TRUE else FALSE
     )
   })
 
@@ -211,7 +207,7 @@ function(input, output, session){
                     going_well = reactive(top_tile_data()$e1.going_well),
                     tile_title = " Direct Sessions",
                     width = 2,
-                    icon_in = icon("user"),
+                    icon_in = icon("eye"),
                     from_text = " From last Week")
 
   shiny::callModule(updateTileCount, "e2",
@@ -220,7 +216,7 @@ function(input, output, session){
                     going_well = reactive(top_tile_data()$e2.going_well),
                     tile_title = " Referral Sessions",
                     width = 2,
-                    icon_in = icon("user"),
+                    icon_in = icon("eye"),
                     from_text = " From last Week")
 
   shiny::callModule(updateTileCount, "e3",
@@ -229,33 +225,33 @@ function(input, output, session){
                     going_well = reactive(top_tile_data()$e3.going_well),
                     tile_title = " Organic Sessions",
                     width = 2,
-                    icon_in = icon("user"),
+                    icon_in = icon("eye"),
                     from_text = " From last Week",
                     highlight = "green")
 
   shiny::callModule(updateTileCount, "e4",
-                    value = reactive(top_tile_data()$e1.value),
-                    change_value = reactive(top_tile_data()$e1.change_value),
-                    going_well = reactive(top_tile_data()$e1.going_well),
-                    tile_title = " Direct Sessions",
+                    value = reactive(top_tile_data()$e4.value),
+                    change_value = reactive(top_tile_data()$e4.change_value),
+                    going_well = reactive(top_tile_data()$e4.going_well),
+                    tile_title = " Direct Users",
                     width = 2,
                     icon_in = icon("user"),
                     from_text = " From last Week")
 
   shiny::callModule(updateTileCount, "e5",
-                    value = reactive(top_tile_data()$e2.value),
-                    change_value = reactive(top_tile_data()$e2.change_value),
-                    going_well = reactive(top_tile_data()$e2.going_well),
-                    tile_title = " Referral Sessions",
+                    value = reactive(top_tile_data()$e5.value),
+                    change_value = reactive(top_tile_data()$e5.change_value),
+                    going_well = reactive(top_tile_data()$e5.going_well),
+                    tile_title = " Referral Users",
                     width = 2,
                     icon_in = icon("user"),
                     from_text = " From last Week")
 
   shiny::callModule(updateTileCount, "e6",
-                    value = reactive(top_tile_data()$e3.value),
-                    change_value = reactive(top_tile_data()$e3.change_value),
-                    going_well = reactive(top_tile_data()$e3.going_well),
-                    tile_title = " Organic Sessions",
+                    value = reactive(top_tile_data()$e6.value),
+                    change_value = reactive(top_tile_data()$e6.change_value),
+                    going_well = reactive(top_tile_data()$e6.going_well),
+                    tile_title = " Organic Users",
                     width = 2,
                     icon_in = icon("user"),
                     from_text = " From last Week")

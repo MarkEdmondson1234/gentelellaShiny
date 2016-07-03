@@ -28,7 +28,7 @@ The demo uses `googleAnalyticsR` to download data, so won't look like much if yo
 devtools::install_github("MarkEdmondson1234/gentelellaShiny")
 ```
 
-For logins you also need `GoogleID`
+For logins you also need `googleID`
 
 ```r
 devtools::install_github("MarkEdmondson1234/googleID")
