@@ -1,6 +1,6 @@
 # gentelellaShiny
 
-[![Travis-CI Build Status](https://travis-ci.org/.svg?branch=master)](https://travis-ci.org/)
+[![Travis-CI Build Status](https://travis-ci.org/MarkEdmondson1234/gentelellaShiny.svg?branch=master)](https://travis-ci.org/MarkEdmondson1234/gentelellaShiny)
 
 This is an R [Shiny HTML Template](http://shiny.rstudio.com/articles/templates.html) version of the [gentelella bootstrap theme](https://github.com/puikinsh/gentelella).
 
