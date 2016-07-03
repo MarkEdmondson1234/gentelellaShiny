@@ -14,6 +14,8 @@ This is an R [Shiny HTML Template](http://shiny.rstudio.com/articles/templates.h
 * Custom box for plots including date picker in header
 * Custom collapsible box for dashboard elements
 
+A demo app for viewing GoogleAnalytics data is available by running `runExample()`
+
 ## Screenshot after logging in
 
 The demo uses `googleAnalyticsR` to download data, so won't look like much if you login with an account with no GA :)  Replace with your own data source and everything else will work though. 
@@ -90,7 +92,10 @@ If you want more items to appear in one row, then pass them in a `shiny::tagList
 
 Example:
 
+### In ui.R
+
 ```r
+## to appear in one row
 boxRow <- tagList(
   dashboard_box(uiOutput("progress_bar2"), box_title = "Targets"),
   dashboard_box(gaugeOutput("gauge1"), box_title = "Flexdashboard Gauge", menuItems = NULL),
@@ -108,8 +113,6 @@ gentelellaPage(
 )
 
 ```
-
-This will then populate the `index.html` file via `shiny::htmlTemplate`, so you shouldn't need to touch the HTML yourself. 
 
 `gentelellaPage()` also includes some named parameters to set options such as sidebar menu items, title tag and footer images.
 
@@ -148,6 +151,14 @@ gentelellaPage(
 ```
 
 There is no support for different layouts other than the defaults in `gentelellaPage()`, in that case use `shiny::htmlTemplate` directly and edit `index.html` to include your R code blocks in `{{ brackets }}`
+
+### Example files
+
+A demo app for viewing GoogleAnalytics data is available by running `runExample()`.  
+
+It will start up a login page and a (logged out) Shiny dashboard.  Use the login page or the login button on the Shiny app to start. 
+
+In production the Shiny app would be running on a server and user's start at the login page.
 
 ### Login page
 

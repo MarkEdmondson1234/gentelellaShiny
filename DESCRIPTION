@@ -1,12 +1,12 @@
-Package: gentelellaShinyTemplate
+Package: gentelellaShiny
 Type: Package
 Version: 0.0.0.9000
 Title: Use the Gentelella Bootstrap Template in Shiny Apps
 Description: A Shiny HTML Template based on the Bootstrap Gentelella Theme
 Authors@R: person("Mark", "Edmondson",email = "m@sunholo.com",
                   role = c("aut", "cre"))
-URL: https://github.com/MarkEdmondson1234/gentelellaShinyTemplate/
-BugReports: https://github.com/MarkEdmondson1234/gentelellaShinyTemplate/issues
+URL: https://github.com/MarkEdmondson1234/gentelellaShiny/
+BugReports: https://github.com/MarkEdmondson1234/gentelellaShiny/issues
 Depends:
     R (>= 3.2.0)
 Imports:

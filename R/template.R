@@ -2,7 +2,7 @@
 headerBoilerPlate <- function(title_tag = "Shiny HTML"){
 
   css_file <- paste(readLines(system.file("www", "custom.min.css", package = "gentelellaShinyTemplate"),
-                              warn = TRUE),
+                              warn = FALSE),
                     collapse=" \n")
 
   HTML(sprintf('
@@ -29,7 +29,7 @@ footerBoilerPlate <- function(message = NULL){
   }
 
   js_file <- paste(readLines(system.file("www", "custom.min.js", package = "gentelellaShinyTemplate"),
-                             warn = TRUE),
+                             warn = FALSE),
                    collapse=" \n")
 
   HTML(sprintf('
