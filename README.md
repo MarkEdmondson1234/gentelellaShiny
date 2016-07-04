@@ -14,7 +14,7 @@ This is an R [Shiny HTML Template](http://shiny.rstudio.com/articles/templates.h
 * Custom box for plots including date picker in header
 * Custom collapsible box for dashboard elements
 
-A demo app for viewing GoogleAnalytics data is available by running `runExample()`
+A demo app for viewing GoogleAnalytics data is available by running `gentelellaShiny::runExample()`
 
 ## Screenshot after logging in
 

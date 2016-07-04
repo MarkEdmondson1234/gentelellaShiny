@@ -1,5 +1,5 @@
 library(shiny)
-library(gentelellaShinyTemplate)
+library(gentelellaShiny)
 library(googleAnalyticsR)
 library(dygraphs)
 library(flexdashboard)

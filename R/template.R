@@ -1,7 +1,7 @@
 #' @import shiny
 headerBoilerPlate <- function(title_tag = "Shiny HTML"){
 
-  css_file <- paste(readLines(system.file("www", "custom.min.css", package = "gentelellaShinyTemplate"),
+  css_file <- paste(readLines(system.file("www", "custom.min.css", package = "gentelellaShiny"),
                               warn = FALSE),
                     collapse=" \n")
 
@@ -28,7 +28,7 @@ footerBoilerPlate <- function(message = NULL){
                          a(href="http://markedmondson.me", 'Mark Edmondson')))
   }
 
-  js_file <- paste(readLines(system.file("www", "custom.min.js", package = "gentelellaShinyTemplate"),
+  js_file <- paste(readLines(system.file("www", "custom.min.js", package = "gentelellaShiny"),
                              warn = FALSE),
                    collapse=" \n")
 
