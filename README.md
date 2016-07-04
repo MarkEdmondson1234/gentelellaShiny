@@ -34,10 +34,10 @@ For logins you also need `googleID`
 devtools::install_github("MarkEdmondson1234/googleID")
 ```
 
-For the demo to work it uses `googleAnalyticsR`
+For the demo to work it uses `googleAnalyticsR`, dev version:
 
 ```r
-install.packages("googleAnalyticsR")
+devtools::install_github("MarkEdmondson1234/googleAnalyticsR")
 ```
 
 ## Elements
