@@ -5,13 +5,14 @@
     {{ headContent() }}
     {{ headerBoilerPlate }}
     {{ bootstrapLib() }}
-    
+
   </head>
 
   <body class="nav-md">
+    {{ trackingTags }}
     <div class="container body">
       <div class="main_container">
-        
+
         {{ sideBarBoilerPlate }}
         {{ navbarBoilerPlate }}
 
@@ -19,12 +20,12 @@
         <div class="right_col" role="main">
 
           {{ main_body }}
-          
+
         </div>
         <!-- /page content -->
 
         {{ footerBoilerPlate }}
-        
+
       </div>
     </div>
 

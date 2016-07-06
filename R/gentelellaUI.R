@@ -7,6 +7,7 @@
 #' @param site_title Website title passed to sideBarBoilerPlate
 #' @param menuItems Sidebar menu items created with \link{sideBarElement}
 #' @param footer Footer message
+#' @param tracking If not NULL, pass in \link{trackingTags} to enable web analytics
 #'
 #' @return a function suitable for a ui.R page
 #' @import shiny
@@ -15,9 +16,12 @@ gentelellaPage <- function(...,
                            title_tag = "Gentelella Shiny",
                            site_title = a(class="site_title", icon("paw"), span("Shiny HTML")),
                            menuItems = NULL,
-                           footer = NULL){
+                           footer = NULL,
+                           tracking = NULL){
 
   main_body <- lapply(list(...), function(x) tagList(fluidRow(x), br()))
+
+  if(!is.null(tracking)) browser()
 
   htmlTemplate(system.file("templates", "main.html", package = "gentelellaShinyTemplate"),
                headerBoilerPlate = headerBoilerPlate(title_tag),
@@ -25,5 +29,6 @@ gentelellaPage <- function(...,
                                                        menuItems = menuItems),
                navbarBoilerPlate = navbarBoilerPlate(),
                footerBoilerPlate = footerBoilerPlate(footer),
+               trackingTags = tracking,
                main_body = main_body)
 }

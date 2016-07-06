@@ -6,7 +6,7 @@
 \usage{
 gentelellaPage(..., title_tag = "Gentelella Shiny", site_title = a(class =
   "site_title", icon("paw"), span("Shiny HTML")), menuItems = NULL,
-  footer = NULL)
+  footer = NULL, tracking = NULL)
 }
 \arguments{
 \item{...}{ui elements that will be rendered into a fluidRow per entry}
@@ -18,6 +18,8 @@ gentelellaPage(..., title_tag = "Gentelella Shiny", site_title = a(class =
 \item{menuItems}{Sidebar menu items created with \link{sideBarElement}}
 
 \item{footer}{Footer message}
+
+\item{tracking}{If not NULL, pass in \link{trackingTags} to enable web analytics}
 }
 \value{
 a function suitable for a ui.R page
