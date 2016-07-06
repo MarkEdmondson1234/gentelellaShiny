@@ -45,8 +45,6 @@ trackingTags <- function(tag_template = c("ga","gtm","freeform"),
 
                 )
 
-  str(out)
-  message("Adding tracking tags:", tag_code)
   HTML(out)
 
 }
