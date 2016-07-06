@@ -21,9 +21,7 @@ gentelellaPage <- function(...,
 
   main_body <- lapply(list(...), function(x) tagList(fluidRow(x), br()))
 
-  if(!is.null(tracking)) browser()
-
-  htmlTemplate(system.file("templates", "main.html", package = "gentelellaShinyTemplate"),
+  htmlTemplate(system.file("templates", "main.html", package = "gentelellaShiny"),
                headerBoilerPlate = headerBoilerPlate(title_tag),
                sideBarBoilerPlate = sideBarBoilerPlate(site_title = site_title,
                                                        menuItems = menuItems),

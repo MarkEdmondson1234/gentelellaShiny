@@ -1,5 +1,5 @@
 library(shiny)
-library(gentelellaShinyTemplate)
+library(gentelellaShiny)
 library(googleAuthR)
 library(googleAnalyticsR)
 library(googleID)
