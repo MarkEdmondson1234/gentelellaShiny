@@ -18,7 +18,9 @@ A demo app for viewing GoogleAnalytics data is available by running `gentelellaS
 
 ## Example Shiny Google Analytics app
 
-You can login and view a demo [Google analytics dashboard using gentelellaShiny](https://mark.shinyapps.io/gentelellaShinyGADashboard/) here.
+You can login and view a demo [Google analytics dashboard using gentelellaShiny](http://code.markedmondson.me/gentelellaShiny/login) here.
+
+It uses a login page hosted on github, linking to a demo Shiny app running on shinyapps.io.
 
 ![](https://github.com/MarkEdmondson1234/gentelellaShiny/blob/master/inst/img/gentellaShinyGA.png)
 
