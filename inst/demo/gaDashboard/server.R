@@ -10,6 +10,7 @@ library(flexdashboard)
 library(d3heatmap)
 library(tidyr)
 library(dplyr)
+library(testthat)
 
 options(shiny.port = 1221)
 options(googleAuthR.scopes.selected = c("https://www.googleapis.com/auth/userinfo.email",

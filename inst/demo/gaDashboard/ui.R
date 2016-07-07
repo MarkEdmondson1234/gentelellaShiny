@@ -28,7 +28,7 @@ boxRow <- tagList(
 menuItems <- list(
   sideBarElement(" Resources ",
                  icon = icon("book"),
-                 list(a(href="http://code.markedmondson.me",
+                 list(a(href="http://code.markedmondson.me/gentelellaShiny/",
                         HTML(paste(icon("github"), "GentellaShiny"))),
                       a(href="http://code.markedmondson.me/googleAnalyticsR",
                         HTML(paste(icon("line-chart"), "googleAnalyticsR")))

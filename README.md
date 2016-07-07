@@ -16,11 +16,12 @@ This is an R [Shiny HTML Template](http://shiny.rstudio.com/articles/templates.h
 
 A demo app for viewing GoogleAnalytics data is available by running `gentelellaShiny::runExample()`
 
-## Screenshot after logging in
+## Example Shiny Google Analytics app
 
-The demo uses `googleAnalyticsR` to download data, so won't look like much if you login with an account with no GA :)  Replace with your own data source and everything else will work though. 
+You can login and view a demo [Google analytics dashboard using gentelellaShiny](https://mark.shinyapps.io/gentelellaShinyGADashboard/) here.
 
-![](https://github.com/MarkEdmondson1234/gentelellaShiny_nopackage/raw/master/gentellelaShinydemo.png)
+![](inst/gentellaShinyGA.png)
+
 
 ## Install
 
