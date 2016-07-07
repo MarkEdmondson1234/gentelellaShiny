@@ -1,0 +1,8 @@
+.Rproj.*
+.Rhistory
+
+.httr-oauth
+
+.RData
+
+inst/demo/gaDashboard/rsconnect/shinyapps.io/mark/gentelellaShinyGADashboard.dcf
