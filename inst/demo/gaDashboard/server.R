@@ -7,6 +7,9 @@ library(dygraphs)
 library(zoo)
 library(ggplot2)
 library(flexdashboard)
+library(d3heatmap)
+library(tidyr)
+library(dplyr)
 
 options(shiny.port = 1221)
 options(googleAuthR.scopes.selected = c("https://www.googleapis.com/auth/userinfo.email",
@@ -43,6 +46,42 @@ function(input, output, session){
 
   })
 
+  # output$ID <- radarchart::renderChartJSRadar({
+  #
+  #   # ssd <- session_data()
+  #   # browser()
+  #   # scores <- data.frame("Label"=ssd$medium,
+  #   #                      "Users" = ssd$users.d1,
+  #   #                      "Sessions" = ssd$sessions.d1)
+  #
+  #   scores <- data.frame("Label"=c("Communicator", "Data Wangler", "Programmer",
+  #                                  "Technologist",  "Modeller", "Visualizer"),
+  #                        "Rich" = c(9, 7, 4, 5, 3, 7),
+  #                        "Andy" = c(7, 6, 6, 2, 6, 9),
+  #                        "Aimee" = c(6, 5, 8, 4, 7, 6))
+  #
+  #   radarchart::chartJSRadar(scores, showToolTipLabel=TRUE)
+  #
+  #
+  # })
+
+  output$heatmap <- d3heatmap::renderD3heatmap({
+
+    req(trend_data())
+    trend_data <- trend_data()
+
+    trend_data$weekdays <- ordered(weekdays(trend_data$date, abbreviate = TRUE),
+                                   c("Mon","Tue","Wed","Thu","Fri","Sat","Sun"))
+    trend_data$weeks <- format(trend_data$date, format = "W%W")
+
+    heatdata <- trend_data %>% select(weekdays, weeks, sessions) %>% spread(weekdays, sessions)
+    row.names(heatdata) <- heatdata$weeks
+    heatdata <- heatdata %>% select(-weeks) %>% tail
+
+    d3heatmap::d3heatmap(heatdata, FALSE, FALSE,
+                         dendrogram = "none", width = 300, height = 200, cexCol = 0.3)
+
+  })
   output$profile <- renderUI({
 
     req(user_data())

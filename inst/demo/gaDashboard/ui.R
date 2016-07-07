@@ -3,6 +3,7 @@ library(gentelellaShiny)
 library(googleAnalyticsR)
 library(dygraphs)
 library(flexdashboard)
+# library(radarchart)
 
 options(shiny.port = 1221)
 options(googleAuthR.scopes.selected = c("https://www.googleapis.com/auth/userinfo.email",
@@ -17,7 +18,11 @@ boxRow <- tagList(
   dashboard_box(uiOutput("progress_bar2"), box_title = "Targets"),
   dashboard_box(gaugeOutput("gauge1"), p("We are doing great!"),
                 box_title = "Flexdashboard Gauge", menuItems = NULL),
-  dashboard_box(p("Something interesting"))
+  # dashboard_box(  chartJSRadarOutput("ID"))
+  dashboard_box(column(width = 12,
+                       d3heatmap::d3heatmapOutput("heatmap", width = 300, height = 250)
+                       ),
+                box_title = "Heatmap")
 )
 
 menuItems <- list(
@@ -41,7 +46,7 @@ menuItems <- list(
   ))
 
 gentelellaPage(
-  column(width = 12, googleAnalyticsR::authDropdownUI("auth_dropdown")),
+  column(width = 12, googleAnalyticsR::authDropdownUI("auth_dropdown", inColumns = TRUE)),
   tileCountRow(tileCountUI("e1"),
                tileCountUI("e2"),
                tileCountUI("e3"),
