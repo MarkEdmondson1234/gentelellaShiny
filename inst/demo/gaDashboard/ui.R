@@ -26,11 +26,13 @@ boxRow <- tagList(
 )
 
 menuItems <- list(
-  sideBarElement(" Home ",
-                 icon = icon("home"),
-                 list(a(href="index.html", "Dashboard"),
-                      a(href="index2.html", "Dashboard2"),
-                      a(href="index3.html", "Dashboard3"))
+  sideBarElement(" Resources ",
+                 icon = icon("book"),
+                 list(a(href="http://code.markedmondson.me",
+                        HTML(paste(icon("github"), "GentellaShiny"))),
+                      a(href="http://code.markedmondson.me/googleAnalyticsR",
+                        HTML(paste(icon("line-chart"), "googleAnalyticsR")))
+                      )
   ),
   sideBarElement(" Contact ",
                  icon = icon("envelope"),
