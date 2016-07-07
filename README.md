@@ -20,7 +20,7 @@ A demo app for viewing GoogleAnalytics data is available by running `gentelellaS
 
 You can login and view a demo [Google analytics dashboard using gentelellaShiny](https://mark.shinyapps.io/gentelellaShinyGADashboard/) here.
 
-![](inst/gentellaShinyGA.png)
+![](https://github.com/MarkEdmondson1234/gentelellaShiny/blob/master/inst/img/gentellaShinyGA.png)
 
 
 ## Install
