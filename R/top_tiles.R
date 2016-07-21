@@ -32,7 +32,7 @@ tileCountElement <- function(value = 2500,
                              width = 2,
                              icon_in = icon("user"),
                              from_text = " From last Week",
-                             highlight = ""){
+                             highlight = NULL){
   if(going_well){
     bottom_icon <- tags$i(class = "green", icon("sort-asc"), change_value)
   } else {
@@ -75,14 +75,14 @@ tileCountUI <- function(id){
 #' @param input shiny input
 #' @param output shiny output
 #' @param session shiny session
-#' @param value Count value
-#' @param change_value Change value
-#' @param going_well If TRUE then change_value is green, else red
+#' @param value [reactive] Count value
+#' @param change_value [reactive] Change value
+#' @param going_well [reactive] If TRUE then change_value is green, else red
 #' @param tile_title Title text
 #' @param width Width of tile in bootstrap
 #' @param icon_in Icon to show
 #' @param from_text Change text
-#' @param highlight color to highlight value
+#' @param highlight [reactive] color to highlight value
 #'
 #' @return NULL
 #' @export
@@ -94,7 +94,7 @@ updateTileCount <- function(input, output, session,
                             width = 2,
                             icon_in = icon("user"),
                             from_text = " From last Week",
-                            highlight = ""){
+                            highlight = NULL){
 
     ns <- session$ns
 
@@ -107,7 +107,7 @@ updateTileCount <- function(input, output, session,
                        width = width,
                        icon_in = icon_in,
                        from_text = from_text,
-                       highlight = highlight)
+                       highlight = highlight())
 
     })
 

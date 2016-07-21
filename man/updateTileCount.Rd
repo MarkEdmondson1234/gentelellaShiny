@@ -6,7 +6,7 @@
 \usage{
 updateTileCount(input, output, session, value, change_value, going_well,
   tile_title = " Total Users", width = 2, icon_in = icon("user"),
-  from_text = " From last Week", highlight = "")
+  from_text = " From last Week", highlight = NULL)
 }
 \arguments{
 \item{input}{shiny input}
@@ -15,11 +15,11 @@ updateTileCount(input, output, session, value, change_value, going_well,
 
 \item{session}{shiny session}
 
-\item{value}{Count value}
+\item{value}{[reactive] Count value}
 
-\item{change_value}{Change value}
+\item{change_value}{[reactive] Change value}
 
-\item{going_well}{If TRUE then change_value is green, else red}
+\item{going_well}{[reactive] If TRUE then change_value is green, else red}
 
 \item{tile_title}{Title text}
 
@@ -29,7 +29,7 @@ updateTileCount(input, output, session, value, change_value, going_well,
 
 \item{from_text}{Change text}
 
-\item{highlight}{color to highlight value}
+\item{highlight}{[reactive] color to highlight value}
 }
 \description{
 Shiny Module for use with \link{tileCountUI}
