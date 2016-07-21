@@ -94,7 +94,7 @@ updateTileCount <- function(input, output, session,
                             width = 2,
                             icon_in = icon("user"),
                             from_text = " From last Week",
-                            highlight = NULL){
+                            highlight = reactive(NULL)){
 
     ns <- session$ns
 

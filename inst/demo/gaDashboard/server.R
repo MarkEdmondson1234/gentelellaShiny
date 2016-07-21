@@ -267,7 +267,7 @@ function(input, output, session){
                     width = 2,
                     icon_in = icon("eye"),
                     from_text = " From last Week",
-                    highlight = "green")
+                    highlight = reactive("green"))
 
   shiny::callModule(updateTileCount, "e4",
                     value = reactive(top_tile_data()$e4.value),
