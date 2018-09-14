@@ -10,7 +10,7 @@ appendDependencies <- function(x, value) {
 }
 
 # Add dashboard dependencies to a tag object
-addDeps <- function(x, theme) {
+addDeps <- function(x) {
 
   # put all necessary ressources here
   gentelella_css <- "custom.min.css"
@@ -22,21 +22,21 @@ addDeps <- function(x, theme) {
 
   dashboardDeps <- list(
     # bootstrap 3 deps
-    # htmltools::htmlDependency(
-    #   name = "bootstrap",
-    #   version = "3.3.7",
-    #   src = c(file = system.file("bootstrap-3.3.7", package = "gentelellaShiny")),
-    #   script = bootstrap_js,
-    #   stylesheet = bootstrap_css
-    # ),
-    # gentelella
     htmltools::htmlDependency(
-      name = "gentelella",
-      version = "1.5.0",
-      src = c(file = system.file("gentelella-1.5.0", package = "gentelellaShiny")),
-      script = gentelella_js,
-      stylesheet = gentelella_css
+      name = "bootstrap",
+      version = "3.3.7",
+      src = c(file = system.file("bootstrap-3.3.7", package = "gentelellaShiny")),
+      script = bootstrap_js,
+      stylesheet = bootstrap_css
     )#,
+    # gentelella (does not work for some reason...)
+    # htmltools::htmlDependency(
+    #   name = "gentelella",
+    #   version = "1.5.0",
+    #   src = c(file = system.file("gentelella-1.5.0", package = "gentelellaShiny")),
+    #   script = gentelella_js,
+    #   stylesheet = gentelella_css
+    # )
     # fontawesome
     # htmltools::htmlDependency(
     #   name = "fontawesome",

@@ -73,22 +73,22 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
         content = "width=device-width, initial-scale=1"
       ),
       shiny::tags$title(title),
-      bootstrapLib(theme = NULL)
+      shiny::includeCSS(path = "inst/gentelella-1.5.0/custom.min.css")
     ),
     # Body
     addDeps(
-      theme = old_school,
       shiny::tags$body(
         class = if (sidebar_collapsed) "nav-sm" else "nav-md",
         shiny::tags$div(
           class = "container body",
           shiny::tags$div(
             class = "main_container",
-            navbar,
             sidebar,
+            navbar,
             # page content
             body,
-            footer
+            footer,
+            shiny::includeScript(path = "inst/gentelella-1.5.0/custom.min.js")
           )
         )
       )

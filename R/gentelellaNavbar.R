@@ -20,7 +20,7 @@ gentelellaNavbar <- function(..., navbarItems = NULL){
           ...,
           shiny::tags$ul(
             class = "nav navbar-nav navbar-right",
-            navbarItems
+            lapply(navbarItems, li)
           )
         )
       )
