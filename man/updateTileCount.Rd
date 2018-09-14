@@ -37,4 +37,3 @@ Shiny Module for use with \link{tileCountUI}
 \details{
 Call via \code{shiny::callModule(updateTileCount, "your_id")}
 }
-

@@ -1,0 +1,97 @@
+#' Create a Gentelella dashboard page
+#'
+#' @param navbar Gentelella dashboard navbar.
+#' @param sidebar Gentelella dashboard main sidebar.
+#' @param body Gentelella dashboard body wrapper.
+#' @param footer Gentelella dashboard footer.
+#' @param title App title.
+#' @param sidebar_collapsed Whether the sidebar is collapsed of not at start. TRUE by default.
+#'
+#' @examples
+#' if(interactive()){
+#'  library(shiny)
+#'  library(gentelellaShiny)
+#'
+#'  shiny::shinyApp(
+#'   ui = gentelellaPage(
+#'    title = "Shiny Gentelella",
+#'    navbar = gentelellaNavbar(),
+#'    sidebar = gentelellaSidebar(
+#'     gentelellaSidebarMenu()
+#'    ),
+#'    body = gentelellaBody(
+#'     fluidRow(
+#'      column(
+#'       width = 4,
+#'       align = "center",
+#'       sliderInput(
+#'        "obs",
+#'        "Number of observations:",
+#'        min = 0,
+#'        max = 1000,
+#'        value = 500
+#'       )
+#'      ),
+#'      column(
+#'       width = 8,
+#'       align = "center",
+#'       plotOutput("distPlot")
+#'      )
+#'     )
+#'    ),
+#'    footer = gentelellaFooter()
+#'   ),
+#'   server = function(input, output) {
+#'    output$distPlot <- renderPlot({
+#'     hist(rnorm(input$obs))
+#'    })
+#'   }
+#'  )
+#' }
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @export
+gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
+                           footer = NULL, title = NULL, sidebar_collapsed = TRUE){
+
+  shiny::tags$html(
+    # Head
+    shiny::tags$head(
+      shiny::tags$meta(
+        charset = "UTF-8",
+        content = "text/html",
+        `http-equiv` = "Content-Type"
+      ),
+      shiny::tags$meta(charset = "utf-8"),
+      shiny::tags$meta(
+        `http-equiv` = "X-UA-Compatible",
+        content = "IE=edge"
+      ),
+      shiny::tags$meta(
+        name = "viewport",
+        content = "width=device-width, initial-scale=1"
+      ),
+      shiny::tags$title(title),
+      bootstrapLib(theme = NULL)
+    ),
+    # Body
+    addDeps(
+      theme = old_school,
+      shiny::tags$body(
+        class = if (sidebar_collapsed) "nav-sm" else "nav-md",
+        shiny::tags$div(
+          class = "container body",
+          shiny::tags$div(
+            class = "main_container",
+            navbar,
+            sidebar,
+            # page content
+            body,
+            footer
+          )
+        )
+      )
+    )
+  )
+}

@@ -17,4 +17,3 @@ profile box
 \description{
 Render the profile box
 }
-

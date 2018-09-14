@@ -9,4 +9,3 @@ navbarBoilerPlate()
 \description{
 Top Navbar
 }
-

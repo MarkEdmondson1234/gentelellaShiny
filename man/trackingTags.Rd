@@ -26,4 +26,3 @@ JavaScript for tracking
 \description{
 Tracking tags for your app
 }
-

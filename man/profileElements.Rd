@@ -22,4 +22,3 @@ Shiny Module for use with \link{profileElementsUI}
 \details{
 Call via \code{shiny::callModule(profileElements, "your_id")}
 }
-

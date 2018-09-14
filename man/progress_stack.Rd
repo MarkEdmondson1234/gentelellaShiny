@@ -22,4 +22,3 @@ a stack of progress bars
 \description{
 Progress bars are scaled from 0 to 100
 }
-

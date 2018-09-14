@@ -12,4 +12,3 @@ Things put in li()
 \details{
 Use HTML() wrapped around icon() if neccessary
 }
-

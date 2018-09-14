@@ -15,4 +15,3 @@ Shiny UI
 \description{
 Shiny Module for use with \link{tileCount}
 }
-

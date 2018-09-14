@@ -17,4 +17,3 @@ profile top nav
 \description{
 Render the top navbar profile
 }
-

@@ -4,9 +4,10 @@
 \alias{tileCountElement}
 \title{tileCountRow Element}
 \usage{
-tileCountElement(value = 2500, change_value = "4\%", going_well = TRUE,
-  tile_title = " Total Users", width = 2, icon_in = icon("user"),
-  from_text = " From last Week", highlight = NULL)
+tileCountElement(value = 2500, change_value = "4\%",
+  going_well = TRUE, tile_title = " Total Users", width = 2,
+  icon_in = icon("user"), from_text = " From last Week",
+  highlight = NULL)
 }
 \arguments{
 \item{value}{Count value}
@@ -31,4 +32,3 @@ a tileCountRow for use within \link{tileCountRow}
 \description{
 tileCountRow Element
 }
-
