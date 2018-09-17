@@ -289,3 +289,123 @@ gentelellaValueBox <- function(value, title = NULL, description = NULL, icon = N
    )
  )
 }
+
+
+#' Create a gentelella tabSetPanel
+#'
+#'
+#' @param ... Slot for gentelellaTabPanel.
+#' @param id TabSetPanel id. Should be unique.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(gentelellaShiny)
+#'  shinyApp(
+#'   ui = gentelellaPage(
+#'    gentelellaBody(
+#'     gentelellaTabSetPanel(
+#'      id = "tabset1",
+#'      gentelellaTabPanel(
+#'        tabName = "Home",
+#'        active = TRUE,
+#'        "Raw denim you probably haven't heard of
+#'        them jean shorts Austin. Nesciunt tofu stumptown
+#'        aliqua, retro synth master cleanse. Mustache
+#'        cliche tempor, williamsburg carles vegan helvetica.
+#'        Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+#'        Cosby sweater eu banh mi, qui irure terr."
+#'      ),
+#'      gentelellaTabPanel(
+#'        tabName = "Profile",
+#'        active = FALSE,
+#'        sliderInput(
+#'          "obs",
+#'          "Number of observations:",
+#'          min = 0,
+#'          max = 1000,
+#'          value = 500
+#'        ),
+#'        plotOutput("distPlot")
+#'      )
+#'     )
+#'    )
+#'   ),
+#'   server = function(input, output, session) {
+#'    output$distPlot <- renderPlot({
+#'     hist(rnorm(input$obs))
+#'    })
+#'   }
+#'  )
+#' }
+#'
+#' @export
+gentelellaTabSetPanel <- function(..., id) {
+
+  tabItems <- list(...)
+  len_items <- length(tabItems)
+
+  tabMenu <- lapply(X = 1:len_items, FUN = function(i) {
+    current_item <- tabItems[[i]]
+    current_item_cl <- current_item$attribs$class
+    current_item_name <- current_item$attribs$id
+    active <- sum(grep(x = current_item_cl, pattern = "active")) == 1
+    shiny::tags$li(
+      class = if (active == 1) "active" else NA,
+      role = "presentation",
+      shiny::tags$a(
+        href = paste0("#", current_item_name),
+        id = paste0(current_item_name, "-tab"),
+        role = "tab",
+        `data-toggle` = "tab",
+        `aria-expanded` = if (active == 1) "true" else "false",
+        current_item_name
+      )
+    )
+  })
+
+ shiny::tags$div(
+   class = NA,
+   role = "tabpanel",
+   `data-example-id` = "togglable-tabs",
+   shiny::tags$ul(
+     class = "nav nav-tabs bar_tabs",
+     id = id,
+     role = "tablist",
+     tabMenu
+   ),
+   shiny::tags$div(
+     class = "tab-content",
+     id = paste0(id, "Content"),
+     ...
+   )
+ )
+}
+
+
+
+#' Create a gentelella tabPanel
+#'
+#' To be included in a gentelellaTabSetPanel
+#'
+#' @param ... Tab content
+#' @param tabName Tab name: it will be also passed as the id argument. Should be unique.
+#' @param active Whether the tab is active or not. FALSE bu default.
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
+#' @export
+gentelellaTabPanel <- function(..., tabName, active = FALSE) {
+
+  tabCl <- if (active) "tab-pane fade active in" else "tab-pane fade"
+
+  shiny::tags$div(
+    class = tabCl,
+    role = "tabpanel",
+    id = tabName,
+    `aria-labelledby` = tabName,
+    ...
+  )
+}
