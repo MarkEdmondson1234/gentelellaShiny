@@ -296,6 +296,7 @@ gentelellaValueBox <- function(value, title = NULL, description = NULL, icon = N
 #'
 #' @param ... Slot for gentelellaTabPanel.
 #' @param id TabSetPanel id. Should be unique.
+#' @param right If TabSetPanel start from the right side. FALSE by default.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
@@ -342,7 +343,13 @@ gentelellaValueBox <- function(value, title = NULL, description = NULL, icon = N
 #' }
 #'
 #' @export
-gentelellaTabSetPanel <- function(..., id) {
+gentelellaTabSetPanel <- function(..., id, right = FALSE) {
+
+  tabSetCl <- if (right) {
+    "nav nav-tabs bar_tabs right"
+  } else {
+    "nav nav-tabs bar_tabs"
+  }
 
   tabItems <- list(...)
   len_items <- length(tabItems)
@@ -371,7 +378,7 @@ gentelellaTabSetPanel <- function(..., id) {
    role = "tabpanel",
    `data-example-id` = "togglable-tabs",
    shiny::tags$ul(
-     class = "nav nav-tabs bar_tabs",
+     class = tabSetCl,
      id = id,
      role = "tablist",
      tabMenu
