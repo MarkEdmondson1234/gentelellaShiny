@@ -19,6 +19,7 @@ addDeps <- function(x) {
   bootstrap_js <- "bootstrap.min.js"
   fontawesome_css <- "font-awesome.min.css"
   animate_css <- "animate.min.css"
+  wizard_js <- "wizard.js"
 
   dashboardDeps <- list(
     # bootstrap 3 deps
@@ -29,6 +30,13 @@ addDeps <- function(x) {
       script = bootstrap_js,
       stylesheet = bootstrap_css
     )#,
+    # smart wizard
+    #htmltools::htmlDependency(
+    #  name = "smartwizard",
+    #  version = "3.3.1",
+    #  src = c(file = system.file("smartwizard-3.3.1", package = "gentelellaShiny")),
+    #  script = wizard_js
+    #)
     # gentelella (does not work for some reason...)
     # htmltools::htmlDependency(
     #   name = "gentelella",

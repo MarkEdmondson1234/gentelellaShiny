@@ -88,6 +88,7 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
             # page content
             body,
             footer,
+            shiny::includeScript(path = "inst/smartwizard-3.3.1/wizard.js"),
             shiny::includeScript(path = "inst/gentelella-1.5.0/custom.min.js")
           )
         )
