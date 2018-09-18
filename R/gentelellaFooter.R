@@ -6,7 +6,8 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-gentelellaFooter <- function(leftText = "Mark Edmondson and David Granjon", rightText = "2018"){
+gentelellaFooter <- function(leftText = "Mark Edmondson and David Granjon",
+                             rightText = "2018"){
   htmltools::withTags({
     shiny::tagList(
       shiny::tags$footer(

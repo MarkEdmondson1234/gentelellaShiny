@@ -6,6 +6,7 @@
 #' @param footer Gentelella dashboard footer.
 #' @param title App title.
 #' @param sidebar_collapsed Whether the sidebar is collapsed of not at start. TRUE by default.
+#' @param footer_fixed Whether the footer is fixed or not. FALSE by default.
 #'
 #' @examples
 #' if(interactive()){
@@ -53,7 +54,16 @@
 #'
 #' @export
 gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
-                           footer = NULL, title = NULL, sidebar_collapsed = TRUE){
+                           footer = NULL, title = NULL, sidebar_collapsed = TRUE,
+                           footer_fixed = FALSE){
+
+  pageCl <- if (sidebar_collapsed) {
+    if (footer_fixed) "nav-sm footer_fixed" else "nav-sm"
+  } else {
+    if (footer_fixed) "nav-md footer_fixed" else "nav-md"
+  }
+
+    footer_fixed
 
   shiny::tags$html(
     # Head
@@ -78,7 +88,7 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
     # Body
     addDeps(
       shiny::tags$body(
-        class = if (sidebar_collapsed) "nav-sm" else "nav-md",
+        class = pageCl,
         shiny::tags$div(
           class = "container body",
           shiny::tags$div(

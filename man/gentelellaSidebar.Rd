@@ -5,7 +5,7 @@
 \title{Create a Gentelella dashboard sidebar}
 \usage{
 gentelellaSidebar(..., site_title = HTML(paste(icon("paw"),
-  "Shiny Gentelella")), url = NULL)
+  "Shiny Gentelella")), url = NULL, fixed = FALSE)
 }
 \arguments{
 \item{...}{Items to place in the sidebar such as gentelellaSidebarMenu, gentelellaSidebarProfile}
@@ -13,6 +13,8 @@ gentelellaSidebar(..., site_title = HTML(paste(icon("paw"),
 \item{site_title}{Dashboard title}
 
 \item{url}{Link to external ressource}
+
+\item{fixed}{Whether the sidebar is fixed. FALSE by default.}
 }
 \description{
 Create a Gentelella dashboard sidebar

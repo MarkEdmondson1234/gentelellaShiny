@@ -5,7 +5,8 @@
 \title{Create a Gentelella dashboard page}
 \usage{
 gentelellaPage(navbar = NULL, sidebar = NULL, body = NULL,
-  footer = NULL, title = NULL, sidebar_collapsed = TRUE)
+  footer = NULL, title = NULL, sidebar_collapsed = TRUE,
+  footer_fixed = FALSE)
 }
 \arguments{
 \item{navbar}{Gentelella dashboard navbar.}
@@ -19,6 +20,8 @@ gentelellaPage(navbar = NULL, sidebar = NULL, body = NULL,
 \item{title}{App title.}
 
 \item{sidebar_collapsed}{Whether the sidebar is collapsed of not at start. TRUE by default.}
+
+\item{footer_fixed}{Whether the footer is fixed or not. FALSE by default.}
 }
 \description{
 Create a Gentelella dashboard page

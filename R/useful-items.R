@@ -549,7 +549,7 @@ jumbotron <- function(..., title = NULL) {
 }
 
 
-#' A jumbotron
+#' An alert
 #'
 #' @param ... Alert text
 #' @param title Alert title

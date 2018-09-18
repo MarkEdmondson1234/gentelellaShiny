@@ -3,15 +3,20 @@
 #' @param ... Items to place in the sidebar such as gentelellaSidebarMenu, gentelellaSidebarProfile
 #' @param site_title Dashboard title
 #' @param url Link to external ressource
+#' @param fixed Whether the sidebar is fixed. FALSE by default.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 gentelellaSidebar <- function(..., site_title = HTML(paste(icon("paw"), "Shiny Gentelella")),
-                              url = NULL){
+                              url = NULL, fixed = FALSE){
+
+  sidebarCl <- "col-md-3 left_col"
+  if (fixed) sidebarCl <- paste0(sidebarCl, " menu_fixed")
+
   htmltools::withTags({
     shiny::div(
-      class = "col-md-3 left_col",
+      class = sidebarCl,
       shiny::div(
         class = "left_col scroll-view",
         shiny::div(

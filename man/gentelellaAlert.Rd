@@ -2,10 +2,10 @@
 % Please edit documentation in R/useful-items.R
 \name{gentelellaAlert}
 \alias{gentelellaAlert}
-\title{A jumbotron}
+\title{An alert}
 \usage{
 gentelellaAlert(..., title = NULL, status = "primary",
-  dismissible = TRUE)
+  dismissible = TRUE, width = 3)
 }
 \arguments{
 \item{...}{Alert text}
@@ -15,9 +15,11 @@ gentelellaAlert(..., title = NULL, status = "primary",
 \item{status}{Alert status: "danger", "warning", "info", "success" or "primary"}
 
 \item{dismissible}{Whether the alert is closable or not. TRUE by default.}
+
+\item{width}{Alert width. 3 by default.}
 }
 \description{
-A jumbotron
+An alert
 }
 \examples{
 if (interactive()) {
