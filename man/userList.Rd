@@ -32,11 +32,18 @@ if (interactive()) {
      ),
      userList(
       userListItem(
-       user_img = NULL,
+       user_img = "https://image.flaticon.com/icons/svg/145/145862.svg",
        user_url = "http:://www.google.com",
        title = "user 1",
-       footer = "2 Sales Today",
+       subtitle = "2 Sales Today",
        "$2300. Agent Avarage Sales."
+      ),
+      userListItem(
+       user_img = "https://image.flaticon.com/icons/svg/145/145864.svg",
+       user_url = "http:://www.google.com",
+       title = "user 2",
+       subtitle = "4 Sales Today",
+       "$4600. Agent Avarage Sales."
       )
      )
     )

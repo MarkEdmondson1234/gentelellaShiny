@@ -90,7 +90,6 @@ wizardItem <- function(..., display = "none", description = NULL) {
     ),
     desc = description
   )
-
 }
 
 
@@ -396,11 +395,18 @@ boxWidget <- function(..., title = NULL, width = NULL) {
 #'      ),
 #'      userList(
 #'       userListItem(
-#'        user_img = NULL,
+#'        user_img = "https://image.flaticon.com/icons/svg/145/145862.svg",
 #'        user_url = "http:://www.google.com",
 #'        title = "user 1",
-#'        footer = "2 Sales Today",
+#'        subtitle = "2 Sales Today",
 #'        "$2300. Agent Avarage Sales."
+#'       ),
+#'       userListItem(
+#'        user_img = "https://image.flaticon.com/icons/svg/145/145864.svg",
+#'        user_url = "http:://www.google.com",
+#'        title = "user 2",
+#'        subtitle = "4 Sales Today",
+#'        "$4600. Agent Avarage Sales."
 #'       )
 #'      )
 #'     )
@@ -412,7 +418,7 @@ boxWidget <- function(..., title = NULL, width = NULL) {
 #'
 #' @export
 userList <- function(...) {
- shiny::tags$ul(class = "list-unstyled top_profiles scroll-view", ...)
+ shiny::tags$ul(class = "list-unstyled msg_list", ...)
 }
 
 
@@ -421,25 +427,24 @@ userList <- function(...) {
 #' @param ... Any content
 #' @param user_img User image
 #' @param title item title
-#' @param footer footer content
+#' @param subtitle item subtitle
 #'
 #' @export
-userListItem <- function(..., user_img = NULL, title = NULL, footer = NULL) {
+userListItem <- function(..., user_img = NULL, title = NULL, subtitle = NULL) {
  shiny::tags$li(
-   class = "media_event",
    shiny::tags$a(
-     class = "pull-left border-aero profile_thumb",
-     if (!is.null(user_img)) {
-       shiny::img(href = user_img)
-     } else {
-       shiny::icon("user", class = "aero")
-     }
-   ),
-   shiny::tags$div(
-     class = "media-body",
-     shiny::tags$a(class = "title", title),
-     shiny::tags$p(...),
-     shiny::tags$p(shiny::tags$small(footer))
+     shiny::tags$span(
+       class = "image",
+       shiny::img(src = user_img),
+       shiny::tags$span(
+         shiny::tags$span(title),
+         shiny::tags$span(class = "time", subtitle)
+       ),
+       shiny::tags$span(
+         class = "message",
+         ...
+       )
+     )
    )
  )
 }

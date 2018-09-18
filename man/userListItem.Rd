@@ -4,7 +4,7 @@
 \alias{userListItem}
 \title{A user list item}
 \usage{
-userListItem(..., user_img = NULL, title = NULL, footer = NULL)
+userListItem(..., user_img = NULL, title = NULL, subtitle = NULL)
 }
 \arguments{
 \item{...}{Any content}
@@ -13,7 +13,7 @@ userListItem(..., user_img = NULL, title = NULL, footer = NULL)
 
 \item{title}{item title}
 
-\item{footer}{footer content}
+\item{subtitle}{item subtitle}
 }
 \description{
 A user list item

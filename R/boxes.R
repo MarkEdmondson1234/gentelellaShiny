@@ -45,7 +45,7 @@ gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", su
       style = paste0("height: ", height, "px;"),
       shiny::tags$div(
         class = "x_title",
-        shiny::tags$h2(shiny::tags$span(title, shiny::tags$small(subtitle))),
+        shiny::tags$h2(title, shiny::tags$small(class = "pull-right", subtitle)),
         shiny::tags$ul(
           class = "nav navbar-right panel_toolbox",
           ## add more items to li menu if passed.
