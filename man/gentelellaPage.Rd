@@ -36,6 +36,10 @@ if(interactive()){
    title = "Shiny Gentelella",
    navbar = gentelellaNavbar(),
    sidebar = gentelellaSidebar(
+   gentelellaSidebarProfile(
+    name = "Mark",
+    img = "https://image.flaticon.com/icons/svg/236/236831.svg"
+   ),
     gentelellaSidebarMenu()
    ),
    body = gentelellaBody(
