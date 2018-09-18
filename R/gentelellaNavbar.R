@@ -57,7 +57,7 @@ gentelellaNotif <- function(..., id, icon = "envelope-o",
       `data-toggle` = "dropdown",
       `aria-expanded` = expanded,
       shiny::icon(icon),
-      gentelellaLabel(name = len, status = status)
+      gentelellaLabel(name = len, status = status, mode = "badge")
     ),
     # content
     shiny::tags$ul(
