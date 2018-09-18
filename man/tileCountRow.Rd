@@ -9,9 +9,23 @@ tileCountRow(...)
 \arguments{
 \item{...}{tileCountElements}
 }
-\value{
-Tile Count
-}
 \description{
 tileCountRow
+}
+\examples{
+if (interactive()) {
+ library(shiny)
+ library(gentelellaShiny)
+ shinyApp(
+  ui = gentelellaPage(
+   gentelellaBody(
+    tileCountRow(
+      lapply(1:4, tileCountElement)
+    )
+   )
+  ),
+  server <- function(input, output) {}
+ )
+}
+
 }

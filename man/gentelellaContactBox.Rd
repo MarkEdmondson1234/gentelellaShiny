@@ -2,7 +2,7 @@
 % Please edit documentation in R/boxes.R
 \name{gentelellaContactBox}
 \alias{gentelellaContactBox}
-\title{A box to put dashboard elements in}
+\title{A Contact box}
 \usage{
 gentelellaContactBox(..., head_title = NULL, main_title = NULL,
   img = NULL, footer_left = NULL, footer_right = NULL, width = 4)
@@ -23,7 +23,7 @@ gentelellaContactBox(..., head_title = NULL, main_title = NULL,
 \item{width}{Box width. 3 by default}
 }
 \description{
-A box to put dashboard elements in
+A Contact box
 }
 \examples{
 if (interactive()) {

@@ -743,7 +743,22 @@ activityItem <- function(..., title = NULL, img = NULL,
 #'
 #' @param ... tileCountElements
 #'
-#' @return Tile Count
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(gentelellaShiny)
+#'  shinyApp(
+#'   ui = gentelellaPage(
+#'    gentelellaBody(
+#'     tileCountRow(
+#'       lapply(1:4, tileCountElement)
+#'     )
+#'    )
+#'   ),
+#'   server <- function(input, output) {}
+#'  )
+#' }
+#'
 #' @export
 tileCountRow <- function(...){
   shiny::tags$div(class = "row tile_count", shiny::tagList(...))
@@ -763,7 +778,7 @@ tileCountRow <- function(...){
 #' @return a tileCountRow for use within \link{tileCountRow}
 #' @export
 tileCountElement <- function(value = 2500, change_value = "4%", going_well = TRUE,
-                             tile_title = " Total Users", width = 2,
+                             tile_title = " Total Users", width = 3,
                              icon_in = shiny::icon("user"), from_text = " From last Week",
                              highlight = NULL){
   if (going_well) {
