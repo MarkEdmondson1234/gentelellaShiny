@@ -558,7 +558,6 @@ gentelellaTabPill <- function(..., tabName, active = FALSE) {
 #' @param footer_left Footer left content
 #' @param footer_right Footer right content
 #'
-#'
 #' @examples
 #' if (interactive()) {
 #'  library(shiny)
