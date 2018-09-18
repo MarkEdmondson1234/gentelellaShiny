@@ -305,6 +305,7 @@ quickListItem <- function(icon, name = NULL) {
 #' A box widget container
 #'
 #' @param ... slot for any widget
+#' @param title widget title
 #' @param width widget width
 #'
 #'@examples
@@ -453,6 +454,7 @@ userListItem <- function(..., user_img = NULL, title = NULL, footer = NULL) {
 #' @param side From which side the bar comes: "left" or "right". "left" by default.
 #' @param status progress status: "danger", "warning", "info", "success" or "primary".
 #' @param striped Whether the progress bar is striped or not. FALSE by default.
+#' @param width Progress bar width. Between 1 and 12.
 #'
 #' @examples
 #' if (interactive()) {

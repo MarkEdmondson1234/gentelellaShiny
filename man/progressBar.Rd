@@ -15,6 +15,8 @@ progressBar(value, side = "left", status = "primary",
 \item{status}{progress status: "danger", "warning", "info", "success" or "primary".}
 
 \item{striped}{Whether the progress bar is striped or not. FALSE by default.}
+
+\item{width}{Progress bar width. Between 1 and 12.}
 }
 \description{
 Progress bars are scaled from 0 to 100

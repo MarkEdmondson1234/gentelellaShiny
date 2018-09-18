@@ -10,8 +10,6 @@ gentelellaTabSetPill(..., right = FALSE)
 \item{...}{Slot for gentelellaTabPill.}
 
 \item{right}{If TabSetPanel start from the right side. FALSE by default.}
-
-\item{id}{TabSetPanel id. Should be unique.}
 }
 \description{
 Create a gentelella tabSetPill

@@ -10,6 +10,8 @@ gentelellaContactBox(..., head_title = NULL, main_title = NULL,
 \arguments{
 \item{...}{elements to put in the box. Do not put too large items.}
 
+\item{head_title}{Box header title}
+
 \item{main_title}{Box main title}
 
 \item{img}{Any picture url or path}
@@ -19,8 +21,6 @@ gentelellaContactBox(..., head_title = NULL, main_title = NULL,
 \item{footer_right}{Footer right content}
 
 \item{width}{Box width. 3 by default}
-
-\item{header_title}{Box header title}
 }
 \description{
 A box to put dashboard elements in

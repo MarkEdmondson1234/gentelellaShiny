@@ -15,7 +15,8 @@ Imports:
   shiny (>= 0.13.0),
   htmltools
 Suggests:
-  googleAuthR (>= 0.3.1)
+  googleAuthR (>= 0.3.1),
+  knitr
 License: MIT + file LICENSE
 LazyData: true
 Encoding: UTF-8

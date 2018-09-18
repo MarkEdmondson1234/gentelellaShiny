@@ -23,11 +23,11 @@ gentelellaSocialBox(..., width = 3, height = 390, title = NULL,
 
 \item{media_1}{Media name like twitter, facebook, ...}
 
+\item{media_2}{Media name like twitter, facebook, ...}
+
 \item{profile_img}{Box profile image}
 
 \item{footer}{Box footer content, if any.}
-
-\item{media_1}{Media name like twitter, facebook, ...}
 }
 \description{
 A social box to present a product or people

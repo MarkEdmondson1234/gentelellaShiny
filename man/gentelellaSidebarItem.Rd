@@ -8,7 +8,11 @@ gentelellaSidebarItem(tabName = NULL, icon = NULL,
   nested_element = NULL)
 }
 \arguments{
+\item{tabName}{item name}
+
 \item{icon}{item icon}
+
+\item{nested_element}{nested_element, if any}
 }
 \description{
 Create a Gentelella dashboard sidebar menu item

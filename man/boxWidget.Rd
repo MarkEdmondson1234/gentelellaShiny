@@ -9,6 +9,8 @@ boxWidget(..., title = NULL, width = NULL)
 \arguments{
 \item{...}{slot for any widget}
 
+\item{title}{widget title}
+
 \item{width}{widget width}
 }
 \description{

@@ -70,7 +70,9 @@ gentelellaSidebarMenu <- function(...) {
 
 #' Create a Gentelella dashboard sidebar menu item
 #'
+#' @param tabName item name
 #' @param icon item icon
+#' @param nested_element nested_element, if any
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'

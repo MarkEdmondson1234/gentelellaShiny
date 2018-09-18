@@ -102,7 +102,7 @@ gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", su
 #' @param url_1 Box link 1
 #' @param url_2 Box link 2,
 #' @param media_1 Media name like twitter, facebook, ...
-#' @param media_1 Media name like twitter, facebook, ...
+#' @param media_2 Media name like twitter, facebook, ...
 #' @param profile_img Box profile image
 #' @param footer Box footer content, if any.
 #'
@@ -424,7 +424,6 @@ gentelellaTabPanel <- function(..., tabName, active = FALSE) {
 #'
 #'
 #' @param ... Slot for gentelellaTabPill.
-#' @param id TabSetPanel id. Should be unique.
 #' @param right If TabSetPanel start from the right side. FALSE by default.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
@@ -552,7 +551,7 @@ gentelellaTabPill <- function(..., tabName, active = FALSE) {
 #'
 #' @param ... elements to put in the box. Do not put too large items.
 #' @param width Box width. 3 by default
-#' @param header_title Box header title
+#' @param head_title Box header title
 #' @param main_title Box main title
 #' @param img Any picture url or path
 #' @param footer_left Footer left content
