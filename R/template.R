@@ -45,6 +45,6 @@ trackingTags <- function(tag_template = c("ga","gtm","freeform"),
 
                 )
 
-  HTML(out)
+  shiny::HTML(out)
 
 }

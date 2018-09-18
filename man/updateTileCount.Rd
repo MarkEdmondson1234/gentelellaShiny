@@ -5,8 +5,9 @@
 \title{updateTileCount}
 \usage{
 updateTileCount(input, output, session, value, change_value, going_well,
-  tile_title = " Total Users", width = 2, icon_in = icon("user"),
-  from_text = " From last Week", highlight = reactive(NULL))
+  tile_title = " Total Users", width = 2,
+  icon_in = shiny::icon("user"), from_text = " From last Week",
+  highlight = shiny::reactive(NULL))
 }
 \arguments{
 \item{input}{shiny input}

@@ -13,7 +13,7 @@ wizard <- function(..., orientation = "horizontal") {
   items <- lapply(X = 1:len_items, FUN = function(i) {
     current_item <- items[[i]][["tag"]]
     if (i == 1) current_item$attribs$style <- "display: block;"
-    tagAppendAttributes(current_item, id = paste0("step-", i))
+    htmltools::tagAppendAttributes(current_item, id = paste0("step-", i))
   })
 
   # create the corresponding menu
@@ -598,7 +598,7 @@ gentelellaAlert <- function(..., title = NULL, status = "primary", dismissible =
         shiny::tags$span(`aria-hidden` = "true", "x")
       ),
       shiny::tags$strong(title),
-      br(),
+      shiny::br(),
       ...
     )
   )
@@ -634,7 +634,7 @@ gentelellaStars <- function(value) {
    shiny::tags$a(value),
    if (value >= 1) {
      # full stars
-     tagList(
+     shiny::tagList(
        lapply(X = 1:value, FUN = function(i) {
          shiny::tags$a(shiny::tags$span(class = "fa fa-star"))
        }),
@@ -718,7 +718,7 @@ activityItem <- function(..., title = NULL, img = NULL,
       class = "message_wrapper",
       shiny::tags$h4(class = "heading", title),
       shiny::tags$blockquote(class = "message", ...),
-      br(),
+      shiny::br(),
       shiny::tags$p(
         class = "url",
         shiny::tags$a(
@@ -741,7 +741,7 @@ activityItem <- function(..., title = NULL, img = NULL,
 #' @return Tile Count
 #' @export
 tileCountRow <- function(...){
-  tags$div(class = "row tile_count", tagList(...))
+  shiny::tags$div(class = "row tile_count", shiny::tagList(...))
 }
 
 #' tileCountRow Element
@@ -759,15 +759,15 @@ tileCountRow <- function(...){
 #' @export
 tileCountElement <- function(value = 2500, change_value = "4%", going_well = TRUE,
                              tile_title = " Total Users", width = 2,
-                             icon_in = icon("user"), from_text = " From last Week",
+                             icon_in = shiny::icon("user"), from_text = " From last Week",
                              highlight = NULL){
   if (going_well) {
-    bottom_icon <- tags$i(class = "green", icon("sort-asc"), change_value)
+    bottom_icon <- shiny::tags$i(class = "green", shiny::icon("sort-asc"), change_value)
   } else {
-    bottom_icon <- tags$i(class = "red", icon("sort-desc"), change_value)
+    bottom_icon <- shiny::tags$i(class = "red", shiny::icon("sort-desc"), change_value)
   }
 
-  withTags({
+  htmltools::withTags({
     shiny::div(
       class = paste0("col-md-",width," col-sm-4 col-xs-6 tile_stats_count"),
       shiny::span(class = "count_top", icon_in, tile_title),
@@ -779,7 +779,7 @@ tileCountElement <- function(value = 2500, change_value = "4%", going_well = TRU
 
 #' tileCount UI
 #'
-#' Shiny Module for use with \link{tileCount}
+#' Shiny Module for use with \link{tileCountElement}
 #'
 #' @param id Shiny id
 #'
@@ -787,7 +787,7 @@ tileCountElement <- function(value = 2500, change_value = "4%", going_well = TRU
 #' @export
 tileCountUI <- function(id){
   ns <- shiny::NS(id)
-  uiOutput(ns("tile_count"))
+  shiny::uiOutput(ns("tile_count"))
 }
 
 #' updateTileCount
@@ -812,12 +812,12 @@ tileCountUI <- function(id){
 #' @export
 updateTileCount <- function(input, output, session, value, change_value,
                             going_well, tile_title = " Total Users",
-                            width = 2, icon_in = icon("user"),
-                            from_text = " From last Week", highlight = reactive(NULL)){
+                            width = 2, icon_in = shiny::icon("user"),
+                            from_text = " From last Week", highlight = shiny::reactive(NULL)){
 
   ns <- session$ns
 
-  output$tile_count <- renderUI({
+  output$tile_count <- shiny::renderUI({
     tileCountElement(
       value = value(),
       change_value = change_value(),
@@ -857,7 +857,8 @@ updateTileCount <- function(input, output, session, value, change_value,
 #' }
 #'
 #' @export
-gentelellaLabel <- function(name = NULL, status = "primary", position = NULL, mode = "label") {
+gentelellaLabel <- function(name = NULL, status = "primary",
+                            position = NULL, mode = "label") {
 
   if (mode == "badge") position <- NULL
   mode_switch <- switch(mode,

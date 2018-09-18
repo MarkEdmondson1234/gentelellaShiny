@@ -5,8 +5,8 @@
 \title{A box to put dashboard elements in}
 \usage{
 gentelellaBox(..., width = 4, height = NULL, title = "Box title",
-  subtitle = NULL, menuItems = list(a(class = "collapse-link",
-  icon("chevron-up"))))
+  subtitle = NULL, menuItems = list(shiny::a(class = "collapse-link",
+  shiny::icon("chevron-up"))))
 }
 \arguments{
 \item{...}{elements to put in the box}

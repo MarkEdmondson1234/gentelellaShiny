@@ -9,7 +9,7 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-gentelellaSidebar <- function(..., site_title = HTML(paste(icon("paw"), "Shiny Gentelella")),
+gentelellaSidebar <- function(..., site_title = shiny::HTML(paste(shiny::icon("paw"), "Shiny Gentelella")),
                               url = NULL, fixed = FALSE, footer = NULL){
 
   sidebarCl <- "col-md-3 left_col"
@@ -62,7 +62,7 @@ gentelellaSidebarMenu <- function(...) {
       shiny::h3(format(Sys.Date(), format = "%a - %d %B, %Y")),
       shiny::tags$ul(
         class = "nav side-menu",
-        shiny::tagList(lapply(items, tags$li))
+        shiny::tagList(lapply(items, shiny::tags$li))
       )
     )
   )
@@ -80,10 +80,10 @@ gentelellaSidebarMenu <- function(...) {
 gentelellaSidebarItem <- function(tabName = NULL, icon = NULL, nested_element = NULL){
   htmltools::withTags({
     shiny::tagList(
-      shiny::a(icon, tabName, if (!is.null(nested_element)) span(class = "fa fa-chevron-down")),
+      shiny::a(icon, tabName, if (!is.null(nested_element)) shiny::span(class = "fa fa-chevron-down")),
       shiny::tags$ul(
         class = "nav child_menu",
-        shiny::tagList(lapply(nested_element, tags$li)
+        shiny::tagList(lapply(nested_element, shiny::tags$li)
         )
       )
     )
@@ -114,6 +114,6 @@ gentelellaSidebarProfile <- function(img = NULL, name = NULL) {
        shiny::tags$h2(name)
      )
    ),
-   br()
+   shiny::br()
  )
 }

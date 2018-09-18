@@ -13,5 +13,5 @@ tileCountUI(id)
 Shiny UI
 }
 \description{
-Shiny Module for use with \link{tileCount}
+Shiny Module for use with \link{tileCountElement}
 }

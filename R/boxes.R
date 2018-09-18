@@ -36,7 +36,7 @@
 #'
 #' @export
 gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", subtitle = NULL,
-                          menuItems = list(a(class = "collapse-link", icon("chevron-up")))){
+                          menuItems = list(shiny::a(class = "collapse-link", shiny::icon("chevron-up")))){
 
   shiny::tags$div(
     class = paste0(paste(c("col-md","col-sm"), width, sep = "-", collapse = " "), " col-xs-12"),
@@ -64,7 +64,7 @@ gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", su
                     `data-toggle` = "dropdown",
                     href = "#",
                     role = "button",
-                    icon("wrench")
+                    shiny::icon("wrench")
                   ),
                   shiny::tags$ul(
                     class = "dropdown-menu",
