@@ -16,7 +16,23 @@
 #'  shiny::shinyApp(
 #'   ui = gentelellaPage(
 #'    title = "Shiny Gentelella",
-#'    navbar = gentelellaNavbar(),
+#'    navbar = gentelellaNavbar(
+#'     navbarItems = gentelellaNotif(
+#'      id = "menunotif",
+#'      icon = "envelope-o",
+#'      status = "primary",
+#'      expanded = FALSE,
+#'      lapply(X = 1:5, FUN = function(i) {
+#'       gentelellaNotifItem(
+#'        title = "John Doe",
+#'        date = "3 min ago",
+#'        img = paste0("https://image.flaticon.com/icons/svg/163/16382", i,".svg"),
+#'        "Film festivals used to be do-or-die moments
+#'        for movie makers. They were where..."
+#'       )
+#'      })
+#'     )
+#'    ),
 #'    sidebar = gentelellaSidebar(
 #'    gentelellaSidebarProfile(
 #'     name = "Mark",
