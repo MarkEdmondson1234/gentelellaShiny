@@ -45,7 +45,7 @@ gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", su
       style = paste0("height: ", height, "px;"),
       shiny::tags$div(
         class = "x_title",
-        shiny::tags$h2(title, shiny::tags$small(subtitle)),
+        shiny::tags$h2(shiny::tags$span(title, shiny::tags$small(subtitle))),
         shiny::tags$ul(
           class = "nav navbar-right panel_toolbox",
           ## add more items to li menu if passed.
@@ -79,7 +79,7 @@ gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", su
           })
           )
         ),
-        shiny::tags$div(class="clearfix")
+        shiny::tags$div(class = "clearfix")
       ),
       shiny::tags$div(
         class = "x_content",
@@ -544,4 +544,76 @@ gentelellaTabPill <- function(..., tabName, active = FALSE) {
     id = tabName,
     ...
   )
+}
+
+
+
+#' A box to put dashboard elements in
+#'
+#' @param ... elements to put in the box. Do not put too large items.
+#' @param width Box width. 3 by default
+#' @param header_title Box header title
+#' @param main_title Box main title
+#' @param img Any picture url or path
+#' @param footer_left Footer left content
+#' @param footer_right Footer right content
+#'
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(gentelellaShiny)
+#'  shinyApp(
+#'   ui = gentelellaPage(
+#'    gentelellaBody(
+#'     gentelellaContactBox(
+#'      head_title = "Digital Strategist",
+#'      main_title = "Nicole Pearson",
+#'      img = "https://image.flaticon.com/icons/svg/145/145859.svg",
+#'      footer_left = gentelellaStars(4),
+#'      quickList(
+#'       quickListItem(icon = "calendar-o", name = "Settings"),
+#'       quickListItem(icon = "bars", name = "Subscription")
+#'      )
+#'     )
+#'    )
+#'   ),
+#'   server = function(input, output, session) {}
+#'  )
+#' }
+#'
+#' @export
+gentelellaContactBox <- function(..., head_title = NULL, main_title = NULL,
+                                 img = NULL, footer_left = NULL,
+                                 footer_right = NULL, width = 4) {
+ shiny::tags$div(
+   class = paste0("col-md-4 col-sm-", width," col-xs-12 profile_details"),
+   shiny::tags$div(
+     class = "well profile_view",
+     shiny::tags$div(
+       class = "col-sm-12",
+       shiny::tags$h4(class = "brief", shiny::tags$i(head_title)),
+       # content
+       shiny::tags$div(
+         class = "left col-xs-7",
+         shiny::tags$h2(main_title),
+         shiny::tags$p(
+           shiny::tags$strong("About: "),
+           ...
+         )
+       ),
+       # image
+       shiny::tags$div(
+         class = "right col-xs-5 text-center",
+         shiny::tags$img(src = img, class = "img-circle img-responsive")
+       )
+     ),
+     # footer
+     shiny::tags$div(
+       class = "col-xs-12 bottom text-center",
+       shiny::tags$div(class = "col-xs-12 col-sm-6 emphasis", footer_left),
+       shiny::tags$div(class = "col-xs-12 col-sm-6 emphasis", footer_right)
+     )
+   )
+ )
 }

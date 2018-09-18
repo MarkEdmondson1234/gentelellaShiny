@@ -601,3 +601,130 @@ gentelellaAlert <- function(..., title = NULL, status = "primary", dismissible =
     )
   )
 }
+
+
+
+#' A rating tag
+#'
+#' @param value value between 0 and 5
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(gentelellaShiny)
+#'  shinyApp(
+#'   ui = gentelellaPage(
+#'    gentelellaBody(
+#'     gentelellaStars(value = 4)
+#'    )
+#'   ),
+#'   server <- function(input, output) {}
+#'  )
+#' }
+#'
+#' @export
+gentelellaStars <- function(value) {
+
+  stop_val <- 5 - value
+
+ shiny::tags$p(
+   class = "ratings",
+   shiny::tags$a(value),
+   if (value >= 1) {
+     # full stars
+     tagList(
+       lapply(X = 1:value, FUN = function(i) {
+         shiny::tags$a(shiny::tags$span(class = "fa fa-star"))
+       }),
+       # empty stars
+       lapply(X = 1:stop_val, FUN = function(i) {
+         shiny::tags$a(shiny::tags$span(class = "fa fa-star-o"))
+       })
+     )
+   } else {
+     lapply(X = 1:5, FUN = function(i) {
+       shiny::tags$a(shiny::tags$span(class = "fa fa-star-o"))
+     })
+   }
+ )
+}
+
+
+
+
+#' An activity list
+#'
+#' @param ... Slot for activityItem
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(gentelellaShiny)
+#'  shinyApp(
+#'   ui = gentelellaPage(
+#'    gentelellaBody(
+#'     gentelellaBox(
+#'      title = "Activity List",
+#'      activityList(
+#'      lapply(X = 1:3, FUN = function(i) {
+#'       activityItem(
+#'        title = "Desmond Davison",
+#'        img = paste0("https://image.flaticon.com/icons/svg/1087/108783", i,".svg"),
+#'        day = 13,
+#'        month = "june",
+#'        url = "http://www.google.com",
+#'        "Raw denim you probably haven't heard of them jean shorts Austin.
+#'        Nesciunt tofu stumptown aliqua butcher retro keffiyeh
+#'        dreamcatcher synth."
+#'       )
+#'      })
+#'      )
+#'     )
+#'    )
+#'   ),
+#'   server <- function(input, output) {}
+#'  )
+#' }
+#'
+#' @export
+activityList <- function(...) {
+ shiny::tags$ul(class = "messages", ...)
+}
+
+
+
+#' An activity item
+#'
+#' @param ... item content
+#' @param title item title
+#' @param img img path or url
+#' @param day day of publication
+#' @param month month of publication
+#' @param url external link
+#'
+#' @export
+activityItem <- function(..., title = NULL, img = NULL,
+                         day = NULL, month = NULL, url = NULL) {
+  shiny::tags$li(
+    shiny::tags$img(src = img, class = "avatar"),
+    shiny::tags$div(
+      class = "message_date",
+      shiny::tags$h3(class = "date text-info", day),
+      shiny::tags$p(class = "month", month)
+    ),
+    shiny::tags$div(
+      class = "message_wrapper",
+      shiny::tags$h4(class = "heading", title),
+      shiny::tags$blockquote(class = "message", ...),
+      br(),
+      shiny::tags$p(
+        class = "url",
+        shiny::tags$a(
+          href = url,
+          target = "_blank",
+          shiny::tags$span(shiny::icon("info"), " More")
+        )
+      )
+    )
+  )
+}
