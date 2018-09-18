@@ -5,7 +5,8 @@
 \title{A box to put dashboard elements in}
 \usage{
 gentelellaBox(..., width = 4, height = NULL, title = "Box title",
-  menuItems = list(a(class = "collapse-link", icon("chevron-up"))))
+  subtitle = NULL, menuItems = list(a(class = "collapse-link",
+  icon("chevron-up"))))
 }
 \arguments{
 \item{...}{elements to put in the box}
@@ -14,9 +15,11 @@ gentelellaBox(..., width = 4, height = NULL, title = "Box title",
 
 \item{height}{Box height}
 
-\item{menuItems}{A list of other things to appear in top menu}
+\item{title}{Box title}
 
-\item{box_title}{Title above}
+\item{subtitle}{Box subtitle}
+
+\item{menuItems}{A list of other things to appear in top menu such as close button, collapse and dropdowns}
 }
 \description{
 A box to put dashboard elements in

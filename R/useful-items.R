@@ -451,7 +451,7 @@ userListItem <- function(..., user_img = NULL, title = NULL, footer = NULL) {
 #'
 #' @param value progress value
 #' @param side From which side the bar comes: "left" or "right". "left" by default.
-#' @param status progress status: "danger", "warning", "info", "success".
+#' @param status progress status: "danger", "warning", "info", "success" or "primary".
 #' @param striped Whether the progress bar is striped or not. FALSE by default.
 #'
 #' @examples
@@ -546,4 +546,58 @@ jumbotron <- function(..., title = NULL) {
      shiny::tags$p(...)
    )
  )
+}
+
+
+#' A jumbotron
+#'
+#' @param ... Alert text
+#' @param title Alert title
+#' @param status Alert status: "danger", "warning", "info", "success" or "primary"
+#' @param dismissible Whether the alert is closable or not. TRUE by default.
+#' @param width Alert width. 3 by default.
+#'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(gentelellaShiny)
+#'  shinyApp(
+#'   ui = gentelellaPage(
+#'    gentelellaBody(
+#'     gentelellaAlert(
+#'      status = "warning",
+#'      title = "An alert",
+#'      "Best check yo self,
+#'      you're not looking too good."
+#'     )
+#'    )
+#'   ),
+#'   server <- function(input, output) {}
+#'  )
+#' }
+#'
+#' @export
+gentelellaAlert <- function(..., title = NULL, status = "primary", dismissible = TRUE, width = 3) {
+
+  alertCl <- "alert fade in"
+  if (!is.null(status)) alertCl <- paste0(alertCl, " alert-", status)
+  if (dismissible) alertCl <- paste0(alertCl, " alert-dismissible")
+
+  shiny::column(
+    width = width,
+    shiny::tags$div(
+      class = alertCl,
+      role = "alert",
+      if (dismissible) shiny::tags$button(
+        type = "button",
+        class = "close",
+        `data-dismiss` = "alert",
+        `aria-label` = "Close",
+        shiny::tags$span(`aria-hidden` = "true", "x")
+      ),
+      shiny::tags$strong(title),
+      br(),
+      ...
+    )
+  )
 }

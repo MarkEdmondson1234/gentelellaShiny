@@ -3,8 +3,9 @@
 #' @param ... elements to put in the box
 #' @param width Box width
 #' @param height Box height
-#' @param box_title Title above
-#' @param menuItems A list of other things to appear in top menu
+#' @param title Box title
+#' @param subtitle Box subtitle
+#' @param menuItems A list of other things to appear in top menu such as close button, collapse and dropdowns
 #'
 #' @examples
 #' if (interactive()) {
@@ -34,7 +35,7 @@
 #' }
 #'
 #' @export
-gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title",
+gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", subtitle = NULL,
                           menuItems = list(a(class = "collapse-link", icon("chevron-up")))){
 
   shiny::tags$div(
@@ -44,7 +45,7 @@ gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title",
       style = paste0("height: ", height, "px;"),
       shiny::tags$div(
         class = "x_title",
-        shiny::tags$h2(title),
+        shiny::tags$h2(title, shiny::tags$small(subtitle)),
         shiny::tags$ul(
           class = "nav navbar-right panel_toolbox",
           ## add more items to li menu if passed.

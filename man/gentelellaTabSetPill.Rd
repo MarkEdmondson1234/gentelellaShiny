@@ -4,14 +4,14 @@
 \alias{gentelellaTabSetPill}
 \title{Create a gentelella tabSetPill}
 \usage{
-gentelellaTabSetPill(..., id, right = FALSE)
+gentelellaTabSetPill(..., right = FALSE)
 }
 \arguments{
 \item{...}{Slot for gentelellaTabPill.}
 
-\item{id}{TabSetPanel id. Should be unique.}
-
 \item{right}{If TabSetPanel start from the right side. FALSE by default.}
+
+\item{id}{TabSetPanel id. Should be unique.}
 }
 \description{
 Create a gentelella tabSetPill

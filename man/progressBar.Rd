@@ -12,7 +12,7 @@ progressBar(value, side = "left", status = "primary",
 
 \item{side}{From which side the bar comes: "left" or "right". "left" by default.}
 
-\item{status}{progress status: "danger", "warning", "info", "success".}
+\item{status}{progress status: "danger", "warning", "info", "success" or "primary".}
 
 \item{striped}{Whether the progress bar is striped or not. FALSE by default.}
 }
