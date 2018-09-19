@@ -5,18 +5,22 @@
 \title{Progress bar}
 \usage{
 progressBar(value, side = "left", status = "primary",
-  striped = FALSE, width = 6)
+  striped = FALSE, width = 6, color = NULL)
 }
 \arguments{
 \item{value}{progress value}
 
 \item{side}{From which side the bar comes: "left" or "right". "left" by default.}
 
-\item{status}{progress status: "danger", "warning", "info", "success" or "primary".}
+\item{status}{progress status: "danger", "warning", "info", "success" or "primary".
+When status is not NULL, color is NULL}
 
 \item{striped}{Whether the progress bar is striped or not. FALSE by default.}
 
 \item{width}{Progress bar width. Between 1 and 12.}
+
+\item{color}{Alternative to status: "red", "orange", "green", "blue", "purple".
+When color is not NULL, status is NULL.}
 }
 \description{
 Progress bars are scaled from 0 to 100
@@ -34,13 +38,13 @@ if (interactive()) {
      progressBar(
       20,
       side = "left",
-      status = "primary",
+      status = "danger",
       striped = FALSE
      ),
      progressBar(
       70,
       side = "right",
-      status = "danger",
+      color = "purple",
       striped = TRUE
      )
     )

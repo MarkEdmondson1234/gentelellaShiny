@@ -514,8 +514,10 @@ userListItem <- function(..., user_img = NULL, title = NULL, subtitle = NULL) {
 #' @param value progress value
 #' @param side From which side the bar comes: "left" or "right". "left" by default.
 #' @param status progress status: "danger", "warning", "info", "success" or "primary".
+#' When status is not NULL, color is NULL
 #' @param striped Whether the progress bar is striped or not. FALSE by default.
-#' @param width Progress bar width. Between 1 and 12.
+#' @param color Alternative to status: "red", "orange", "green", "blue", "purple".
+#' When color is not NULL, status is NULL.
 #'
 #' @examples
 #' if (interactive()) {
@@ -530,13 +532,13 @@ userListItem <- function(..., user_img = NULL, title = NULL, subtitle = NULL) {
 #'      progressBar(
 #'       20,
 #'       side = "left",
-#'       status = "primary",
+#'       status = "danger",
 #'       striped = FALSE
 #'      ),
 #'      progressBar(
 #'       70,
 #'       side = "right",
-#'       status = "danger",
+#'       color = "purple",
 #'       striped = TRUE
 #'      )
 #'     )
@@ -547,15 +549,27 @@ userListItem <- function(..., user_img = NULL, title = NULL, subtitle = NULL) {
 #' }
 #'
 #' @export
-progressBar <- function(value, side = "left", status = "primary", striped = FALSE, width = 6){
+progressBar <- function(value, side = "left", status = NULL, striped = FALSE,
+                        color = NULL){
 
-  progressCl <- paste0("progress-bar progress-bar-", status)
+  progressBarCl <- "progress-bar"
+
+  if (!is.null(status)) {
+    if (!is.null(color)) color <- NULL
+    progressBarCl <- paste0(progressBarCl, " progress-bar-", status)
+  }
+  if (!is.null(color)) {
+    status <- NULL
+    progressBarCl <- paste0(progressBarCl, " bg-", color)
+  }
+
+  if (side == "left") progressCl <- "progress" else progressCl <- "progress right"
   if (striped) progressCl <- paste0(progressCl, " progress-striped")
 
   shiny::tags$div(
-    class = if (side == "left") "progress" else "progress right",
+    class = progressCl,
     shiny::tags$div(
-      class = progressCl,
+      class = progressBarCl,
       `data-transitiongoal` = value,
       `aria-valuenow` = value,
       style = "width: 25%;"

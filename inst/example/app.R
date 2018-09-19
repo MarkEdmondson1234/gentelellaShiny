@@ -332,7 +332,7 @@ shiny::shinyApp(
                 progressBar(
                   70,
                   side = "right",
-                  status = "danger",
+                  color = "purple",
                   striped = TRUE
                 )
               )
