@@ -18,3 +18,6 @@ userListItem(..., user_img = NULL, title = NULL, subtitle = NULL)
 \description{
 A user list item
 }
+\author{
+David Granjon, \email{dgranjon@ymail.com}
+}

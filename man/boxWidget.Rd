@@ -58,3 +58,6 @@ if (interactive()) {
 }
 
 }
+\author{
+David Granjon, \email{dgranjon@ymail.com}
+}

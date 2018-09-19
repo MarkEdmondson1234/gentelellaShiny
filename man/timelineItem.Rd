@@ -23,3 +23,6 @@ timelineItem(..., title = NULL, url = NULL, date = NULL,
 \description{
 A timeline item
 }
+\author{
+David Granjon, \email{dgranjon@ymail.com}
+}

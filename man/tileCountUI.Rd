@@ -15,3 +15,6 @@ Shiny UI
 \description{
 Shiny Module for use with \link{tileCountElement}
 }
+\author{
+Mark Edmondson, \email{m@sunholo.com}
+}

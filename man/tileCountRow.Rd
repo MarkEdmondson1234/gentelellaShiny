@@ -29,3 +29,6 @@ if (interactive()) {
 }
 
 }
+\author{
+Mark Edmondson, \email{m@sunholo.com}
+}

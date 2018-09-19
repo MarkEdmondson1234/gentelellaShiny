@@ -14,3 +14,6 @@ quickListItem(icon, name = NULL)
 \description{
 A quick list item
 }
+\author{
+David Granjon, \email{dgranjon@ymail.com}
+}

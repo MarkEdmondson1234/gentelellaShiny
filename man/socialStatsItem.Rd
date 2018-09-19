@@ -14,3 +14,6 @@ socialStatsItem(value = NULL, name = NULL)
 \description{
 A social stats item to insert in a socialStats container
 }
+\author{
+David Granjon, \email{dgranjon@ymail.com}
+}

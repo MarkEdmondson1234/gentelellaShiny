@@ -12,3 +12,6 @@ socialStats(...)
 \description{
 A social stats container
 }
+\author{
+David Granjon, \email{dgranjon@ymail.com}
+}

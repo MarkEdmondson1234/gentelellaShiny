@@ -23,3 +23,6 @@ activityItem(..., title = NULL, img = NULL, day = NULL,
 \description{
 An activity item
 }
+\author{
+David Granjon, \email{dgranjon@ymail.com}
+}

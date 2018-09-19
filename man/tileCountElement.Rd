@@ -32,3 +32,6 @@ a tileCountRow for use within \link{tileCountRow}
 \description{
 tileCountRow Element
 }
+\author{
+Mark Edmondson, \email{m@sunholo.com}
+}

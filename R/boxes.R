@@ -33,6 +33,8 @@
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 box <- function(..., width = 4, height = NULL,
                 title = "Box title", subtitle = NULL, collapsible = TRUE,
@@ -141,6 +143,8 @@ box <- function(..., width = 4, height = NULL,
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 socialBox <- function(..., width = 3, height = 390,
                                 title = NULL, url_1 = NULL, url_2 = NULL,
@@ -223,6 +227,8 @@ socialBox <- function(..., width = 3, height = 390,
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL,
                       title = NULL, ribbon_color = NULL) {
@@ -286,6 +292,8 @@ ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL,
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width = 3) {
  shiny::div(
@@ -339,6 +347,8 @@ valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width
 #'   server = function(input, output, session) {}
 #'  )
 #' }
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 contactBox <- function(..., head_title = NULL, main_title = NULL,

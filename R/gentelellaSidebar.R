@@ -65,7 +65,7 @@ sidebarDate <- function() {
 #' @param ... Slot for \link{sidebarItem}
 #' @param title Menu section title
 #'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
+#' @author Mark Edmondson, \email{m@@sunholo.com}
 #'
 #' @export
 sidebarMenu <- function(..., title = NULL) {

@@ -15,5 +15,5 @@ sidebarMenu(..., title = NULL)
 Create a Gentelella dashboard sidebar menu
 }
 \author{
-David Granjon, \email{dgranjon@ymail.com}
+Mark Edmondson, \email{m@sunholo.com}
 }

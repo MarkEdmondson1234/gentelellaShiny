@@ -115,6 +115,8 @@
 #'
 #' @param ... slot for socialStatsItem
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 socialStats <- function(...) {
   shiny::tags$ul(class = "list-inline count2", ...)
@@ -125,6 +127,8 @@ socialStats <- function(...) {
 #'
 #' @param value Item value
 #' @param name Item name
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 socialStatsItem <- function(value = NULL, name = NULL) {
@@ -181,6 +185,8 @@ socialStatsItem <- function(value = NULL, name = NULL) {
 #'   server = function(input, output, session) {}
 #'  )
 #' }
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 pieChart <- function(id, value, height = 220, width = 220,
@@ -271,6 +277,8 @@ pieChart <- function(id, value, height = 220, width = 220,
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 timeline <- function(...) {
   shiny::tags$ul(
@@ -288,6 +296,8 @@ timeline <- function(...) {
 #' @param date timeline item date
 #' @param author timeline item author, if any
 #' @param tag timeline item tag
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 timelineItem <- function(..., title = NULL, url = NULL, date = NULL, author = NULL,
@@ -354,6 +364,8 @@ timelineItem <- function(..., title = NULL, url = NULL, date = NULL, author = NU
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 quickList <- function(...) {
  shiny::tags$ul(class = "quick-list", ...)
@@ -364,6 +376,8 @@ quickList <- function(...) {
 #'
 #' @param icon item icon
 #' @param name item name
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 quickListItem <- function(icon, name = NULL) {
@@ -420,6 +434,8 @@ quickListItem <- function(icon, name = NULL) {
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 boxWidget <- function(..., title = NULL, width = NULL) {
   shiny::tags$div(
@@ -472,6 +488,8 @@ boxWidget <- function(..., title = NULL, width = NULL) {
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 userList <- function(...) {
  shiny::tags$ul(class = "list-unstyled msg_list", ...)
@@ -484,6 +502,8 @@ userList <- function(...) {
 #' @param user_img User image
 #' @param title item title
 #' @param subtitle item subtitle
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 userListItem <- function(..., user_img = NULL, title = NULL, subtitle = NULL) {
@@ -548,6 +568,8 @@ userListItem <- function(..., user_img = NULL, title = NULL, subtitle = NULL) {
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 progressBar <- function(value, side = "left", status = NULL, striped = FALSE,
                         color = NULL){
@@ -604,6 +626,8 @@ progressBar <- function(value, side = "left", status = NULL, striped = FALSE,
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 jumbotron <- function(..., title = NULL) {
  shiny::tags$div(
@@ -644,6 +668,8 @@ jumbotron <- function(..., title = NULL) {
 #'   server <- function(input, output) {}
 #'  )
 #' }
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 alert <- function(..., title = NULL, status = "primary", dismissible = TRUE, width = 3) {
@@ -755,6 +781,8 @@ alert <- function(..., title = NULL, status = "primary", dismissible = TRUE, wid
 #'  )
 #' }
 #'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
+#'
 #' @export
 activityList <- function(...) {
  shiny::tags$ul(class = "messages", ...)
@@ -770,6 +798,8 @@ activityList <- function(...) {
 #' @param day day of publication
 #' @param month month of publication
 #' @param url external link
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 activityItem <- function(..., title = NULL, img = NULL,
@@ -821,6 +851,8 @@ activityItem <- function(..., title = NULL, img = NULL,
 #'  )
 #' }
 #'
+#' @author Mark Edmondson, \email{m@@sunholo.com}
+#'
 #' @export
 tileCountRow <- function(...){
   shiny::tags$div(class = "row tile_count", shiny::tagList(...))
@@ -838,6 +870,9 @@ tileCountRow <- function(...){
 #' @param highlight color to highlight value
 #'
 #' @return a tileCountRow for use within \link{tileCountRow}
+#'
+#' @author Mark Edmondson, \email{m@@sunholo.com}
+#'
 #' @export
 tileCountElement <- function(value = 2500, change_value = "4%", going_well = TRUE,
                              tile_title = " Total Users", width = 3,
@@ -866,6 +901,9 @@ tileCountElement <- function(value = 2500, change_value = "4%", going_well = TRU
 #' @param id Shiny id
 #'
 #' @return Shiny UI
+#'
+#' @author Mark Edmondson, \email{m@@sunholo.com}
+#'
 #' @export
 tileCountUI <- function(id){
   ns <- shiny::NS(id)
@@ -891,6 +929,9 @@ tileCountUI <- function(id){
 #' @param highlight [reactive] color to highlight value
 #'
 #' @return NULL
+#'
+#' @author Mark Edmondson, \email{m@@sunholo.com}
+#'
 #' @export
 updateTileCount <- function(input, output, session, value, change_value,
                             going_well, tile_title = " Total Users",
@@ -943,6 +984,8 @@ updateTileCount <- function(input, output, session, value, change_value,
 #'   server <- function(input, output) {}
 #'  )
 #' }
+#'
+#' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
 label <- function(name = NULL, status = "primary",
