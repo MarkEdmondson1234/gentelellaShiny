@@ -83,7 +83,7 @@ shiny::shinyApp(
             fluidRow(
               contactBox(
                 width = 3,
-                head_title = "Digital Strategist",
+                head_title = "Contact Box",
                 main_title = "Nicole Pearson",
                 img = "https://image.flaticon.com/icons/svg/145/145859.svg",
                 footer_left = "Some text",
@@ -115,32 +115,32 @@ shiny::shinyApp(
           column(
             width = 6,
             align = "center",
-            h3("tabSetPanel")#,
-            # tabSetPanel(
-            #   id = "tabset1",
-            #   tabPanel(
-            #     tabName = "Home",
-            #     active = TRUE,
-            #     "Raw denim you probably haven't heard of
-            #     them jean shorts Austin. Nesciunt tofu stumptown
-            #     aliqua, retro synth master cleanse. Mustache
-            #     cliche tempor, williamsburg carles vegan helvetica.
-            #     Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-            #     Cosby sweater eu banh mi, qui irure terr."
-            #   ),
-            #   tabPanel(
-            #     tabName = "Profile",
-            #     active = FALSE,
-            #     sliderInput(
-            #       "obs",
-            #       "Number of observations:",
-            #       min = 0,
-            #       max = 1000,
-            #       value = 500
-            #     ),
-            #     plotOutput("distPlot")
-            #   )
-            # )
+            h3("tabSetPanel"),
+            tabSetPanel(
+              id = "tabset1",
+              tabPanel(
+                tabName = "Home",
+                active = TRUE,
+                "Raw denim you probably haven't heard of
+                them jean shorts Austin. Nesciunt tofu stumptown
+                aliqua, retro synth master cleanse. Mustache
+                cliche tempor, williamsburg carles vegan helvetica.
+                Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+                Cosby sweater eu banh mi, qui irure terr."
+              ),
+              tabPanel(
+                tabName = "Profile",
+                active = FALSE,
+                sliderInput(
+                  "obs",
+                  "Number of observations:",
+                  min = 0,
+                  max = 1000,
+                  value = 500
+                ),
+                plotOutput("distPlot")
+              )
+            )
           ),
           column(
             width = 6,
@@ -177,9 +177,8 @@ shiny::shinyApp(
           tabName = "charts",
           box(
             title = "pieChart",
-            "If you've decided to go in development mode and
-            tweak all of this a bit, there are few things
-            you should do.",
+            "gentelellaShiny allows you to use the easypiechart library.
+            See https://github.com/rendro/easy-pie-chart",
             pieChart(id = "chart1", value = 10),
             pieChart(
               id = "chart2",
@@ -318,6 +317,25 @@ shiny::shinyApp(
               br(), br(), br(),
               label(name = "Mark", position = "pull-right"),
               label(name = "Isabella", status = "danger", position = "pull-left")
+            ),
+            box(
+              width = 6,
+              title = "Progress Bars",
+              column(
+                width = 6,
+                progressBar(
+                  20,
+                  side = "left",
+                  status = "primary",
+                  striped = FALSE
+                ),
+                progressBar(
+                  70,
+                  side = "right",
+                  status = "danger",
+                  striped = TRUE
+                )
+              )
             )
           )
         )

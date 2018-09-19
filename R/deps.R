@@ -22,6 +22,8 @@ addDeps <- function(x) {
   wizard_js <- "wizard.js"
   chart_js <- "chart.min.js"
   init_js <- "init.js"
+  progress_js <- "progress.min.js"
+  progress_css <- "progress.min.css"
 
   dashboardDeps <- list(
     # bootstrap 3 deps
@@ -31,6 +33,14 @@ addDeps <- function(x) {
       src = c(file = system.file("bootstrap-3.3.7", package = "gentelellaShiny")),
       script = bootstrap_js,
       stylesheet = bootstrap_css
+    ),
+    # progress
+    htmltools::htmlDependency(
+      name = "progress",
+      version = "1.0.0",
+      src = c(file = system.file("progress-1.0.0", package = "gentelellaShiny")),
+      script = progress_js,
+      stylesheet = progress_css
     ),
     # easypiechart js
     #htmltools::htmlDependency(
