@@ -32,7 +32,7 @@ pieChart(id, value, height = 220, width = 220, barColor = "#ef1e25",
 \item{rotate}{Default: 0.    Rotation of the complete chart in degrees.}
 }
 \description{
-A simple circular diagram item
+https://github.com/rendro/easy-pie-chart
 }
 \examples{
 if (interactive()) {

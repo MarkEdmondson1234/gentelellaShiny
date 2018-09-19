@@ -103,7 +103,7 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
         content = "width=device-width, initial-scale=1"
       ),
       shiny::tags$title(title),
-      shiny::includeCSS(path = "inst/gentelella-1.5.0/custom.min.css")
+      shiny::includeCSS(system.file("gentelella-1.5.0/custom.min.css", package = "gentelellaShiny"))
     ),
     # Body
     addDeps(
@@ -129,8 +129,8 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
             #     "
             #   )
             # ),
-            shiny::includeScript(path = "inst/easypiechart-2.1.6/easypiechart.min.js"),
-            shiny::includeScript(path = "inst/gentelella-1.5.0/custom.min.js")
+            shiny::includeScript(path = system.file("easypiechart-2.1.6/easypiechart.min.js", package = "gentelellaShiny")),
+            shiny::includeScript(path = system.file("gentelella-1.5.0/custom.min.js", package = "gentelellaShiny"))
           )
         )
       )

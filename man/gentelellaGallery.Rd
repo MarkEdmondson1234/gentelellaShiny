@@ -9,3 +9,11 @@ gentelellaGallery()
 \description{
 Launch the gentelellaGallery
 }
+\examples{
+if (interactive()) {
+
+ gentelellaGallery()
+
+}
+
+}

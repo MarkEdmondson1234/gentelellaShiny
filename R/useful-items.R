@@ -137,6 +137,8 @@ socialStatsItem <- function(value = NULL, name = NULL) {
 
 #' A simple circular diagram item
 #'
+#' https://github.com/rendro/easy-pie-chart
+#'
 #' @param id Unique id.
 #' @param value Item value
 #' @param height Canvas height. 220 px by default.
