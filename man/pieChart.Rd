@@ -41,7 +41,7 @@ if (interactive()) {
  shinyApp(
   ui = gentelellaPage(
    gentelellaBody(
-    gentelellaBox(
+    box(
       title = "pieChart",
       "If you've decided to go in development mode and
       tweak all of this a bit, there are few things

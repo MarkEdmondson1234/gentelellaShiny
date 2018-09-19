@@ -10,9 +10,11 @@ label(name = NULL, status = "primary", position = NULL,
 \arguments{
 \item{name}{label name}
 
-\item{status}{label status: "danger", "warning", "info", "success" or "primary"}
+\item{status}{label status: "danger", "warning", "info", "success" or "primary".
+If mode is "badge" statuses are "red", "orange", "green", "blue", "purple".}
 
-\item{position}{label position: NULL by default, "pull-right" or "pull-left". If mode is "badge", position is NULL}
+\item{position}{label position: NULL by default, "pull-right" or "pull-left".
+If mode is "badge", position is NULL}
 
 \item{mode}{Either "label" or "badge". "label" by default.}
 }
@@ -26,9 +28,13 @@ if (interactive()) {
  shinyApp(
   ui = gentelellaPage(
    gentelellaBody(
-    label(name = "David", status = "warning", mode = "badge"),
-    label(name = "Mark", position = "pull-right"),
-    label(name = "Isabella", status = "danger", position = "pull-left")
+    box(
+     title = "Labels",
+     label(name = "David", status = "warning", mode = "badge"),
+     br(), br(), br(),
+     label(name = "Mark", position = "pull-right"),
+     label(name = "Isabella", status = "danger", position = "pull-left")
+    )
    )
   ),
   server <- function(input, output) {}

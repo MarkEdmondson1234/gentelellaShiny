@@ -46,7 +46,7 @@ addDeps <- function(x) {
     #  src = c(file = system.file("smartwizard-3.3.1", package = "gentelellaShiny")),
     #  script = wizard_js
     #)
-    # gentelella (does not work for some reason...)
+    # gentelella (does not work for some reason... except init_js)
      htmltools::htmlDependency(
        name = "gentelella",
        version = "1.5.0",

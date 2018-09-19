@@ -158,7 +158,7 @@ socialStatsItem <- function(value = NULL, name = NULL) {
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaBox(
+#'     box(
 #'       title = "pieChart",
 #'       "If you've decided to go in development mode and
 #'       tweak all of this a bit, there are few things
@@ -241,17 +241,9 @@ pieChart <- function(id, value, height = 220, width = 220,
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaBox(
+#'     box(
 #'      width = 4,
 #'      title = "Timeline",
-#'      menuItems = list(
-#'        a(class = "collapse-link", icon("chevron-up")),
-#'        list(
-#'          a(href = "http://www.google.com", "Test", target = "_blank"),
-#'          a(href = "#", "Test2")
-#'        ),
-#'        a(class = "close-link", icon("close"))
-#'      ),
 #'      timeline(
 #'       timelineItem(
 #'        title = "Who Needs Sundance When You’ve Got Crowdfunding?",
@@ -348,17 +340,9 @@ timelineItem <- function(..., title = NULL, url = NULL, date = NULL, author = NU
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaBox(
+#'     box(
 #'      width = 4,
 #'      title = "Quick Lists",
-#'      menuItems = list(
-#'        a(class = "collapse-link", icon("chevron-up")),
-#'        list(
-#'          a(href = "http://www.google.com", "Test", target = "_blank"),
-#'          a(href = "#", "Test2")
-#'        ),
-#'        a(class = "close-link", icon("close"))
-#'      ),
 #'      quickList(
 #'       quickListItem(icon = "calendar-o", name = "Settings"),
 #'       quickListItem(icon = "bars", name = "Subscription")
@@ -402,17 +386,9 @@ quickListItem <- function(icon, name = NULL) {
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaBox(
+#'     box(
 #'      width = 6,
 #'      title = "Box Widget",
-#'      menuItems = list(
-#'        a(class = "collapse-link", icon("chevron-up")),
-#'        list(
-#'          a(href = "http://www.google.com", "Test", target = "_blank"),
-#'          a(href = "#", "Test2")
-#'        ),
-#'        a(class = "close-link", icon("close"))
-#'      ),
 #'      fluidRow(
 #'       column(
 #'        width = 3,
@@ -470,17 +446,9 @@ boxWidget <- function(..., title = NULL, width = NULL) {
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaBox(
+#'     box(
 #'      width = 3,
 #'      title = "user List",
-#'      menuItems = list(
-#'        a(class = "collapse-link", icon("chevron-up")),
-#'        list(
-#'          a(href = "http://www.google.com", "Test", target = "_blank"),
-#'          a(href = "#", "Test2")
-#'        ),
-#'        a(class = "close-link", icon("close"))
-#'      ),
 #'      userList(
 #'       userListItem(
 #'        user_img = "https://image.flaticon.com/icons/svg/145/145862.svg",
@@ -556,17 +524,9 @@ userListItem <- function(..., user_img = NULL, title = NULL, subtitle = NULL) {
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaBox(
+#'     box(
 #'      width = 3,
 #'      title = "Progress Bars",
-#'      menuItems = list(
-#'        a(class = "collapse-link", icon("chevron-up")),
-#'        list(
-#'          a(href = "http://www.google.com", "Test", target = "_blank"),
-#'          a(href = "#", "Test2")
-#'        ),
-#'        a(class = "close-link", icon("close"))
-#'      ),
 #'      progressBar(
 #'       20,
 #'       side = "left",
@@ -699,50 +659,50 @@ alert <- function(..., title = NULL, status = "primary", dismissible = TRUE, wid
 
 
 
-#' A rating tag
-#'
-#' @param value value between 0 and 5
-#'
-#' @examples
-#' if (interactive()) {
-#'  library(shiny)
-#'  library(gentelellaShiny)
-#'  shinyApp(
-#'   ui = gentelellaPage(
-#'    gentelellaBody(
-#'     stars(value = 4)
-#'    )
-#'   ),
-#'   server <- function(input, output) {}
-#'  )
-#' }
-#'
-#' @export
-stars <- function(value) {
-
-  stop_val <- 5 - value
-
- shiny::tags$p(
-   class = "ratings",
-   shiny::tags$a(value),
-   if (value >= 1) {
-     # full stars
-     shiny::tagList(
-       lapply(X = 1:value, FUN = function(i) {
-         shiny::tags$a(shiny::tags$span(class = "fa fa-star"))
-       }),
-       # empty stars
-       lapply(X = 1:stop_val, FUN = function(i) {
-         shiny::tags$a(shiny::tags$span(class = "fa fa-star-o"))
-       })
-     )
-   } else {
-     lapply(X = 1:5, FUN = function(i) {
-       shiny::tags$a(shiny::tags$span(class = "fa fa-star-o"))
-     })
-   }
- )
-}
+# #' A rating tag
+# #'
+# #' @param value value between 0 and 5
+# #'
+# #' @examples
+# #' if (interactive()) {
+# #'  library(shiny)
+# #'  library(gentelellaShiny)
+# #'  shinyApp(
+# #'   ui = gentelellaPage(
+# #'    gentelellaBody(
+# #'     stars(value = 4)
+# #'    )
+# #'   ),
+# #'   server <- function(input, output) {}
+# #'  )
+# #' }
+# #'
+# #' @export
+# stars <- function(value) {
+#
+#   stop_val <- 5 - value
+#
+#  shiny::tags$p(
+#    class = "ratings",
+#    shiny::tags$a(value),
+#    if (value >= 1) {
+#      # full stars
+#      shiny::tagList(
+#        lapply(X = 1:value, FUN = function(i) {
+#          shiny::tags$a(shiny::tags$span(class = "fa fa-star"))
+#        }),
+#        # empty stars
+#        lapply(X = 1:stop_val, FUN = function(i) {
+#          shiny::tags$a(shiny::tags$span(class = "fa fa-star-o"))
+#        })
+#      )
+#    } else {
+#      lapply(X = 1:5, FUN = function(i) {
+#        shiny::tags$a(shiny::tags$span(class = "fa fa-star-o"))
+#      })
+#    }
+#  )
+# }
 
 
 
@@ -758,21 +718,21 @@ stars <- function(value) {
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaBox(
+#'     box(
 #'      title = "Activity List",
 #'      activityList(
-#'      lapply(X = 1:3, FUN = function(i) {
-#'       activityItem(
-#'        title = "Desmond Davison",
-#'        img = paste0("https://image.flaticon.com/icons/svg/1087/108783", i,".svg"),
-#'        day = 13,
-#'        month = "june",
-#'        url = "http://www.google.com",
-#'        "Raw denim you probably haven't heard of them jean shorts Austin.
-#'        Nesciunt tofu stumptown aliqua butcher retro keffiyeh
-#'        dreamcatcher synth."
-#'       )
-#'      })
+#'       lapply(X = 1:3, FUN = function(i) {
+#'        activityItem(
+#'         title = "Desmond Davison",
+#'         img = paste0("https://image.flaticon.com/icons/svg/1087/108783", i,".svg"),
+#'         day = 13,
+#'         month = "june",
+#'         url = "http://www.google.com",
+#'         "Raw denim you probably haven't heard of them jean shorts Austin.
+#'         Nesciunt tofu stumptown aliqua butcher retro keffiyeh
+#'         dreamcatcher synth."
+#'        )
+#'       })
 #'      )
 #'     )
 #'    )
@@ -944,8 +904,10 @@ updateTileCount <- function(input, output, session, value, change_value,
 #' Create a label or badge
 #'
 #' @param name label name
-#' @param status label status: "danger", "warning", "info", "success" or "primary"
-#' @param position label position: NULL by default, "pull-right" or "pull-left". If mode is "badge", position is NULL
+#' @param status label status: "danger", "warning", "info", "success" or "primary".
+#' If mode is "badge" statuses are "red", "orange", "green", "blue", "purple".
+#' @param position label position: NULL by default, "pull-right" or "pull-left".
+#' If mode is "badge", position is NULL
 #' @param mode Either "label" or "badge". "label" by default.
 #'
 #' @examples
@@ -955,9 +917,13 @@ updateTileCount <- function(input, output, session, value, change_value,
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     label(name = "David", status = "warning", mode = "badge"),
-#'     label(name = "Mark", position = "pull-right"),
-#'     label(name = "Isabella", status = "danger", position = "pull-left")
+#'     box(
+#'      title = "Labels",
+#'      label(name = "David", status = "warning", mode = "badge"),
+#'      br(), br(), br(),
+#'      label(name = "Mark", position = "pull-right"),
+#'      label(name = "Isabella", status = "danger", position = "pull-left")
+#'     )
 #'    )
 #'   ),
 #'   server <- function(input, output) {}
@@ -969,12 +935,13 @@ label <- function(name = NULL, status = "primary",
                             position = NULL, mode = "label") {
 
   if (mode == "badge") position <- NULL
+  if (mode == "badge") status <- "green"
   mode_switch <- switch(mode,
     "label" = "label",
     "badge" = "badge"
   )
 
-  labelCl <- paste0(mode_switch, " ", mode_switch, "-", status)
+  labelCl <- paste0(mode_switch, " ", if (mode_switch == "badge") "bg" else mode_switch, "-", status)
   if (!is.null(position)) labelCl <- paste0(labelCl, " ", position)
   shiny::tags$span(class = labelCl, name)
 }

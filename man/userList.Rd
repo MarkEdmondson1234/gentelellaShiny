@@ -19,17 +19,9 @@ if (interactive()) {
  shinyApp(
   ui = gentelellaPage(
    gentelellaBody(
-    gentelellaBox(
+    box(
      width = 3,
      title = "user List",
-     menuItems = list(
-       a(class = "collapse-link", icon("chevron-up")),
-       list(
-         a(href = "http://www.google.com", "Test", target = "_blank"),
-         a(href = "#", "Test2")
-       ),
-       a(class = "close-link", icon("close"))
-     ),
      userList(
       userListItem(
        user_img = "https://image.flaticon.com/icons/svg/145/145862.svg",

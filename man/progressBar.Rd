@@ -28,17 +28,9 @@ if (interactive()) {
  shinyApp(
   ui = gentelellaPage(
    gentelellaBody(
-    gentelellaBox(
+    box(
      width = 3,
      title = "Progress Bars",
-     menuItems = list(
-       a(class = "collapse-link", icon("chevron-up")),
-       list(
-         a(href = "http://www.google.com", "Test", target = "_blank"),
-         a(href = "#", "Test2")
-       ),
-       a(class = "close-link", icon("close"))
-     ),
      progressBar(
       20,
       side = "left",

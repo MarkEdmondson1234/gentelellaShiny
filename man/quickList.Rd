@@ -19,17 +19,9 @@ if (interactive()) {
  shinyApp(
   ui = gentelellaPage(
    gentelellaBody(
-    gentelellaBox(
+    box(
      width = 4,
      title = "Quick Lists",
-     menuItems = list(
-       a(class = "collapse-link", icon("chevron-up")),
-       list(
-         a(href = "http://www.google.com", "Test", target = "_blank"),
-         a(href = "#", "Test2")
-       ),
-       a(class = "close-link", icon("close"))
-     ),
      quickList(
       quickListItem(icon = "calendar-o", name = "Settings"),
       quickListItem(icon = "bars", name = "Subscription")

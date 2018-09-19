@@ -23,17 +23,9 @@ if (interactive()) {
  shinyApp(
   ui = gentelellaPage(
    gentelellaBody(
-    gentelellaBox(
+    box(
      width = 6,
      title = "Box Widget",
-     menuItems = list(
-       a(class = "collapse-link", icon("chevron-up")),
-       list(
-         a(href = "http://www.google.com", "Test", target = "_blank"),
-         a(href = "#", "Test2")
-       ),
-       a(class = "close-link", icon("close"))
-     ),
      fluidRow(
       column(
        width = 3,

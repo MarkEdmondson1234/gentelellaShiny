@@ -19,21 +19,21 @@ if (interactive()) {
  shinyApp(
   ui = gentelellaPage(
    gentelellaBody(
-    gentelellaBox(
+    box(
      title = "Activity List",
      activityList(
-     lapply(X = 1:3, FUN = function(i) {
-      activityItem(
-       title = "Desmond Davison",
-       img = paste0("https://image.flaticon.com/icons/svg/1087/108783", i,".svg"),
-       day = 13,
-       month = "june",
-       url = "http://www.google.com",
-       "Raw denim you probably haven't heard of them jean shorts Austin.
-       Nesciunt tofu stumptown aliqua butcher retro keffiyeh
-       dreamcatcher synth."
-      )
-     })
+      lapply(X = 1:3, FUN = function(i) {
+       activityItem(
+        title = "Desmond Davison",
+        img = paste0("https://image.flaticon.com/icons/svg/1087/108783", i,".svg"),
+        day = 13,
+        month = "june",
+        url = "http://www.google.com",
+        "Raw denim you probably haven't heard of them jean shorts Austin.
+        Nesciunt tofu stumptown aliqua butcher retro keffiyeh
+        dreamcatcher synth."
+       )
+      })
      )
     )
    )
