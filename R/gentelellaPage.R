@@ -118,7 +118,18 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
             # page content
             body,
             footer,
-            shiny::includeScript(path = "inst/smartwizard-3.3.1/wizard.js"),
+            # Wizard (does not work well)
+            #shiny::includeScript(path = "inst/smartwizard-3.3.1/wizard.js"),
+            # shiny::tags$script(HTML("$('#wizard').smartWizard();")),
+            # shiny::tags$script(
+            #   HTML(
+            #     "$('.buttonNext').addClass('btn btn-success');
+            #      $('.buttonPrevious').addClass('btn btn-primary');
+            #      $('.buttonFinish').hide();
+            #     "
+            #   )
+            # ),
+            shiny::includeScript(path = "inst/easypiechart-2.1.6/easypiechart.min.js"),
             shiny::includeScript(path = "inst/gentelella-1.5.0/custom.min.js")
           )
         )

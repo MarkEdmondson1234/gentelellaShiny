@@ -20,6 +20,7 @@ addDeps <- function(x) {
   fontawesome_css <- "font-awesome.min.css"
   animate_css <- "animate.min.css"
   wizard_js <- "wizard.js"
+  chart_js <- "chart.min.js"
 
   dashboardDeps <- list(
     # bootstrap 3 deps
@@ -30,6 +31,13 @@ addDeps <- function(x) {
       script = bootstrap_js,
       stylesheet = bootstrap_css
     )#,
+    # easypiechart js
+    #htmltools::htmlDependency(
+    #  name = "easypiechart",
+    #  version = "2.1.6",
+    #  src = c(file = system.file("easypiechart-2.1.6", package = "gentelellaShiny")),
+    #  script = chart_js
+    #)
     # smart wizard
     #htmltools::htmlDependency(
     #  name = "smartwizard",

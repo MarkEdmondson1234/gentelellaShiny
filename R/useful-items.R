@@ -1,96 +1,113 @@
-#' A wizard container
-#'
-#' @param ... slot for wizardItem
-#' @param orientation wizard orientation: "horizontal" or "vertical"
-#'
-#' @export
-wizard <- function(..., orientation = "horizontal") {
-
-  items <- list(...)
-  len_items <- length(items)
-
-  # add the proper number to each item
-  items <- lapply(X = 1:len_items, FUN = function(i) {
-    current_item <- items[[i]][["tag"]]
-    if (i == 1) current_item$attribs$style <- "display: block;"
-    htmltools::tagAppendAttributes(current_item, id = paste0("step-", i))
-  })
-
-  # create the corresponding menu
-  itemsMenu <- lapply(X = 1:len_items, FUN = function(i) {
-
-    current_item_desc <- items[["desc"]][[i]]
-
-    shiny::tags$li(
-      shiny::a(
-        href = paste0("#step-", i),
-        class = if (i == 1) "selected" else "done",
-        isdone = "1", # always 1 by default
-        rel = i,
-        shiny::span(class = "step_no", i),
-        shiny::span(
-          class = "step_descr",
-          paste("Step", i),
-          shiny::br(),
-          shiny::tags$small(current_item_desc)
-        )
-      )
-    )
-  })
-
- # main tag
- htmltools::withTags({
-   shiny::div(
-     id = if (orientation == "vertical") "wizard_vertical" else "wizard",
-     class = paste0("form_wizard wizard_", orientation),
-     shiny::tags$ul(
-       class = if (orientation == "vertical") {
-         "list-unstyled wizard_steps anchor"
-       } else {
-         "wizard_steps anchor"
-       },
-       # insert setp items
-       itemsMenu
-     ),
-     shiny::div(
-       class = "stepContainer",
-       style = "height: 154px;",
-       lapply(X = 1:len_items, function(i) { items[[i]] })
-     ),
-     # action bar
-     shiny::div(
-       class = "actionBar",
-       shiny::div(
-         class = "msgBox",
-         shiny::div(class = "content"),
-         shiny::a(href = "#", class = "close", "X")
-       ),
-       shiny::div(class = "loader", "Loading"),
-       shiny::a(href = "#", class = "buttonPrevious btn btn-primary", "<-"),
-       shiny::a(href = "#", class = "buttonNext btn btn-success", "->")
-     )
-   )
- })
-}
-
-
-#' A wizard item
-#'
-#' @param ... any UI element
-#' @param display Whether to diplay if or not. "none" by default.
-#' @param description Item description, if any.
-#'
-#' @export
-wizardItem <- function(..., display = "none", description = NULL) {
-  list(
-    tag = shiny::div(
-      class = "content",
-      style = paste0("display: ", display, ";"),
-      ...
-    ),
-    desc = description
-  )
-}
+# #' A wizard container
+# #'
+# #' @param ... slot for wizardItem
+# #' @param orientation wizard orientation: "horizontal" or "verticle"
+# #'
+# #' @examples
+# #' if (interactive()) {
+# #'  library(shiny)
+# #'  library(gentelellaShiny)
+# #'  shinyApp(
+# #'   ui = gentelellaPage(
+# #'    gentelellaBody(
+# #'     wizard(
+# #'      wizardItem(1, description = "blabla"),
+# #'      wizardItem(2, description = "blabla")
+# #'     )
+# #'    )
+# #'   ),
+# #'   server = function(input, output, session) {}
+# #'  )
+# #' }
+# #'
+# #' @export
+# wizard <- function(..., orientation = "horizontal") {
+#
+#   items <- list(...)
+#   len_items <- length(items)
+#
+#   # add the proper number to each item
+#   items <- lapply(X = 1:len_items, FUN = function(i) {
+#     current_item <- items[[i]][["tag"]]
+#     if (i == 1) current_item$attribs$style <- "display: block;"
+#     htmltools::tagAppendAttributes(current_item, id = paste0("step-", i))
+#   })
+#
+#   # create the corresponding menu
+#   itemsMenu <- lapply(X = 1:len_items, FUN = function(i) {
+#
+#     current_item_desc <- items[["desc"]][[i]]
+#
+#     shiny::tags$li(
+#       shiny::a(
+#         href = paste0("#step-", i),
+#         class = if (i == 1) "selected" else "disabled",
+#         isdone = "1", # always 1 by default
+#         rel = i,
+#         shiny::span(class = "step_no", i),
+#         shiny::span(
+#           class = "step_descr",
+#           paste("Step", i),
+#           shiny::br(),
+#           shiny::tags$small(current_item_desc)
+#         )
+#       )
+#     )
+#   })
+#
+#  # main tag
+#  htmltools::withTags({
+#    shiny::div(
+#      id = if (orientation == "vertical") "wizard_verticle" else "wizard",
+#      class = paste0("form_wizard wizard_", orientation),
+#      shiny::tags$ul(
+#        class = if (orientation == "vertical") {
+#          "list-unstyled wizard_steps anchor"
+#        } else {
+#          "wizard_steps anchor"
+#        },
+#        # insert setp items
+#        itemsMenu
+#      ),
+#      shiny::div(
+#        class = "stepContainer",
+#        style = "height: 154px;",
+#        lapply(X = 1:len_items, function(i) { items[[i]] })
+#      )#,
+#      # action bar
+#      #shiny::div(
+#      #  class = "actionBar",
+#      #  shiny::div(
+#      #    class = "msgBox",
+#      #    shiny::div(class = "content"),
+#      #    shiny::a(href = "#", class = "close", "X")
+#      #  ),
+#      #  shiny::div(class = "loader", "Loading"),
+#      #  shiny::a(href = "#", class = "buttonNext btn btn-success", "Next"),
+#      #  shiny::a(href = "#", class = "buttonPrevious btn btn-primary", "Previous")
+#      #)
+#    )
+#  })
+# }
+#
+#
+# #' A wizard item
+# #'
+# #' @param ... any UI element
+# #' @param display Whether to diplay if or not. "none" by default.
+# #' @param description Item description, if any.
+# #'
+# #' @export
+# wizardItem <- function(..., display = "none", description = NULL) {
+#   list(
+#     tag = shiny::div(
+#       class = "content",
+#       style = paste0("display: ", display, ";"),
+#       ...
+#     ),
+#     desc = description
+#   )
+# }
 
 
 
@@ -120,16 +137,40 @@ socialStatsItem <- function(value = NULL, name = NULL) {
 
 #' A simple circular diagram item
 #'
+#' @param id Unique id.
 #' @param value Item value
 #' @param height Canvas height. 220 px by default.
 #' @param width Canvas width. 220 px by default.
 #'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(gentelellaShiny)
+#'  shinyApp(
+#'   ui = gentelellaPage(
+#'    gentelellaBody(
+#'     gentelellaRibbonBox(
+#'       ribbon_text = "30 % Off",
+#'       title = "pieChart",
+#'       "If you've decided to go in development mode and
+#'       tweak all of this a bit, there are few things
+#'       you should do.",
+#'       pieChart(id = "chart1", value = 10),
+#'       pieChart(id = "chart2", value = 20)
+#'      )
+#'     )
+#'   ),
+#'   server = function(input, output, session) {}
+#'  )
+#' }
+#'
 #' @export
-gentelellaGauge <- function(value, height = 220, width = 220) {
-  shiny::div(
+pieChart <- function(id, value, height = 220, width = 220) {
+  pieChartTag <- shiny::div(
     style = "text-align: center; margin-bottom: 17px;",
     shiny::span(
       class = "chart",
+      id = id,
       `data-percent` = value,
       shiny::span(
         class = "percent",
@@ -137,6 +178,25 @@ gentelellaGauge <- function(value, height = 220, width = 220) {
       ),
       shiny::tags$canvas(height = height, width = width)
     )
+  )
+
+  # initialisation of the chart
+  shiny::tagList(
+    shiny::singleton(
+      shiny::tags$head(
+        shiny::tags$script(
+          paste0(
+            "$(function() {
+              $('#", id, "').easyPieChart({
+              //your options goes here
+              });
+            });
+            "
+          )
+        )
+      )
+    ),
+    pieChartTag
   )
 }
 

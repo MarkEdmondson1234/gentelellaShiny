@@ -207,7 +207,8 @@ gentelellaSocialBox <- function(..., width = 3, height = 390,
 #'       "If you've decided to go in development mode and
 #'       tweak all of this a bit, there are few things
 #'       you should do.",
-#'       gentelellaGauge(10)
+#'       pieChart(id = "chart1", value = 10),
+#'       pieChart(id = "chart2", value = 20)
 #'      )
 #'     )
 #'   ),
