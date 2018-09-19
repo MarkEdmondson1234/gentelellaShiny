@@ -19,8 +19,8 @@ shiny::shinyApp(
             for movie makers. They were where..."
           )
         })
-        )
-      ),
+      )
+    ),
     sidebar = gentelellaSidebar(
       sidebarProfile(
         name = "Mark",
@@ -68,10 +68,10 @@ shiny::shinyApp(
       )
     ),
     footer = gentelellaFooter()
-    ),
+  ),
   server = function(input, output) {
     output$distPlot <- renderPlot({
       hist(rnorm(input$obs))
     })
   }
-  )
+)

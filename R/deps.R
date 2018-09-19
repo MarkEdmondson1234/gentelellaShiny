@@ -21,6 +21,7 @@ addDeps <- function(x) {
   animate_css <- "animate.min.css"
   wizard_js <- "wizard.js"
   chart_js <- "chart.min.js"
+  init_js <- "init.js"
 
   dashboardDeps <- list(
     # bootstrap 3 deps
@@ -30,7 +31,7 @@ addDeps <- function(x) {
       src = c(file = system.file("bootstrap-3.3.7", package = "gentelellaShiny")),
       script = bootstrap_js,
       stylesheet = bootstrap_css
-    )#,
+    ),
     # easypiechart js
     #htmltools::htmlDependency(
     #  name = "easypiechart",
@@ -46,13 +47,12 @@ addDeps <- function(x) {
     #  script = wizard_js
     #)
     # gentelella (does not work for some reason...)
-    # htmltools::htmlDependency(
-    #   name = "gentelella",
-    #   version = "1.5.0",
-    #   src = c(file = system.file("gentelella-1.5.0", package = "gentelellaShiny")),
-    #   script = gentelella_js,
-    #   stylesheet = gentelella_css
-    # )
+     htmltools::htmlDependency(
+       name = "gentelella",
+       version = "1.5.0",
+       src = c(file = system.file("gentelella-1.5.0", package = "gentelellaShiny")),
+       script = init_js
+     )
     # fontawesome
     # htmltools::htmlDependency(
     #   name = "fontawesome",

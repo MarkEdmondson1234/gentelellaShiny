@@ -25,6 +25,9 @@ contactBox(..., head_title = NULL, main_title = NULL, img = NULL,
 \description{
 A Contact box
 }
+\note{
+Does not work perfectly
+}
 \examples{
 if (interactive()) {
  library(shiny)
@@ -36,7 +39,8 @@ if (interactive()) {
      head_title = "Digital Strategist",
      main_title = "Nicole Pearson",
      img = "https://image.flaticon.com/icons/svg/145/145859.svg",
-     footer_left = gentelellaStars(4),
+     footer_left = "Some text",
+     footer_right = pieChart(value = 45, id = "contactChart"),
      quickList(
       quickListItem(icon = "calendar-o", name = "Settings"),
       quickListItem(icon = "bars", name = "Subscription")

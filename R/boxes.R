@@ -223,8 +223,7 @@ socialBox <- function(..., width = 3, height = 390,
 #' }
 #'
 #' @export
-ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL,
-                                title = NULL) {
+ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL, title = NULL) {
   shiny::div(
     class = paste0("col-md-", width, " col-xs-12 widget widget_tally_box"),
     shiny::div(
@@ -309,6 +308,8 @@ valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width
 #' @param footer_left Footer left content
 #' @param footer_right Footer right content
 #'
+#' @note Does not work perfectly
+#'
 #' @examples
 #' if (interactive()) {
 #'  library(shiny)
@@ -320,7 +321,8 @@ valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width
 #'      head_title = "Digital Strategist",
 #'      main_title = "Nicole Pearson",
 #'      img = "https://image.flaticon.com/icons/svg/145/145859.svg",
-#'      footer_left = gentelellaStars(4),
+#'      footer_left = "Some text",
+#'      footer_right = pieChart(value = 45, id = "contactChart"),
 #'      quickList(
 #'       quickListItem(icon = "calendar-o", name = "Settings"),
 #'       quickListItem(icon = "bars", name = "Subscription")
@@ -334,8 +336,8 @@ valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width
 #'
 #' @export
 contactBox <- function(..., head_title = NULL, main_title = NULL,
-                                 img = NULL, footer_left = NULL,
-                                 footer_right = NULL, width = 4) {
+                       img = NULL, footer_left = NULL,
+                       footer_right = NULL, width = 4) {
  shiny::tags$div(
    class = paste0("col-md-4 col-sm-", width," col-xs-12 profile_details"),
    shiny::tags$div(
