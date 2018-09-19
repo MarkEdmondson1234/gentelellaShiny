@@ -35,13 +35,13 @@ if(interactive()){
   ui = gentelellaPage(
    title = "Shiny Gentelella",
    navbar = gentelellaNavbar(
-    navbarItems = gentelellaNotif(
+    navbarItems = notif(
      id = "menunotif",
      icon = "envelope-o",
      status = "primary",
      expanded = FALSE,
      lapply(X = 1:5, FUN = function(i) {
-      gentelellaNotifItem(
+      notifItem(
        title = "John Doe",
        date = "3 min ago",
        img = paste0("https://image.flaticon.com/icons/svg/163/16382", i,".svg"),
@@ -52,11 +52,12 @@ if(interactive()){
     )
    ),
    sidebar = gentelellaSidebar(
-   gentelellaSidebarProfile(
-    name = "Mark",
-    img = "https://image.flaticon.com/icons/svg/236/236831.svg"
-   ),
-    gentelellaSidebarMenu()
+    sidebarProfile(
+     name = "Mark",
+     img = "https://image.flaticon.com/icons/svg/236/236831.svg"
+    ),
+    sidebarDate(),
+    sidebarMenu()
    ),
    body = gentelellaBody(
     fluidRow(

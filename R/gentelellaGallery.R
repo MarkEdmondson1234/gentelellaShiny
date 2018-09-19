@@ -16,7 +16,7 @@ gentelellaGallery <- function() {
   #browseURL(system.file("www", "login.html", package = "gentelellaShiny"))
   shiny::shinyAppFile(
     system.file(
-      paste0("demo/app.R"),
+      paste0("example/app.R"),
       package = 'gentelellaShiny',
       mustWork = TRUE
     )

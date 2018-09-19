@@ -17,13 +17,13 @@
 #'   ui = gentelellaPage(
 #'    title = "Shiny Gentelella",
 #'    navbar = gentelellaNavbar(
-#'     navbarItems = gentelellaNotif(
+#'     navbarItems = notif(
 #'      id = "menunotif",
 #'      icon = "envelope-o",
 #'      status = "primary",
 #'      expanded = FALSE,
 #'      lapply(X = 1:5, FUN = function(i) {
-#'       gentelellaNotifItem(
+#'       notifItem(
 #'        title = "John Doe",
 #'        date = "3 min ago",
 #'        img = paste0("https://image.flaticon.com/icons/svg/163/16382", i,".svg"),
@@ -34,11 +34,12 @@
 #'     )
 #'    ),
 #'    sidebar = gentelellaSidebar(
-#'    gentelellaSidebarProfile(
-#'     name = "Mark",
-#'     img = "https://image.flaticon.com/icons/svg/236/236831.svg"
-#'    ),
-#'     gentelellaSidebarMenu()
+#'     sidebarProfile(
+#'      name = "Mark",
+#'      img = "https://image.flaticon.com/icons/svg/236/236831.svg"
+#'     ),
+#'     sidebarDate(),
+#'     sidebarMenu()
 #'    ),
 #'    body = gentelellaBody(
 #'     fluidRow(
@@ -129,8 +130,8 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
             #     "
             #   )
             # ),
-            shiny::includeScript(path = system.file("easypiechart-2.1.6/easypiechart.min.js", package = "gentelellaShiny")),
-            shiny::includeScript(path = system.file("gentelella-1.5.0/custom.min.js", package = "gentelellaShiny"))
+            shiny::includeScript(system.file("easypiechart-2.1.6/easypiechart.min.js", package = "gentelellaShiny")),
+            shiny::includeScript(system.file("gentelella-1.5.0/custom.min.js", package = "gentelellaShiny"))
           )
         )
       )

@@ -8,7 +8,7 @@ gentelellaSidebar(..., site_title = shiny::HTML(paste(shiny::icon("paw"),
   "Shiny Gentelella")), url = NULL, fixed = FALSE, footer = NULL)
 }
 \arguments{
-\item{...}{Items to place in the sidebar such as gentelellaSidebarMenu, gentelellaSidebarProfile}
+\item{...}{Items to place in the sidebar such as \link{sidebarMenu}, \link{sidebarProfile}}
 
 \item{site_title}{Dashboard title}
 

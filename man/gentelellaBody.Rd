@@ -7,7 +7,7 @@
 gentelellaBody(...)
 }
 \arguments{
-\item{...}{Items to place in the body}
+\item{...}{Items to place in the body such as \link{tabItems} an \link{tabItem}}
 }
 \description{
 Create a Gentelella dashboard body content

@@ -14,7 +14,7 @@
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaBox(
+#'     box(
 #'      "test",
 #'      width = 4,
 #'      height = NULL,
@@ -35,7 +35,7 @@
 #' }
 #'
 #' @export
-gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", subtitle = NULL,
+box <- function(..., width = 4, height = NULL, title = "Box title", subtitle = NULL,
                           menuItems = list(shiny::a(class = "collapse-link", shiny::icon("chevron-up")))){
 
   shiny::tags$div(
@@ -113,7 +113,7 @@ gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", su
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaSocialBox(
+#'     socialBox(
 #'      title = "Social Box",
 #'      url_1 = "https://www.facebook.com",
 #'      url_2 = "https://twitter.com",
@@ -136,7 +136,7 @@ gentelellaBox <- function(..., width = 4, height = NULL, title = "Box title", su
 #' }
 #'
 #' @export
-gentelellaSocialBox <- function(..., width = 3, height = 390,
+socialBox <- function(..., width = 3, height = 390,
                                 title = NULL, url_1 = NULL, url_2 = NULL,
                                 media_1 = NULL, media_2 = NULL,
                                 profile_img = NULL, footer = NULL) {
@@ -201,7 +201,7 @@ gentelellaSocialBox <- function(..., width = 3, height = 390,
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaRibbonBox(
+#'     ribbonBox(
 #'       ribbon_text = "30 % Off",
 #'       title = "Ribbon Box",
 #'       "If you've decided to go in development mode and
@@ -217,7 +217,7 @@ gentelellaSocialBox <- function(..., width = 3, height = 390,
 #' }
 #'
 #' @export
-gentelellaRibbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL,
+ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL,
                                 title = NULL) {
   shiny::div(
     class = paste0("col-md-", width, " col-xs-12 widget widget_tally_box"),
@@ -257,13 +257,13 @@ gentelellaRibbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaValueBox(
+#'     valueBox(
 #'      value = 179,
 #'      title = "New Sign ups",
 #'      description = "Lorem ipsum psdea itgum rixt",
 #'      icon = "caret-square-o-right"
 #'     ),
-#'     gentelellaValueBox(
+#'     valueBox(
 #'      value = 345,
 #'      title = "New Customers",
 #'      description = "Lorem ipsum psdea itgum rixt",
@@ -276,7 +276,7 @@ gentelellaRibbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL
 #' }
 #'
 #' @export
-gentelellaValueBox <- function(value, title = NULL, description = NULL, icon = NULL, width = 3) {
+valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width = 3) {
  shiny::div(
    class = paste0("animated flipInY col-lg-3 col-md-", width," col-sm-6 col-xs-12"),
    shiny::div(
@@ -310,7 +310,7 @@ gentelellaValueBox <- function(value, title = NULL, description = NULL, icon = N
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaContactBox(
+#'     contactBox(
 #'      head_title = "Digital Strategist",
 #'      main_title = "Nicole Pearson",
 #'      img = "https://image.flaticon.com/icons/svg/145/145859.svg",
@@ -327,7 +327,7 @@ gentelellaValueBox <- function(value, title = NULL, description = NULL, icon = N
 #' }
 #'
 #' @export
-gentelellaContactBox <- function(..., head_title = NULL, main_title = NULL,
+contactBox <- function(..., head_title = NULL, main_title = NULL,
                                  img = NULL, footer_left = NULL,
                                  footer_right = NULL, width = 4) {
  shiny::tags$div(

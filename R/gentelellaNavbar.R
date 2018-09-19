@@ -32,7 +32,7 @@ gentelellaNavbar <- function(..., navbarItems = NULL){
 
 #' Create a Gentelella notification menu
 #'
-#' @param ... slot for gentelellaNotifItem
+#' @param ... slot for \link{notifItem}
 #' @param id menu id. Must be unique.
 #' @param icon menu icon
 #' @param status menu status: "danger", "warning", "info", "success" or "primary"
@@ -41,7 +41,7 @@ gentelellaNavbar <- function(..., navbarItems = NULL){
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-gentelellaNotif <- function(..., id, icon = "envelope-o",
+notif <- function(..., id, icon = "envelope-o",
                             status = "primary", expanded = FALSE) {
 
   len <- length(...)
@@ -57,7 +57,7 @@ gentelellaNotif <- function(..., id, icon = "envelope-o",
       `data-toggle` = "dropdown",
       `aria-expanded` = expanded,
       shiny::icon(icon),
-      gentelellaLabel(name = len, status = status, mode = "badge")
+      label(name = len, status = status, mode = "badge")
     ),
     # content
     shiny::tags$ul(
@@ -81,7 +81,7 @@ gentelellaNotif <- function(..., id, icon = "envelope-o",
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-gentelellaNotifItem <- function(..., title = NULL, date = NULL, img = NULL) {
+notifItem <- function(..., title = NULL, date = NULL, img = NULL) {
  shiny::tags$li(
    shiny::tags$a(
      shiny::tags$span(

@@ -1,6 +1,6 @@
 # #' A wizard container
 # #'
-# #' @param ... slot for wizardItem
+# #' @param ... slot for \link{wizardItem}
 # #' @param orientation wizard orientation: "horizontal" or "verticle"
 # #'
 # #' @examples
@@ -232,7 +232,7 @@ pieChart <- function(id, value, height = 220, width = 220,
 
 #' A timeline block
 #'
-#' @param ... slot for gentelellaTimelineItem
+#' @param ... slot for \link{timelineItem}
 #'
 #' @examples
 #' if (interactive()) {
@@ -252,8 +252,8 @@ pieChart <- function(id, value, height = 220, width = 220,
 #'        ),
 #'        a(class = "close-link", icon("close"))
 #'      ),
-#'      gentelellaTimeline(
-#'       gentelellaTimelineItem(
+#'      timeline(
+#'       timelineItem(
 #'        title = "Who Needs Sundance When You’ve Got Crowdfunding?",
 #'        url = NULL,
 #'        date = "13 hours ago",
@@ -263,7 +263,7 @@ pieChart <- function(id, value, height = 220, width = 220,
 #'        project, and if the buyers liked your flick, they’d pay to
 #'        Fast-forward and ..."
 #'       ),
-#'       gentelellaTimelineItem(
+#'       timelineItem(
 #'        title = "Who needs Money",
 #'        url = "http:://www.google.com",
 #'        date = "Today",
@@ -280,7 +280,7 @@ pieChart <- function(id, value, height = 220, width = 220,
 #' }
 #'
 #' @export
-gentelellaTimeline <- function(...) {
+timeline <- function(...) {
   shiny::tags$ul(
     class = "list-unstyled timeline",
     ...
@@ -298,7 +298,7 @@ gentelellaTimeline <- function(...) {
 #' @param tag timeline item tag
 #'
 #' @export
-gentelellaTimelineItem <- function(..., title = NULL, url = NULL, date = NULL, author = NULL,
+timelineItem <- function(..., title = NULL, url = NULL, date = NULL, author = NULL,
                                    tag = NULL) {
   shiny::tags$li(
     shiny::div(
@@ -339,7 +339,7 @@ gentelellaTimelineItem <- function(..., title = NULL, url = NULL, date = NULL, a
 
 #' A quick list container
 #'
-#' @param ... slot for quickListItem
+#' @param ... slot for \link{quickListItem}
 #'
 #'@examples
 #' if (interactive()) {
@@ -659,7 +659,7 @@ jumbotron <- function(..., title = NULL) {
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaAlert(
+#'     alert(
 #'      status = "warning",
 #'      title = "An alert",
 #'      "Best check yo self,
@@ -672,7 +672,7 @@ jumbotron <- function(..., title = NULL) {
 #' }
 #'
 #' @export
-gentelellaAlert <- function(..., title = NULL, status = "primary", dismissible = TRUE, width = 3) {
+alert <- function(..., title = NULL, status = "primary", dismissible = TRUE, width = 3) {
 
   alertCl <- "alert fade in"
   if (!is.null(status)) alertCl <- paste0(alertCl, " alert-", status)
@@ -710,7 +710,7 @@ gentelellaAlert <- function(..., title = NULL, status = "primary", dismissible =
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaStars(value = 4)
+#'     stars(value = 4)
 #'    )
 #'   ),
 #'   server <- function(input, output) {}
@@ -718,7 +718,7 @@ gentelellaAlert <- function(..., title = NULL, status = "primary", dismissible =
 #' }
 #'
 #' @export
-gentelellaStars <- function(value) {
+stars <- function(value) {
 
   stop_val <- 5 - value
 
@@ -955,9 +955,9 @@ updateTileCount <- function(input, output, session, value, change_value,
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaLabel(name = "David", status = "warning", mode = "badge"),
-#'     gentelellaLabel(name = "Mark", position = "pull-right"),
-#'     gentelellaLabel(name = "Isabella", status = "danger", position = "pull-left")
+#'     label(name = "David", status = "warning", mode = "badge"),
+#'     label(name = "Mark", position = "pull-right"),
+#'     label(name = "Isabella", status = "danger", position = "pull-left")
 #'    )
 #'   ),
 #'   server <- function(input, output) {}
@@ -965,7 +965,7 @@ updateTileCount <- function(input, output, session, value, change_value,
 #' }
 #'
 #' @export
-gentelellaLabel <- function(name = NULL, status = "primary",
+label <- function(name = NULL, status = "primary",
                             position = NULL, mode = "label") {
 
   if (mode == "badge") position <- NULL

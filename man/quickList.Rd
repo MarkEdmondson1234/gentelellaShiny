@@ -7,7 +7,7 @@
 quickList(...)
 }
 \arguments{
-\item{...}{slot for quickListItem}
+\item{...}{slot for \link{quickListItem}}
 }
 \description{
 A quick list container
