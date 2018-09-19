@@ -199,6 +199,7 @@ socialBox <- function(..., width = 3, height = 390,
 #' @param height Box height
 #' @param ribbon_text Ribbon text
 #' @param title Box title
+#' @param ribbon_color Ribbon background color: "red", "orange", "blue", "purple", "green".
 #'
 #' @examples
 #' if (interactive()) {
@@ -223,7 +224,12 @@ socialBox <- function(..., width = 3, height = 390,
 #' }
 #'
 #' @export
-ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL, title = NULL) {
+ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL,
+                      title = NULL, ribbon_color = NULL) {
+
+  ribbonCl <- "ui-ribbon"
+  if (!is.null(ribbon_color)) ribbonCl <- paste0(ribbonCl, " bg-", ribbon_color)
+
   shiny::div(
     class = paste0("col-md-", width, " col-xs-12 widget widget_tally_box"),
     shiny::div(
@@ -231,7 +237,7 @@ ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL, title = 
       # ribbon
       shiny::div(
         class = "ui-ribbon-wrapper",
-        shiny::div(class = "ui-ribbon", ribbon_text)
+        shiny::div(class = ribbonCl, ribbon_text)
       ),
       # title
       shiny::div(

@@ -5,7 +5,7 @@
 \title{A box with a ribbon}
 \usage{
 ribbonBox(..., width = 3, height = 390, ribbon_text = NULL,
-  title = NULL)
+  title = NULL, ribbon_color = NULL)
 }
 \arguments{
 \item{...}{elements to put in the box}
@@ -17,6 +17,8 @@ ribbonBox(..., width = 3, height = 390, ribbon_text = NULL,
 \item{ribbon_text}{Ribbon text}
 
 \item{title}{Box title}
+
+\item{ribbon_color}{Ribbon background color: "red", "orange", "blue", "purple", "green".}
 }
 \description{
 A box with a ribbon

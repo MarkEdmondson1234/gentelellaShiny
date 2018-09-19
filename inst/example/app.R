@@ -61,6 +61,7 @@ shiny::shinyApp(
             ribbonBox(
               width = 4,
               ribbon_text = "A ribbon",
+              ribbon_color = "red",
               title = "Ribbon Box",
               lorem_ipsum
             ),
