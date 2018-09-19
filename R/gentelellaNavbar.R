@@ -38,6 +38,37 @@ gentelellaNavbar <- function(..., navbarItems = NULL){
 #' @param status menu status: "danger", "warning", "info", "success" or "primary"
 #' @param expanded Whether the dropdown menu is open or not. FALSE by default.
 #'
+#' @examples
+#' if (interactive()) {
+#'  library(shiny)
+#'  library(gentelellaShiny)
+#'  shinyApp(
+#'    ui = gentelellaPage(
+#'     navbar = gentelellaNavbar(
+#'     navbarItems = notif(
+#'       id = "menunotif",
+#'       icon = "envelope-o",
+#'       status = "danger",
+#'       expanded = TRUE,
+#'       lapply(X = 1:5, FUN = function(i) {
+#'         notifItem(
+#'           title = "John Doe",
+#'           date = "3 min ago",
+#'           img = paste0("https://image.flaticon.com/icons/svg/163/16382", i,".svg"),
+#'           "Film festivals used to be do-or-die moments
+#'           for movie makers. They were where..."
+#'         )
+#'       })
+#'      )
+#'     ),
+#'     sidebar = gentelellaSidebar(),
+#'     body = gentelellaBody(),
+#'     footer = gentelellaFooter()
+#'    ),
+#'    server <- function(input, output) {}
+#'  )
+#' }
+#'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
@@ -46,10 +77,8 @@ notif <- function(..., id, icon = "envelope-o",
 
   len <- length(...)
 
-  if (expanded) "true" else "false"
-
   shiny::tags$li(
-    class = "dropdown",
+    class = if (expanded) "dropdown open" else "dropdown",
     role = "presentation",
     shiny::tags$a(
       class = "dropdown-toggle info-number",

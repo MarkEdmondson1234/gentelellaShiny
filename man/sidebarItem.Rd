@@ -4,7 +4,8 @@
 \alias{sidebarItem}
 \title{Create a Gentelella dashboard sidebar menu item}
 \usage{
-sidebarItem(..., tabName = NULL, icon = NULL)
+sidebarItem(..., tabName = NULL, icon = NULL, badgeName = NULL,
+  badgeStatus = "danger")
 }
 \arguments{
 \item{...}{item name}
@@ -12,6 +13,10 @@ sidebarItem(..., tabName = NULL, icon = NULL)
 \item{tabName}{item id. Must be unique}
 
 \item{icon}{item icon}
+
+\item{badgeName}{item badge name if any.}
+
+\item{badgeStatus}{item badge status: "danger", "warning", "info", "success" or "primary".}
 }
 \description{
 Create a Gentelella dashboard sidebar menu item

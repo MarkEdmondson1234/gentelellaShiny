@@ -35,7 +35,7 @@ shiny::shinyApp(
       sidebarDate(),
       sidebarMenu(
         #title = "test",
-        sidebarItem("Boxes", tabName = "boxes", icon = "clone"),
+        sidebarItem("Boxes", tabName = "boxes", icon = "clone", badgeName = "New"),
         sidebarItem("Tabs", tabName = "tabs", icon = "tasks"),
         sidebarItem("Charts", tabName = "charts", icon = "bar-chart"),
         sidebarItem("Other Items", tabName = "others", icon = "bug")
@@ -49,6 +49,7 @@ shiny::shinyApp(
             box(
               width = 4,
               title = "Simple Box",
+              subtitle = "Box subtitle",
               closable = TRUE,
               collapsible = TRUE,
               dropdownMenu = list(
@@ -327,13 +328,13 @@ shiny::shinyApp(
                   20,
                   side = "left",
                   status = "primary",
-                  striped = FALSE
+                  striped = TRUE
                 ),
                 progressBar(
                   70,
                   side = "right",
                   color = "purple",
-                  striped = TRUE
+                  striped = FALSE
                 )
               )
             )

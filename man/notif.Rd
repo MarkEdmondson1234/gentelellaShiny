@@ -21,6 +21,38 @@ notif(..., id, icon = "envelope-o", status = "primary",
 \description{
 Create a Gentelella notification menu
 }
+\examples{
+if (interactive()) {
+ library(shiny)
+ library(gentelellaShiny)
+ shinyApp(
+   ui = gentelellaPage(
+    navbar = gentelellaNavbar(
+    navbarItems = notif(
+      id = "menunotif",
+      icon = "envelope-o",
+      status = "danger",
+      expanded = TRUE,
+      lapply(X = 1:5, FUN = function(i) {
+        notifItem(
+          title = "John Doe",
+          date = "3 min ago",
+          img = paste0("https://image.flaticon.com/icons/svg/163/16382", i,".svg"),
+          "Film festivals used to be do-or-die moments
+          for movie makers. They were where..."
+        )
+      })
+     )
+    ),
+    sidebar = gentelellaSidebar(),
+    body = gentelellaBody(),
+    footer = gentelellaFooter()
+   ),
+   server <- function(input, output) {}
+ )
+}
+
+}
 \author{
 David Granjon, \email{dgranjon@ymail.com}
 }

@@ -4,8 +4,8 @@
 \alias{progressBar}
 \title{Progress bar}
 \usage{
-progressBar(value, side = "left", status = "primary",
-  striped = FALSE, width = 6, color = NULL)
+progressBar(value, side = "left", status = NULL, striped = FALSE,
+  color = NULL)
 }
 \arguments{
 \item{value}{progress value}
@@ -16,8 +16,6 @@ progressBar(value, side = "left", status = "primary",
 When status is not NULL, color is NULL}
 
 \item{striped}{Whether the progress bar is striped or not. FALSE by default.}
-
-\item{width}{Progress bar width. Between 1 and 12.}
 
 \item{color}{Alternative to status: "red", "orange", "green", "blue", "purple".
 When color is not NULL, status is NULL.}

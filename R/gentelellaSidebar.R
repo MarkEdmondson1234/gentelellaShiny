@@ -91,11 +91,14 @@ sidebarMenu <- function(..., title = NULL) {
 #' @param ... item name
 #' @param tabName item id. Must be unique
 #' @param icon item icon
+#' @param badgeName item badge name if any.
+#' @param badgeStatus item badge status: "danger", "warning", "info", "success" or "primary".
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-sidebarItem <- function(..., tabName = NULL, icon = NULL){
+sidebarItem <- function(..., tabName = NULL, icon = NULL,
+                        badgeName = NULL, badgeStatus = "danger"){
 
   if (is.null(tabName))
     stop("Need tabName")
@@ -109,7 +112,17 @@ sidebarItem <- function(..., tabName = NULL, icon = NULL){
         href = paste0("#shiny-tab-", tabName),
         `data-toggle` = "tab",
         `data-value` = tabName,
-        shiny::tags$p(shiny::icon(icon), ...)
+        shiny::tags$p(
+          shiny::icon(icon),
+          ...,
+          if (!is.null(badgeName)) {
+            gentelellaShiny::label(
+              status = badgeStatus,
+              name = badgeName,
+              position = "pull-right"
+            )
+          }
+        )
       )
     #} else {
       #shiny::tagList(
