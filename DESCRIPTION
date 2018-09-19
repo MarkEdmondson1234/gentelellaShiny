@@ -2,7 +2,7 @@ Package: gentelellaShiny
 Type: Package
 Version: 0.1.0
 Title: Use the Gentelella Bootstrap Template in Shiny Apps
-Description: A Shiny admin dashboard based on the 'Bootstrap' 'Gentelella' Theme.
+Description: A 'shiny' admin dashboard based on the 'Bootstrap 3' 'Gentelella' theme.
     Seem more here <https://colorlib.com/polygon/gentelella/index.html>.
 Authors@R: c(
   person("Mark", "Edmondson", email = "m@sunholo.com", role = c("aut", "cre")),
