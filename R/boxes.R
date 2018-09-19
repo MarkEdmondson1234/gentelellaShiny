@@ -41,7 +41,7 @@ box <- function(..., width = 4, height = NULL,
   menuItems <- list(
     if (collapsible) shiny::a(class = "collapse-link", shiny::icon("chevron-up")),
     if (!is.null(dropdownMenu)) dropdownMenu,
-    if (closable) shiny::a(class = "close-link", icon("close"))
+    if (closable) shiny::a(class = "close-link", shiny::icon("close"))
   )
 
   shiny::tags$div(

@@ -4,14 +4,14 @@
 \alias{sidebarItem}
 \title{Create a Gentelella dashboard sidebar menu item}
 \usage{
-sidebarItem(tabName = NULL, icon = NULL)
+sidebarItem(..., tabName = NULL, icon = NULL)
 }
 \arguments{
-\item{tabName}{item name}
+\item{...}{item name}
+
+\item{tabName}{item id. Must be unique}
 
 \item{icon}{item icon}
-
-\item{nested_element}{nested_element, if any}
 }
 \description{
 Create a Gentelella dashboard sidebar menu item

@@ -1,7 +1,7 @@
 #' Create a gentelella tabSetPanel
 #'
 #'
-#' @param ... Slot for gentelellaTabPanel.
+#' @param ... Slot for \link{tabPanel}.
 #' @param id TabSetPanel id. Should be unique.
 #' @param right If TabSetPanel start from the right side. FALSE by default.
 #'
@@ -14,9 +14,9 @@
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaTabSetPanel(
+#'     tabSetPanel(
 #'      id = "tabset1",
-#'      gentelellaTabPanel(
+#'      tabPanel(
 #'        tabName = "Home",
 #'        active = TRUE,
 #'        "Raw denim you probably haven't heard of
@@ -26,7 +26,7 @@
 #'        Reprehenderit butcher retro keffiyeh dreamcatcher synth.
 #'        Cosby sweater eu banh mi, qui irure terr."
 #'      ),
-#'      gentelellaTabPanel(
+#'      tabPanel(
 #'        tabName = "Profile",
 #'        active = FALSE,
 #'        sliderInput(
@@ -50,7 +50,7 @@
 #' }
 #'
 #' @export
-gentelellaTabSetPanel <- function(..., id, right = FALSE) {
+tabSetPanel <- function(..., id, right = FALSE) {
 
   tabSetCl <- if (right) {
     "nav nav-tabs bar_tabs right"
@@ -102,7 +102,9 @@ gentelellaTabSetPanel <- function(..., id, right = FALSE) {
 
 #' Create a gentelella tabPanel
 #'
-#' To be included in a gentelellaTabSetPanel
+#' To be included in a \link{tabSetPanel}
+#'
+#' @note tabName must be unique even between \link{tabSetPanel} or \link{tabSetPill}
 #'
 #' @param ... Tab content
 #' @param tabName Tab name: it will be also passed as the id argument. Should be unique.
@@ -111,7 +113,7 @@ gentelellaTabSetPanel <- function(..., id, right = FALSE) {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-gentelellaTabPanel <- function(..., tabName, active = FALSE) {
+tabPanel <- function(..., tabName, active = FALSE) {
 
   tabCl <- if (active) "tab-pane fade active in" else "tab-pane fade"
 
@@ -129,7 +131,7 @@ gentelellaTabPanel <- function(..., tabName, active = FALSE) {
 #' Create a gentelella tabSetPill
 #'
 #'
-#' @param ... Slot for gentelellaTabPill.
+#' @param ... Slot for \link{tabPill}.
 #' @param right If TabSetPanel start from the right side. FALSE by default.
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
@@ -141,8 +143,8 @@ gentelellaTabPanel <- function(..., tabName, active = FALSE) {
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaTabSetPill(
-#'      gentelellaTabPill(
+#'     tabSetPill(
+#'      tabPill(
 #'        tabName = "Home",
 #'        active = TRUE,
 #'        "Raw denim you probably haven't heard of
@@ -152,7 +154,7 @@ gentelellaTabPanel <- function(..., tabName, active = FALSE) {
 #'        Reprehenderit butcher retro keffiyeh dreamcatcher synth.
 #'        Cosby sweater eu banh mi, qui irure terr."
 #'      ),
-#'      gentelellaTabPill(
+#'      tabPill(
 #'        tabName = "Profile",
 #'        active = FALSE,
 #'        sliderInput(
@@ -176,7 +178,7 @@ gentelellaTabPanel <- function(..., tabName, active = FALSE) {
 #' }
 #'
 #' @export
-gentelellaTabSetPill <- function(..., right = FALSE) {
+tabSetPill <- function(..., right = FALSE) {
 
   tabSetCl <- if (right) {
     "nav nav-tabs tabs-right"
@@ -231,7 +233,9 @@ gentelellaTabSetPill <- function(..., right = FALSE) {
 
 #' Create a gentelella tabPill
 #'
-#' To be included in a gentelellaTabSetPill
+#' To be included in a \link{tabSetPill}
+#'
+#' @note tabName must be unique even between \link{tabSetPanel} or \link{tabSetPill}
 #'
 #' @param ... Tab content
 #' @param tabName Tab name: it will be also passed as the id argument. Should be unique.
@@ -240,7 +244,7 @@ gentelellaTabSetPill <- function(..., right = FALSE) {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-gentelellaTabPill <- function(..., tabName, active = FALSE) {
+tabPill <- function(..., tabName, active = FALSE) {
 
   tabCl <- if (active) "tab-pane active" else "tab-pane"
 

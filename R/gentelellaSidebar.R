@@ -88,15 +88,14 @@ sidebarMenu <- function(..., title = NULL) {
 
 #' Create a Gentelella dashboard sidebar menu item
 #'
-# #' @param ... Slot for \link{sidebarSubItem}
-#' @param tabName item name
+#' @param ... item name
+#' @param tabName item id. Must be unique
 #' @param icon item icon
-#' @param nested_element nested_element, if any
 #'
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-sidebarItem <- function(tabName = NULL, icon = NULL){
+sidebarItem <- function(..., tabName = NULL, icon = NULL){
 
   if (is.null(tabName))
     stop("Need tabName")
@@ -110,7 +109,7 @@ sidebarItem <- function(tabName = NULL, icon = NULL){
         href = paste0("#shiny-tab-", tabName),
         `data-toggle` = "tab",
         `data-value` = tabName,
-        shiny::tags$p(shiny::icon(icon), tabName)
+        shiny::tags$p(shiny::icon(icon), ...)
       )
     #} else {
       #shiny::tagList(
