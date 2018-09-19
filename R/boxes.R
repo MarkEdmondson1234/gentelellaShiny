@@ -5,7 +5,9 @@
 #' @param height Box height
 #' @param title Box title
 #' @param subtitle Box subtitle
-#' @param menuItems A list of other things to appear in top menu such as close button, collapse and dropdowns
+#' @param collapsible Whether the box can be collapsed. TRUE by default.
+#' @param closable Whether the box can be closed. FALSE by default.
+#' @param dropdownMenu Dropdown menu: list of dropdown links. See example below.
 #'
 #' @examples
 #' if (interactive()) {
@@ -19,13 +21,10 @@
 #'      width = 4,
 #'      height = NULL,
 #'      title = "Box title",
-#'      menuItems = list(
-#'        a(class = "collapse-link", icon("chevron-up")),
-#'        list(
-#'          a(href = "http://www.google.com", "Test", target = "_blank"),
-#'          a(href = "#", "Test2")
-#'        ),
-#'        a(class = "close-link", icon("close"))
+#'      closable = TRUE,
+#'      dropdownMenu = list(
+#'       a(href = "http://www.google.com", "Test", target = "_blank"),
+#'       a(href = "http://www.google.com", "Test", target = "_blank")
 #'      )
 #'     )
 #'    )
@@ -35,8 +34,15 @@
 #' }
 #'
 #' @export
-box <- function(..., width = 4, height = NULL, title = "Box title", subtitle = NULL,
-                          menuItems = list(shiny::a(class = "collapse-link", shiny::icon("chevron-up")))){
+box <- function(..., width = 4, height = NULL,
+                title = "Box title", subtitle = NULL, collapsible = TRUE,
+                closable = FALSE, dropdownMenu = NULL){
+
+  menuItems <- list(
+    if (collapsible) shiny::a(class = "collapse-link", shiny::icon("chevron-up")),
+    if (!is.null(dropdownMenu)) dropdownMenu,
+    if (closable) shiny::a(class = "close-link", icon("close"))
+  )
 
   shiny::tags$div(
     class = paste0(paste(c("col-md","col-sm"), width, sep = "-", collapse = " "), " col-xs-12"),

@@ -98,6 +98,9 @@ sidebarMenu <- function(..., title = NULL) {
 #' @export
 sidebarItem <- function(tabName = NULL, icon = NULL){
 
+  if (is.null(tabName))
+    stop("Need tabName")
+
   #subitems <- list(...)
 
   htmltools::withTags({

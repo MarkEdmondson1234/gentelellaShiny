@@ -5,8 +5,8 @@
 \title{A box to put dashboard elements in}
 \usage{
 box(..., width = 4, height = NULL, title = "Box title",
-  subtitle = NULL, menuItems = list(shiny::a(class = "collapse-link",
-  shiny::icon("chevron-up"))))
+  subtitle = NULL, collapsible = TRUE, closable = FALSE,
+  dropdownMenu = NULL)
 }
 \arguments{
 \item{...}{elements to put in the box}
@@ -19,7 +19,11 @@ box(..., width = 4, height = NULL, title = "Box title",
 
 \item{subtitle}{Box subtitle}
 
-\item{menuItems}{A list of other things to appear in top menu such as close button, collapse and dropdowns}
+\item{collapsible}{Whether the box can be collapsed. TRUE by default.}
+
+\item{closable}{Whether the box can be closed. FALSE by default.}
+
+\item{dropdownMenu}{Dropdown menu: list of dropdown links. See example below.}
 }
 \description{
 A box to put dashboard elements in
@@ -36,13 +40,10 @@ if (interactive()) {
      width = 4,
      height = NULL,
      title = "Box title",
-     menuItems = list(
-       a(class = "collapse-link", icon("chevron-up")),
-       list(
-         a(href = "http://www.google.com", "Test", target = "_blank"),
-         a(href = "#", "Test2")
-       ),
-       a(class = "close-link", icon("close"))
+     closable = TRUE,
+     dropdownMenu = list(
+      a(href = "http://www.google.com", "Test", target = "_blank"),
+      a(href = "http://www.google.com", "Test", target = "_blank")
      )
     )
    )
