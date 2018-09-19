@@ -4,7 +4,9 @@
 \alias{pieChart}
 \title{A simple circular diagram item}
 \usage{
-pieChart(id, value, height = 220, width = 220)
+pieChart(id, value, height = 220, width = 220, barColor = "#ef1e25",
+  trackColor = "#f2f2f2", scaleColor = "#dfe0e0", scaleLength = 5,
+  lineCap = "round", lineWidth = 3, rotate = 0)
 }
 \arguments{
 \item{id}{Unique id.}
@@ -14,6 +16,20 @@ pieChart(id, value, height = 220, width = 220)
 \item{height}{Canvas height. 220 px by default.}
 
 \item{width}{Canvas width. 220 px by default.}
+
+\item{barColor}{Default: #ef1e25.    The color of the curcular bar. You can either pass a valid css color string, or a function that takes the current percentage as a value and returns a valid css color string.}
+
+\item{trackColor}{Default: #f2f2f2.    The color of the track, or false to disable rendering.}
+
+\item{scaleColor}{Default: #dfe0e0.    The color of the scale lines, false to disable rendering.}
+
+\item{scaleLength}{Default: 5.    Length of the scale lines (reduces the radius of the chart).}
+
+\item{lineCap}{Default: 'round'.    Defines how the ending of the bar line looks like. Possible values are: butt, round and square.}
+
+\item{lineWidth}{Default: 3.    Width of the chart line in px.}
+
+\item{rotate}{Default: 0.    Rotation of the complete chart in degrees.}
 }
 \description{
 A simple circular diagram item
@@ -25,14 +41,23 @@ if (interactive()) {
  shinyApp(
   ui = gentelellaPage(
    gentelellaBody(
-    gentelellaRibbonBox(
-      ribbon_text = "30 \% Off",
+    gentelellaBox(
       title = "pieChart",
       "If you've decided to go in development mode and
       tweak all of this a bit, there are few things
       you should do.",
       pieChart(id = "chart1", value = 10),
-      pieChart(id = "chart2", value = 20)
+      pieChart(
+       id = "chart2",
+       value = 20,
+       barColor = "#0000FF",
+       trackColor = "#FFA500",
+       scaleColor = "#dfe0e0",
+       scaleLength = 10,
+       lineCap = "square",
+       lineWidth = 6,
+       rotate = 180
+      )
      )
     )
   ),

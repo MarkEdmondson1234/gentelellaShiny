@@ -141,6 +141,13 @@ socialStatsItem <- function(value = NULL, name = NULL) {
 #' @param value Item value
 #' @param height Canvas height. 220 px by default.
 #' @param width Canvas width. 220 px by default.
+#' @param barColor Default: #ef1e25.	The color of the curcular bar. You can either pass a valid css color string, or a function that takes the current percentage as a value and returns a valid css color string.
+#' @param trackColor Default: #f2f2f2.	The color of the track, or false to disable rendering.
+#' @param scaleColor Default: #dfe0e0.	The color of the scale lines, false to disable rendering.
+#' @param scaleLength Default: 5.	Length of the scale lines (reduces the radius of the chart).
+#' @param lineCap Default: 'round'.	Defines how the ending of the bar line looks like. Possible values are: butt, round and square.
+#' @param lineWidth Default: 3.	Width of the chart line in px.
+#' @param rotate Default: 0.	Rotation of the complete chart in degrees.
 #'
 #' @examples
 #' if (interactive()) {
@@ -149,14 +156,23 @@ socialStatsItem <- function(value = NULL, name = NULL) {
 #'  shinyApp(
 #'   ui = gentelellaPage(
 #'    gentelellaBody(
-#'     gentelellaRibbonBox(
-#'       ribbon_text = "30 % Off",
+#'     gentelellaBox(
 #'       title = "pieChart",
 #'       "If you've decided to go in development mode and
 #'       tweak all of this a bit, there are few things
 #'       you should do.",
 #'       pieChart(id = "chart1", value = 10),
-#'       pieChart(id = "chart2", value = 20)
+#'       pieChart(
+#'        id = "chart2",
+#'        value = 20,
+#'        barColor = "#0000FF",
+#'        trackColor = "#FFA500",
+#'        scaleColor = "#dfe0e0",
+#'        scaleLength = 10,
+#'        lineCap = "square",
+#'        lineWidth = 6,
+#'        rotate = 180
+#'       )
 #'      )
 #'     )
 #'   ),
@@ -165,7 +181,10 @@ socialStatsItem <- function(value = NULL, name = NULL) {
 #' }
 #'
 #' @export
-pieChart <- function(id, value, height = 220, width = 220) {
+pieChart <- function(id, value, height = 220, width = 220,
+                     barColor = "#ef1e25", trackColor = "#f2f2f2",
+                     scaleColor = "#dfe0e0", scaleLength = 5,
+                     lineCap = "round", lineWidth = 3, rotate = 0) {
   pieChartTag <- shiny::div(
     style = "text-align: center; margin-bottom: 17px;",
     shiny::span(
@@ -188,7 +207,14 @@ pieChart <- function(id, value, height = 220, width = 220) {
           paste0(
             "$(function() {
               $('#", id, "').easyPieChart({
-              //your options goes here
+               //your options goes here
+               barColor:'", barColor,"',
+               trackColor:'", trackColor,"',
+               scaleColor:'", scaleColor,"',
+               scaleLength:", scaleLength,",
+               lineCap:'", lineCap,"',
+               lineWidth:", lineWidth,",
+               rotate:", rotate,"
               });
             });
             "
