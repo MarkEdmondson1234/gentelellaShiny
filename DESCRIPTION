@@ -23,5 +23,3 @@ LazyData: true
 Encoding: UTF-8
 VignetteBuilder: knitr
 RoxygenNote: 6.1.0
-Remotes:
-  MarkEdmondson1234/googleID
