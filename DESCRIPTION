@@ -14,7 +14,8 @@ Depends:
   R (>= 3.2.0)
 Imports:
   shiny (>= 0.13.0),
-  htmltools
+  htmltools,
+  httpuv (>= 1.4.3)
 Suggests:
   googleAuthR (>= 0.3.1),
   knitr
