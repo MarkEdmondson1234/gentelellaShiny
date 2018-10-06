@@ -1,5 +1,10 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-
 language: R
-sudo: false
 cache: packages
+r_packages:
+  shiny
+notifications:
+  slack: googleauthrverse:tGfXjSD58cQSEr1YuzQ5hKPS
+  email:
+    on_success: change
+    on_failure: change
