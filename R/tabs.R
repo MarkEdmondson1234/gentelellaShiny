@@ -50,6 +50,7 @@
 #' }
 #'
 #' @export
+#' @import shiny
 tabSetPanel <- function(..., id, right = FALSE) {
 
   tabSetCl <- if (right) {
@@ -66,10 +67,10 @@ tabSetPanel <- function(..., id, right = FALSE) {
     current_item_cl <- current_item$attribs$class
     current_item_name <- current_item$attribs$id
     active <- sum(grep(x = current_item_cl, pattern = "active")) == 1
-    shiny::tags$li(
+    tags$li(
       class = if (active == 1) "active" else NA,
       role = "presentation",
-      shiny::tags$a(
+      tags$a(
         href = paste0("#", current_item_name),
         id = paste0(current_item_name, "-tab"),
         role = "tab",
@@ -80,17 +81,17 @@ tabSetPanel <- function(..., id, right = FALSE) {
     )
   })
 
-  shiny::tags$div(
+  tags$div(
     class = NA,
     role = "tabpanel",
     `data-example-id` = "togglable-tabs",
-    shiny::tags$ul(
+    tags$ul(
       class = tabSetCl,
       id = id,
       role = "tablist",
       tabMenu
     ),
-    shiny::tags$div(
+    tags$div(
       class = "tab-content",
       id = paste0(id, "Content"),
       ...
@@ -113,11 +114,12 @@ tabSetPanel <- function(..., id, right = FALSE) {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 tabPanel <- function(..., tabName, active = FALSE) {
 
   tabCl <- if (active) "tab-pane fade active in" else "tab-pane fade"
 
-  shiny::tags$div(
+  tags$div(
     class = tabCl,
     role = "tabpanel",
     id = tabName,
@@ -194,9 +196,9 @@ tabSetPill <- function(..., right = FALSE) {
     current_item_cl <- current_item$attribs$class
     current_item_name <- current_item$attribs$id
     active <- sum(grep(x = current_item_cl, pattern = "active")) == 1
-    shiny::tags$li(
+    tags$li(
       class = if (active == 1) "active" else NA,
-      shiny::tags$a(
+      tags$a(
         href = paste0("#", current_item_name),
         `data-toggle` = "tab",
         `aria-expanded` = if (active == 1) "true" else "false",
@@ -205,25 +207,25 @@ tabSetPill <- function(..., right = FALSE) {
     )
   })
 
-  menuTag <- shiny::tags$ul(
+  menuTag <- tags$ul(
     class = tabSetCl,
     tabMenu
   )
 
-  contentTag <- shiny::tags$div(
+  contentTag <- tags$div(
     class = "tab-content",
     ...
   )
 
   mainTag <- if (right) {
-    shiny::tagList(
-      shiny::tags$div(class = "col-xs-9", contentTag),
-      shiny::tags$div(class = "col-xs-3", menuTag)
+    tagList(
+      tags$div(class = "col-xs-9", contentTag),
+      tags$div(class = "col-xs-3", menuTag)
     )
   } else {
-    shiny::tagList(
-      shiny::tags$div(class = "col-xs-3", menuTag),
-      shiny::tags$div(class = "col-xs-9", contentTag)
+    tagList(
+      tags$div(class = "col-xs-3", menuTag),
+      tags$div(class = "col-xs-9", contentTag)
     )
   }
   mainTag
@@ -248,7 +250,7 @@ tabPill <- function(..., tabName, active = FALSE) {
 
   tabCl <- if (active) "tab-pane active" else "tab-pane"
 
-  shiny::tags$div(
+  tags$div(
     class = tabCl,
     id = tabName,
     ...

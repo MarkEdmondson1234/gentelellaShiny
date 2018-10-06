@@ -36,62 +36,63 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 box <- function(..., width = 4, height = NULL,
                 title = "Box title", subtitle = NULL, collapsible = TRUE,
                 closable = FALSE, dropdownMenu = NULL){
 
   menuItems <- list(
-    if (collapsible) shiny::a(class = "collapse-link", shiny::icon("chevron-up")),
+    if (collapsible) a(class = "collapse-link", icon("chevron-up")),
     if (!is.null(dropdownMenu)) dropdownMenu,
-    if (closable) shiny::a(class = "close-link", shiny::icon("close"))
+    if (closable) a(class = "close-link", icon("close"))
   )
 
-  shiny::tags$div(
+  tags$div(
     class = paste0(paste(c("col-md","col-sm"), width, sep = "-", collapse = " "), " col-xs-12"),
-    shiny::tags$div(
+    tags$div(
       class = "x_panel tile",
       style = paste0("height: ", height, "px;"),
-      shiny::tags$div(
+      tags$div(
         class = "x_title",
-        shiny::tags$h2(title, shiny::tags$small(class = "pull-right", subtitle)),
-        shiny::tags$ul(
+        tags$h2(title, tags$small(class = "pull-right", subtitle)),
+        tags$ul(
           class = "nav navbar-right panel_toolbox",
           ## add more items to li menu if passed.
-          shiny::tagList(lapply(X = 1:length(menuItems), FUN = function(i) {
+          tagList(lapply(X = 1:length(menuItems), FUN = function(i) {
             current_item_class <- class(menuItems[[i]])
             current_items <- menuItems[[i]]
             # this handles the case where the user provide a dropdown menu as
             # input
             if (current_item_class == "list") {
-              shiny::tagList(
-                shiny::tags$li(
+              tagList(
+                tags$li(
                   class = "dropdown",
-                  shiny::tags$a(
+                  tags$a(
                     class = "dropdown-toggle",
                     `aria-expanded` = "false",
                     `data-toggle` = "dropdown",
                     href = "#",
                     role = "button",
-                    shiny::icon("wrench")
+                    icon("wrench")
                   ),
-                  shiny::tags$ul(
+                  tags$ul(
                     class = "dropdown-menu",
                     role = "menu",
-                    lapply(current_items, shiny::tags$li)
+                    lapply(current_items, tags$li)
                   )
                 )
               )
             } else {
-              shiny::tags$li(menuItems[[i]])
+              tags$li(menuItems[[i]])
             }
           })
           )
         ),
-        shiny::tags$div(class = "clearfix")
+        tags$div(class = "clearfix")
       ),
-      shiny::tags$div(
+      tags$div(
         class = "x_content",
-        shiny::tagList(...)
+        tagList(...)
       )
     )
   )
@@ -146,48 +147,49 @@ box <- function(..., width = 4, height = NULL,
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 socialBox <- function(..., width = 3, height = 390,
                                 title = NULL, url_1 = NULL, url_2 = NULL,
                                 media_1 = NULL, media_2 = NULL,
                                 profile_img = NULL, footer = NULL) {
-  shiny::div(
+  div(
     class = paste0("col-md-", width, " col-xs-12 widget widget_tally_box"),
-    shiny::div(
+    div(
       class = paste0("x_panel fixed_height_", height),
-      shiny::div(
+      div(
         class = "x_content",
-        shiny::div(
+        div(
           class = "flex",
-          shiny::tags$ul(
+          tags$ul(
             class = "list-inline widget_profile_box",
-            shiny::tags$li(
-              shiny::a(
+            tags$li(
+              a(
                 href = url_1,
                 target = "_blank",
-                shiny::icon(media_1)
+                icon(media_1)
               )
             ),
-            shiny::tags$li(
-              shiny::img(
+            tags$li(
+              img(
                 src = profile_img,
                 class = "img-circle profile_img"
               )
             ),
-            shiny::tags$li(
-              shiny::a(
+            tags$li(
+              a(
                 href = url_2,
                 target = "_blank",
-                shiny::icon(media_2)
+                icon(media_2)
               )
             )
           )
         ),
-        shiny::h3(class = "name", title),
-        shiny::div(
+        h3(class = "name", title),
+        div(
           class = "flex",
           ...
         ),
-        shiny::p(footer)
+        p(footer)
       )
     )
   )
@@ -230,29 +232,30 @@ socialBox <- function(..., width = 3, height = 390,
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL,
                       title = NULL, ribbon_color = NULL) {
 
   ribbonCl <- "ui-ribbon"
   if (!is.null(ribbon_color)) ribbonCl <- paste0(ribbonCl, " bg-", ribbon_color)
 
-  shiny::div(
+  div(
     class = paste0("col-md-", width, " col-xs-12 widget widget_tally_box"),
-    shiny::div(
+    div(
       class = paste0("x_panel ui-ribbon-container fixed_height_", height),
       # ribbon
-      shiny::div(
+      div(
         class = "ui-ribbon-wrapper",
-        shiny::div(class = ribbonCl, ribbon_text)
+        div(class = ribbonCl, ribbon_text)
       ),
       # title
-      shiny::div(
+      div(
         class = "x_title",
-        shiny::h2(title),
-        shiny::div(class = "clearfix")
+        h2(title),
+        div(class = "clearfix")
       ),
       # content
-      shiny::div(class = "x_content", ...)
+      div(class = "x_content", ...)
     )
   )
 }
@@ -295,18 +298,19 @@ ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL,
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width = 3) {
- shiny::div(
+ div(
    class = paste0("animated flipInY col-lg-3 col-md-", width," col-sm-6 col-xs-12"),
-   shiny::div(
+   div(
      class = "tile-stats",
-     shiny::div(
+     div(
        class = "icon",
-       shiny::icon(icon)
+       icon(icon)
      ),
-     shiny::div(class = "count", value),
-     shiny::h3(title),
-     shiny::p(description)
+     div(class = "count", value),
+     h3(title),
+     p(description)
    )
  )
 }
@@ -351,36 +355,37 @@ valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 contactBox <- function(..., head_title = NULL, main_title = NULL,
                        img = NULL, footer_left = NULL,
                        footer_right = NULL, width = 4) {
- shiny::tags$div(
+ tags$div(
    class = paste0("col-md-4 col-sm-", width," col-xs-12 profile_details"),
-   shiny::tags$div(
+   tags$div(
      class = "well profile_view",
-     shiny::tags$div(
+     tags$div(
        class = "col-sm-12",
-       shiny::tags$h4(class = "brief", shiny::tags$i(head_title)),
+       tags$h4(class = "brief", tags$i(head_title)),
        # content
-       shiny::tags$div(
+       tags$div(
          class = "left col-xs-7",
-         shiny::tags$h2(main_title),
-         shiny::tags$p(
-           shiny::tags$strong("About: "),
+         tags$h2(main_title),
+         tags$p(
+           tags$strong("About: "),
            ...
          )
        ),
        # image
-       shiny::tags$div(
+       tags$div(
          class = "right col-xs-5 text-center",
-         shiny::tags$img(src = img, class = "img-circle img-responsive")
+         tags$img(src = img, class = "img-circle img-responsive")
        )
      ),
      # footer
-     shiny::tags$div(
+     tags$div(
        class = "col-xs-12 bottom text-center",
-       shiny::tags$div(class = "col-xs-12 col-sm-6 emphasis", footer_left),
-       shiny::tags$div(class = "col-xs-12 col-sm-6 emphasis", footer_right)
+       tags$div(class = "col-xs-12 col-sm-6 emphasis", footer_left),
+       tags$div(class = "col-xs-12 col-sm-6 emphasis", footer_right)
      )
    )
  )

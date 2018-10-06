@@ -31,7 +31,7 @@ if(interactive()){
  library(shiny)
  library(gentelellaShiny)
 
- shiny::shinyApp(
+ shinyApp(
   ui = gentelellaPage(
    title = "Shiny Gentelella",
    navbar = gentelellaNavbar(

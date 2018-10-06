@@ -6,14 +6,16 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @importFrom htmltools withTags
+#' @importFrom shiny tagList tags div
 gentelellaFooter <- function(leftText = "Mark Edmondson and David Granjon",
                              rightText = "2018"){
-  htmltools::withTags({
-    shiny::tagList(
-      shiny::tags$footer(
-        shiny::div(class = "pull-left", leftText),
-        shiny::div(class = "pull-right", rightText),
-        shiny::div(class = "clearfix")
+  withTags({
+    tagList(
+      tags$footer(
+        div(class = "pull-left", leftText),
+        div(class = "pull-right", rightText),
+        div(class = "clearfix")
       )
     )
   })

@@ -9,31 +9,34 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
-gentelellaSidebar <- function(..., site_title = shiny::HTML(paste(shiny::icon("paw"), "Shiny Gentelella")),
+#' @import shiny
+gentelellaSidebar <- function(...,
+                              site_title = shiny::HTML(paste(shiny::icon("paw"),
+                                                             "Shiny Gentelella")),
                               url = NULL, fixed = FALSE, footer = NULL){
 
   sidebarCl <- "col-md-3 left_col"
   if (fixed) sidebarCl <- paste0(sidebarCl, " menu_fixed")
 
-  shiny::tags$div(
+  tags$div(
     class = sidebarCl,
-    shiny::tags$div(
+    tags$div(
       class = "left_col scroll-view",
-      shiny::tags$div(
+      tags$div(
         class = "navbar nav_title",
         style = "border: 0;",
-        shiny::tags$a(
+        tags$a(
           class = "site_title",
           site_title,
           href = url,
           target = "_blank"
         )
       ),
-      shiny::tags$div(class = "clearfix"),
+      tags$div(class = "clearfix"),
       # sidebar Menu and Items
       ...,
       # sidebar footer
-      shiny::tags$div(
+      tags$div(
         class = "sidebar-footer hidden-small",
         footer
       )
@@ -47,13 +50,14 @@ gentelellaSidebar <- function(..., site_title = shiny::HTML(paste(shiny::icon("p
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 sidebarDate <- function() {
-  shiny::div(
+  div(
     id = "sidebar-menu",
     class = "main_menu_side hidden-print main_menu",
-    shiny::div(
+    div(
       class = "menu_section",
-      shiny::h3(format(Sys.Date(), format = "%a - %d %B, %Y"))
+      h3(format(Sys.Date(), format = "%a - %d %B, %Y"))
     )
   )
 }
@@ -68,19 +72,20 @@ sidebarDate <- function() {
 #' @author Mark Edmondson, \email{m@@sunholo.com}
 #'
 #' @export
+#' @import shiny
 sidebarMenu <- function(..., title = NULL) {
 
   items <- list(...)
 
-  shiny::div(
+  div(
     id = "sidebar-menu",
     class = "main_menu_side hidden-print main_menu",
-    shiny::div(
+    div(
       class = "menu_section",
-      shiny::tags$h3(title),
-      shiny::tags$ul(
+      tags$h3(title),
+      tags$ul(
         class = "nav side-menu",
-        shiny::tagList(lapply(items, shiny::tags$li))
+        tagList(lapply(items, tags$li))
       )
     )
   )
@@ -97,26 +102,25 @@ sidebarMenu <- function(..., title = NULL) {
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
+#' @importFrom htmltools withTags
 sidebarItem <- function(..., tabName = NULL, icon = NULL,
                         badgeName = NULL, badgeStatus = "danger"){
 
   if (is.null(tabName))
     stop("Need tabName")
 
-  #subitems <- list(...)
-
-  htmltools::withTags({
-    #if (length(subitems) == 0) {
-      shiny::tags$a(
+  withTags({
+      tags$a(
         id = paste0("tab-", tabName),
         href = paste0("#shiny-tab-", tabName),
         `data-toggle` = "tab",
         `data-value` = tabName,
-        shiny::tags$p(
-          shiny::icon(icon),
+        tags$p(
+          icon(icon),
           ...,
           if (!is.null(badgeName)) {
-            gentelellaShiny::label(
+            label(
               status = badgeStatus,
               name = badgeName,
               position = "pull-right"
@@ -124,42 +128,8 @@ sidebarItem <- function(..., tabName = NULL, icon = NULL,
           }
         )
       )
-    #} else {
-      #shiny::tagList(
-      #  shiny::a(shiny::icon(icon), tabName, shiny::span(class = "fa fa-chevron-down")),
-      #  shiny::tags$ul(
-      #    class = "nav child_menu",
-      #    shiny::tagList(lapply(subitems, shiny::tags$li)
-      #    )
-      #  )
-      #)
-    #}
   })
 }
-
-
-
-# #' Create a Gentelella dashboard sidebar menu item
-# #'
-# #' @param tabName item name
-# #' @param icon item icon
-# #' @param nested_element nested_element, if any
-# #'
-# #' @author David Granjon, \email{dgranjon@@ymail.com}
-# #'
-# #' @export
-# sidebarSubItem <- function(tabName = NULL, icon = NULL){
-#   htmltools::withTags({
-#     shiny::a(
-#       id = paste0("tab-", tabName),
-#       href = paste0("#shiny-tab-", tabName),
-#       `data-toggle` = "tab",
-#       `data-value` = tabName,
-#       shiny::icon(icon),
-#       shiny::tags$p(tabName)
-#     )
-#   })
-# }
 
 
 #' Create a Gentelella dashboard sidebar profile item
@@ -170,20 +140,21 @@ sidebarItem <- function(..., tabName = NULL, icon = NULL,
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 sidebarProfile <- function(img = NULL, name = NULL) {
- shiny::tagList(
-   shiny::tags$div(
+ tagList(
+   tags$div(
      class = "profile clearfix",
-     shiny::tags$div(
+     tags$div(
        class = "profile_pic",
-       shiny::tags$img(src = img, class = "img-circle profile_img")
+       tags$img(src = img, class = "img-circle profile_img")
      ),
-     shiny::tags$div(
+     tags$div(
        class = "profile_info",
-       shiny::tags$span("Welcome, "),
-       shiny::tags$h2(name)
+       tags$span("Welcome, "),
+       tags$h2(name)
      )
    ),
-   shiny::br()
+   br()
  )
 }

@@ -13,7 +13,7 @@
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'
-#'  shiny::shinyApp(
+#'  shinyApp(
 #'   ui = gentelellaPage(
 #'    title = "Shiny Gentelella",
 #'    navbar = gentelellaNavbar(
@@ -74,6 +74,7 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
                            footer = NULL, title = NULL, sidebar_collapsed = TRUE,
                            footer_fixed = FALSE){
@@ -86,33 +87,33 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
 
     footer_fixed
 
-  shiny::tags$html(
+  tags$html(
     # Head
-    shiny::tags$head(
-      shiny::tags$meta(
+    tags$head(
+      tags$meta(
         charset = "UTF-8",
         content = "text/html",
         `http-equiv` = "Content-Type"
       ),
-      shiny::tags$meta(charset = "utf-8"),
-      shiny::tags$meta(
+      tags$meta(charset = "utf-8"),
+      tags$meta(
         `http-equiv` = "X-UA-Compatible",
         content = "IE=edge"
       ),
-      shiny::tags$meta(
+      tags$meta(
         name = "viewport",
         content = "width=device-width, initial-scale=1"
       ),
-      shiny::tags$title(title),
-      shiny::includeCSS(system.file("gentelella-1.5.0/custom.min.css", package = "gentelellaShiny"))
+      tags$title(title),
+      includeCSS(system.file("gentelella-1.5.0/custom.min.css", package = "gentelellaShiny"))
     ),
     # Body
     addDeps(
-      shiny::tags$body(
+      tags$body(
         class = pageCl,
-        shiny::tags$div(
+        tags$div(
           class = "container body",
-          shiny::tags$div(
+          tags$div(
             class = "main_container",
             sidebar,
             navbar,
@@ -120,9 +121,9 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
             body,
             footer,
             # Wizard (does not work well)
-            #shiny::includeScript(path = "inst/smartwizard-3.3.1/wizard.js"),
-            # shiny::tags$script(HTML("$('#wizard').smartWizard();")),
-            # shiny::tags$script(
+            #includeScript(path = "inst/smartwizard-3.3.1/wizard.js"),
+            # tags$script(HTML("$('#wizard').smartWizard();")),
+            # tags$script(
             #   HTML(
             #     "$('.buttonNext').addClass('btn btn-success');
             #      $('.buttonPrevious').addClass('btn btn-primary');
@@ -130,8 +131,8 @@ gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
             #     "
             #   )
             # ),
-            shiny::includeScript(system.file("easypiechart-2.1.6/easypiechart.min.js", package = "gentelellaShiny")),
-            shiny::includeScript(system.file("gentelella-1.5.0/custom.min.js", package = "gentelellaShiny"))
+            includeScript(system.file("easypiechart-2.1.6/easypiechart.min.js", package = "gentelellaShiny")),
+            includeScript(system.file("gentelella-1.5.0/custom.min.js", package = "gentelellaShiny"))
           )
         )
       )

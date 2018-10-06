@@ -6,19 +6,21 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @importFrom htmltools withTags
+#' @import shiny
 gentelellaNavbar <- function(..., navbarItems = NULL){
-  htmltools::withTags({
-    shiny::div(
+  withTags({
+    div(
       class = "top_nav",
-      shiny::div(
+      div(
         class = "nav_menu",
-        shiny::tags$nav(
-          shiny::div(
+        tags$nav(
+          div(
             class = "nav toggle",
-            shiny::a(id = "menu_toggle", shiny::icon("bars"))
+            a(id = "menu_toggle", icon("bars"))
           ),
           ...,
-          shiny::tags$ul(
+          tags$ul(
             class = "nav navbar-nav navbar-right",
             navbarItems
           )
@@ -72,24 +74,25 @@ gentelellaNavbar <- function(..., navbarItems = NULL){
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 notif <- function(..., id, icon = "envelope-o",
                             status = "primary", expanded = FALSE) {
 
   len <- length(...)
 
-  shiny::tags$li(
+  tags$li(
     class = if (expanded) "dropdown open" else "dropdown",
     role = "presentation",
-    shiny::tags$a(
+    tags$a(
       class = "dropdown-toggle info-number",
       href = "javascript:;",
       `data-toggle` = "dropdown",
       `aria-expanded` = expanded,
-      shiny::icon(icon),
+      icon(icon),
       label(name = len, status = status, mode = "badge")
     ),
     # content
-    shiny::tags$ul(
+    tags$ul(
       class = "dropdown-menu list-unstyled msg_list",
       role = "menu",
       id = id,
@@ -110,17 +113,18 @@ notif <- function(..., id, icon = "envelope-o",
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @import shiny
 notifItem <- function(..., title = NULL, date = NULL, img = NULL) {
- shiny::tags$li(
-   shiny::tags$a(
-     shiny::tags$span(
+ tags$li(
+   tags$a(
+     tags$span(
        class = "image",
-       shiny::tags$img(src = img),
-       shiny::tags$span(
-        shiny::tags$span(title),
-        shiny::tags$span(class = "time", date)
+       tags$img(src = img),
+       tags$span(
+        tags$span(title),
+        tags$span(class = "time", date)
        ),
-       shiny::tags$span(class = "message", ...)
+       tags$span(class = "message", ...)
      )
    )
  )

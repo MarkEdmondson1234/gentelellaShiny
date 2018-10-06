@@ -5,9 +5,11 @@
 #' @author David Granjon, \email{dgranjon@@ymail.com}
 #'
 #' @export
+#' @importFrom htmltools withTags
+#' @importFrom shiny div
 gentelellaBody <- function(...) {
-  htmltools::withTags({
-    shiny::div(
+  withTags({
+    div(
       class = "right_col",
       role = "main",
       style = "min-height: 1775px;",
@@ -24,8 +26,9 @@ gentelellaBody <- function(...) {
 #' @param ... Items to put in the container. Each item should be a \code{\link{tabItem}}.
 #'
 #' @export
+#' @import shiny
 tabItems <- function(...) {
-  shiny::tags$div(class = "tab-content", ...)
+  tags$div(class = "tab-content", ...)
 }
 
 
@@ -38,15 +41,16 @@ tabItems <- function(...) {
 #' @param ... Contents of the tab.
 #'
 #' @export
+#' @import shiny
 tabItem <- function(tabName = NULL, ...) {
   if (is.null(tabName))
     stop("Need tabName")
 
-  shiny::tags$div(
+  tags$div(
     role = "tabpanel",
     class = "tab-pane container-fluid",
     id = paste0("shiny-tab-", tabName),
-    shiny::br(),
+    br(),
     ...
   )
 }
