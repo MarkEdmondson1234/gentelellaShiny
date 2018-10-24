@@ -21,7 +21,7 @@ if (interactive()) {
  library(shiny)
  library(gentelellaShiny)
  shinyApp(
-  ui = gentelellaPage(
+  ui = gentelellaPageCustom(
    gentelellaBody(
     tabSetPanel(
      id = "tabset1",

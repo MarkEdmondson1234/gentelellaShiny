@@ -2,94 +2,28 @@
 % Please edit documentation in R/gentelellaPage.R
 \name{gentelellaPage}
 \alias{gentelellaPage}
-\title{Create a Gentelella dashboard page}
+\title{Render a gentellaPage in ui.R}
 \usage{
-gentelellaPage(navbar = NULL, sidebar = NULL, body = NULL,
-  footer = NULL, title = NULL, sidebar_collapsed = TRUE,
-  footer_fixed = FALSE)
+gentelellaPage(..., title_tag = "Gentelella Shiny", site_title = a(class =
+  "site_title", icon("paw"), span("Shiny HTML")), menuItems = NULL,
+  footer = NULL, tracking = NULL)
 }
 \arguments{
-\item{navbar}{Gentelella dashboard navbar.}
+\item{...}{ui elements that will be rendered into a fluidRow per entry}
 
-\item{sidebar}{Gentelella dashboard main sidebar.}
+\item{title_tag}{Title tag passed to headerBoilerPlate}
 
-\item{body}{Gentelella dashboard body wrapper.}
+\item{site_title}{Website title passed to sideBarBoilerPlate}
 
-\item{footer}{Gentelella dashboard footer.}
+\item{menuItems}{Sidebar menu items created with \link{sideBarElement}}
 
-\item{title}{App title.}
+\item{footer}{Footer message}
 
-\item{sidebar_collapsed}{Whether the sidebar is collapsed of not at start. TRUE by default.}
-
-\item{footer_fixed}{Whether the footer is fixed or not. FALSE by default.}
+\item{tracking}{If not NULL, pass in \link{trackingTags} to enable web analytics}
+}
+\value{
+a function suitable for a ui.R page
 }
 \description{
-Create a Gentelella dashboard page
-}
-\examples{
-if(interactive()){
- library(shiny)
- library(gentelellaShiny)
-
- shinyApp(
-  ui = gentelellaPage(
-   title = "Shiny Gentelella",
-   navbar = gentelellaNavbar(
-    navbarItems = notif(
-     id = "menunotif",
-     icon = "envelope-o",
-     status = "primary",
-     expanded = FALSE,
-     lapply(X = 1:5, FUN = function(i) {
-      notifItem(
-       title = "John Doe",
-       date = "3 min ago",
-       img = paste0("https://image.flaticon.com/icons/svg/163/16382", i,".svg"),
-       "Film festivals used to be do-or-die moments
-       for movie makers. They were where..."
-      )
-     })
-    )
-   ),
-   sidebar = gentelellaSidebar(
-    sidebarProfile(
-     name = "Mark",
-     img = "https://image.flaticon.com/icons/svg/236/236831.svg"
-    ),
-    sidebarDate(),
-    sidebarMenu()
-   ),
-   body = gentelellaBody(
-    fluidRow(
-     column(
-      width = 4,
-      align = "center",
-      sliderInput(
-       "obs",
-       "Number of observations:",
-       min = 0,
-       max = 1000,
-       value = 500
-      )
-     ),
-     column(
-      width = 8,
-      align = "center",
-      plotOutput("distPlot")
-     )
-    )
-   ),
-   footer = gentelellaFooter()
-  ),
-  server = function(input, output) {
-   output$distPlot <- renderPlot({
-    hist(rnorm(input$obs))
-   })
-  }
- )
-}
-
-}
-\author{
-David Granjon, \email{dgranjon@ymail.com}
+Use tagList() on elements you want in the same row
 }

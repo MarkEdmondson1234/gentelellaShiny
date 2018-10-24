@@ -45,7 +45,7 @@ gentelellaNavbar <- function(..., navbarItems = NULL){
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'    ui = gentelellaPage(
+#'    ui = gentelellaPageCustom(
 #'     navbar = gentelellaNavbar(
 #'     navbarItems = notif(
 #'       id = "menunotif",

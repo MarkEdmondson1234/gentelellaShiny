@@ -7,8 +7,8 @@ lorem_ipsum <- "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 elementum ultrices diam. Maecenas ligula massa,
                 varius a, semper congue, euismod non, mi."
 
-shiny::shinyApp(
-  ui = gentelellaPage(
+shinyApp(
+  ui = gentelellaPageCustom(
     title = "Shiny Gentelella",
     navbar = gentelellaNavbar(
       navbarItems = notif(

@@ -12,7 +12,7 @@
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     tabSetPanel(
 #'      id = "tabset1",
@@ -143,7 +143,7 @@ tabPanel <- function(..., tabName, active = FALSE) {
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     tabSetPill(
 #'      tabPill(

@@ -37,15 +37,15 @@ A demo app is available by running `gentelellaShiny::gentelellaGallery()`
 
 ## Set up a basic page
 
-A special function `gentelellaPage()` has been created:
+A special function `gentelellaPageCustom()` has been created:
 
 ```r
  library(shiny)
  library(gentelellaShiny)
  library(shinyWidgets)
 
- shiny::shinyApp(
-  ui = gentelellaPage(
+shinyApp(
+  ui = gentelellaPageCustom(
    title = "Shiny Gentelella",
    navbar = gentelellaNavbar(
     navbarItems = notif(
