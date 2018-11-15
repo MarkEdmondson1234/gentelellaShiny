@@ -4,8 +4,8 @@
 \alias{timelineItem}
 \title{A timeline item}
 \usage{
-timelineItem(..., title = NULL, url = NULL, date = NULL, author = NULL,
-  tag = NULL)
+timelineItem(..., title = NULL, url = NULL, date = NULL,
+  author = NULL, tag = NULL)
 }
 \arguments{
 \item{...}{timeline item content, any element}

@@ -56,8 +56,8 @@ sideBarBoilerPlate <-
               div(id="sidebar-menu", class="main_menu_side hidden-print main_menu",
                   div(class = "menu_section",
                       h3(format(Sys.Date(), format = "%a - %d %B, %Y")),
-                      ul(class = "nav side-menu",
-                         tagList(lapply(menuItems, li))
+                      tags$ul(class = "nav side-menu",
+                         tagList(lapply(menuItems, tags$li))
                       )
                   )
               )
@@ -72,6 +72,9 @@ sideBarBoilerPlate <-
 #' Things put in li()
 #'
 #' Use HTML() wrapped around icon() if neccessary
+#' @param element Element.
+#' @param icon Icon.
+#' @param nested_element Nested items if any.
 #' @import shiny
 #' @export
 sideBarElement <- function(element,
@@ -95,7 +98,7 @@ navbarBoilerPlate <- function(){
   withTags({
     div(class="top_nav",
         div(class="nav_menu",
-            nav(
+            tags$nav(
               div(class="nav toggle",
                   a(id="menu_toggle", icon("bars"))
               ),

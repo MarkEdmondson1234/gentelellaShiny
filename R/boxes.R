@@ -417,7 +417,7 @@ graph_box <- function(...,
             div(class = "row x_title",
                 div(class = "col-md-6",
                     h3(boxtitle,
-                       small(subtitle)
+                       tags$small(subtitle)
                     )
                 ),
                 div(class = "col-md-6",
@@ -438,10 +438,11 @@ graph_box <- function(...,
 #'
 #' Its 320 pixels high by default
 #'
-#' @param ... elements to put in the box
+#' @param ... Elements to put in the box.
 #' @param width Width
-#' @param box_title Title above
-#' @param menuItems A list of other things to appear in top menu
+#' @param height Box height.
+#' @param box_title Title above.
+#' @param menuItems A list of other things to appear in top menu.
 #'
 #' @return A box to put elements in
 #' @export
@@ -458,9 +459,9 @@ dashboard_box <- function(...,
         div(class = "x_panel tile", style = paste0("height: ", height, "px;"),
             div(class = "x_title",
                 h2(box_title),
-                ul(class = "nav navbar-right panel_toolbox",
+                tags$ul(class = "nav navbar-right panel_toolbox",
                    ## add more items to li menu if passed.
-                   tagList(lapply(menuItems, li))
+                   tagList(lapply(menuItems, tags$li))
                 ),
                 div(class="clearfix")
             ),
@@ -469,7 +470,5 @@ dashboard_box <- function(...,
             )
         )
     )
-
-
   })
 }

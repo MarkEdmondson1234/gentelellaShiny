@@ -6,6 +6,13 @@
 \usage{
 sideBarElement(element, icon = NULL, nested_element = NULL)
 }
+\arguments{
+\item{element}{Element.}
+
+\item{icon}{Icon.}
+
+\item{nested_element}{Nested items if any.}
+}
 \description{
 Things put in li()
 }
