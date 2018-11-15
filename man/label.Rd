@@ -4,7 +4,8 @@
 \alias{label}
 \title{Create a label or badge}
 \usage{
-label(name = NULL, status = "primary", position = NULL, mode = "label")
+label(name = NULL, status = "primary", position = NULL,
+  mode = "label")
 }
 \arguments{
 \item{name}{label name}

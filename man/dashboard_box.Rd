@@ -8,13 +8,15 @@ dashboard_box(..., width = 4, height = 320, box_title = "Box title",
   menuItems = list(a(class = "collapse-link", icon("chevron-up"))))
 }
 \arguments{
-\item{...}{elements to put in the box}
+\item{...}{Elements to put in the box.}
 
 \item{width}{Width}
 
-\item{box_title}{Title above}
+\item{height}{Box height.}
 
-\item{menuItems}{A list of other things to appear in top menu}
+\item{box_title}{Title above.}
+
+\item{menuItems}{A list of other things to appear in top menu.}
 }
 \value{
 A box to put elements in

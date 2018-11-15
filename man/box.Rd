@@ -4,8 +4,9 @@
 \alias{box}
 \title{A box to put dashboard elements in}
 \usage{
-box(..., width = 4, height = NULL, title = "Box title", subtitle = NULL,
-  collapsible = TRUE, closable = FALSE, dropdownMenu = NULL)
+box(..., width = 4, height = NULL, title = "Box title",
+  subtitle = NULL, collapsible = TRUE, closable = FALSE,
+  dropdownMenu = NULL)
 }
 \arguments{
 \item{...}{elements to put in the box}

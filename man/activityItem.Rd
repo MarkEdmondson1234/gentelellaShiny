@@ -4,8 +4,8 @@
 \alias{activityItem}
 \title{An activity item}
 \usage{
-activityItem(..., title = NULL, img = NULL, day = NULL, month = NULL,
-  url = NULL)
+activityItem(..., title = NULL, img = NULL, day = NULL,
+  month = NULL, url = NULL)
 }
 \arguments{
 \item{...}{item content}

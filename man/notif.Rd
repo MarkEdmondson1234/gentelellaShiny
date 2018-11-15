@@ -4,7 +4,8 @@
 \alias{notif}
 \title{Create a Gentelella notification menu}
 \usage{
-notif(..., id, icon = "envelope-o", status = "primary", expanded = FALSE)
+notif(..., id, icon = "envelope-o", status = "primary",
+  expanded = FALSE)
 }
 \arguments{
 \item{...}{slot for \link{notifItem}}

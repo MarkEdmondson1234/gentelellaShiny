@@ -4,9 +4,9 @@
 \alias{gentelellaPage}
 \title{Render a gentellaPage in ui.R}
 \usage{
-gentelellaPage(..., title_tag = "Gentelella Shiny", site_title = a(class =
-  "site_title", icon("paw"), span("Shiny HTML")), menuItems = NULL,
-  footer = NULL, tracking = NULL)
+gentelellaPage(..., title_tag = "Gentelella Shiny",
+  site_title = a(class = "site_title", icon("paw"), span("Shiny HTML")),
+  menuItems = NULL, footer = NULL, tracking = NULL)
 }
 \arguments{
 \item{...}{ui elements that will be rendered into a fluidRow per entry}
