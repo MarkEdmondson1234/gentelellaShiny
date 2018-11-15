@@ -4,5 +4,6 @@
 .httr-oauth
 .httr-oauth-SUSPENDED
 inst/doc
+.DS_Store
 
 inst/demo/gaDashboard/rsconnect/shinyapps.io/mark/gentelellaShinyGADashboard.dcf

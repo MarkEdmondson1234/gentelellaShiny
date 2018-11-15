@@ -1,140 +1,32 @@
-#' Create a Gentelella dashboard page
+#' Render a gentellaPage in ui.R
 #'
-#' @param navbar Gentelella dashboard navbar.
-#' @param sidebar Gentelella dashboard main sidebar.
-#' @param body Gentelella dashboard body wrapper.
-#' @param footer Gentelella dashboard footer.
-#' @param title App title.
-#' @param sidebar_collapsed Whether the sidebar is collapsed of not at start. TRUE by default.
-#' @param footer_fixed Whether the footer is fixed or not. FALSE by default.
+#' Use tagList() on elements you want in the same row
 #'
-#' @examples
-#' if(interactive()){
-#'  library(shiny)
-#'  library(gentelellaShiny)
+#' @param ... ui elements that will be rendered into a fluidRow per entry
+#' @param title_tag Title tag passed to headerBoilerPlate
+#' @param site_title Website title passed to sideBarBoilerPlate
+#' @param menuItems Sidebar menu items created with \link{sideBarElement}
+#' @param footer Footer message
+#' @param tracking If not NULL, pass in \link{trackingTags} to enable web analytics
 #'
-#'  shiny::shinyApp(
-#'   ui = gentelellaPage(
-#'    title = "Shiny Gentelella",
-#'    navbar = gentelellaNavbar(
-#'     navbarItems = notif(
-#'      id = "menunotif",
-#'      icon = "envelope-o",
-#'      status = "primary",
-#'      expanded = FALSE,
-#'      lapply(X = 1:5, FUN = function(i) {
-#'       notifItem(
-#'        title = "John Doe",
-#'        date = "3 min ago",
-#'        img = paste0("https://image.flaticon.com/icons/svg/163/16382", i,".svg"),
-#'        "Film festivals used to be do-or-die moments
-#'        for movie makers. They were where..."
-#'       )
-#'      })
-#'     )
-#'    ),
-#'    sidebar = gentelellaSidebar(
-#'     sidebarProfile(
-#'      name = "Mark",
-#'      img = "https://image.flaticon.com/icons/svg/236/236831.svg"
-#'     ),
-#'     sidebarDate(),
-#'     sidebarMenu()
-#'    ),
-#'    body = gentelellaBody(
-#'     fluidRow(
-#'      column(
-#'       width = 4,
-#'       align = "center",
-#'       sliderInput(
-#'        "obs",
-#'        "Number of observations:",
-#'        min = 0,
-#'        max = 1000,
-#'        value = 500
-#'       )
-#'      ),
-#'      column(
-#'       width = 8,
-#'       align = "center",
-#'       plotOutput("distPlot")
-#'      )
-#'     )
-#'    ),
-#'    footer = gentelellaFooter()
-#'   ),
-#'   server = function(input, output) {
-#'    output$distPlot <- renderPlot({
-#'     hist(rnorm(input$obs))
-#'    })
-#'   }
-#'  )
-#' }
-#'
-#' @author David Granjon, \email{dgranjon@@ymail.com}
-#'
+#' @return a function suitable for a ui.R page
+#' @import shiny
 #' @export
-gentelellaPage <- function(navbar = NULL, sidebar = NULL, body = NULL,
-                           footer = NULL, title = NULL, sidebar_collapsed = TRUE,
-                           footer_fixed = FALSE){
+gentelellaPage <- function(...,
+                           title_tag = "Gentelella Shiny",
+                           site_title = a(class="site_title", icon("paw"), span("Shiny HTML")),
+                           menuItems = NULL,
+                           footer = NULL,
+                           tracking = NULL){
 
-  pageCl <- if (sidebar_collapsed) {
-    if (footer_fixed) "nav-sm footer_fixed" else "nav-sm"
-  } else {
-    if (footer_fixed) "nav-md footer_fixed" else "nav-md"
-  }
+  main_body <- lapply(list(...), function(x) tagList(fluidRow(x), br()))
 
-    footer_fixed
-
-  shiny::tags$html(
-    # Head
-    shiny::tags$head(
-      shiny::tags$meta(
-        charset = "UTF-8",
-        content = "text/html",
-        `http-equiv` = "Content-Type"
-      ),
-      shiny::tags$meta(charset = "utf-8"),
-      shiny::tags$meta(
-        `http-equiv` = "X-UA-Compatible",
-        content = "IE=edge"
-      ),
-      shiny::tags$meta(
-        name = "viewport",
-        content = "width=device-width, initial-scale=1"
-      ),
-      shiny::tags$title(title),
-      shiny::includeCSS(system.file("gentelella-1.5.0/custom.min.css", package = "gentelellaShiny"))
-    ),
-    # Body
-    addDeps(
-      shiny::tags$body(
-        class = pageCl,
-        shiny::tags$div(
-          class = "container body",
-          shiny::tags$div(
-            class = "main_container",
-            sidebar,
-            navbar,
-            # page content
-            body,
-            footer,
-            # Wizard (does not work well)
-            #shiny::includeScript(path = "inst/smartwizard-3.3.1/wizard.js"),
-            # shiny::tags$script(HTML("$('#wizard').smartWizard();")),
-            # shiny::tags$script(
-            #   HTML(
-            #     "$('.buttonNext').addClass('btn btn-success');
-            #      $('.buttonPrevious').addClass('btn btn-primary');
-            #      $('.buttonFinish').hide();
-            #     "
-            #   )
-            # ),
-            shiny::includeScript(system.file("easypiechart-2.1.6/easypiechart.min.js", package = "gentelellaShiny")),
-            shiny::includeScript(system.file("gentelella-1.5.0/custom.min.js", package = "gentelellaShiny"))
-          )
-        )
-      )
-    )
-  )
+  htmlTemplate(system.file("templates", "main.html", package = "gentelellaShiny"),
+               headerBoilerPlate = headerBoilerPlate(title_tag),
+               sideBarBoilerPlate = sideBarBoilerPlate(site_title = site_title,
+                                                       menuItems = menuItems),
+               navbarBoilerPlate = navbarBoilerPlate(),
+               footerBoilerPlate = footerBoilerPlate(footer),
+               trackingTags = tracking,
+               main_body = main_body)
 }

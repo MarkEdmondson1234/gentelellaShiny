@@ -4,8 +4,7 @@
 \alias{label}
 \title{Create a label or badge}
 \usage{
-label(name = NULL, status = "primary", position = NULL,
-  mode = "label")
+label(name = NULL, status = "primary", position = NULL, mode = "label")
 }
 \arguments{
 \item{name}{label name}
@@ -26,7 +25,7 @@ if (interactive()) {
  library(shiny)
  library(gentelellaShiny)
  shinyApp(
-  ui = gentelellaPage(
+  ui = gentelellaPageCustom(
    gentelellaBody(
     box(
      title = "Labels",

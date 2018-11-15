@@ -28,7 +28,7 @@ if (interactive()) {
  library(shiny)
  library(gentelellaShiny)
  shinyApp(
-  ui = gentelellaPage(
+  ui = gentelellaPageCustom(
    gentelellaBody(
     box(
      width = 3,

@@ -17,7 +17,7 @@ if (interactive()) {
  library(shiny)
  library(gentelellaShiny)
  shinyApp(
-  ui = gentelellaPage(
+  ui = gentelellaPageCustom(
    gentelellaBody(
     tileCountRow(
       lapply(1:4, tileCountElement)

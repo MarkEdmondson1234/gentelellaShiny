@@ -19,7 +19,7 @@ if (interactive()) {
  library(shiny)
  library(gentelellaShiny)
  shinyApp(
-  ui = gentelellaPage(
+  ui = gentelellaPageCustom(
    gentelellaBody(
     jumbotron(
      title = "Hello, world!",

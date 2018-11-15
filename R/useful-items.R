@@ -8,7 +8,7 @@
 # #'  library(shiny)
 # #'  library(gentelellaShiny)
 # #'  shinyApp(
-# #'   ui = gentelellaPage(
+# #'   ui = gentelellaPageCustom(
 # #'    gentelellaBody(
 # #'     wizard(
 # #'      wizardItem(1, description = "blabla"),
@@ -160,7 +160,7 @@ socialStatsItem <- function(value = NULL, name = NULL) {
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     box(
 #'       title = "pieChart",
@@ -245,7 +245,7 @@ pieChart <- function(id, value, height = 220, width = 220,
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     box(
 #'      width = 4,
@@ -348,7 +348,7 @@ timelineItem <- function(..., title = NULL, url = NULL, date = NULL, author = NU
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     box(
 #'      width = 4,
@@ -398,7 +398,7 @@ quickListItem <- function(icon, name = NULL) {
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     box(
 #'      width = 6,
@@ -460,7 +460,7 @@ boxWidget <- function(..., title = NULL, width = NULL) {
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     box(
 #'      width = 3,
@@ -544,7 +544,7 @@ userListItem <- function(..., user_img = NULL, title = NULL, subtitle = NULL) {
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     box(
 #'      width = 3,
@@ -612,7 +612,7 @@ progressBar <- function(value, side = "left", status = NULL, striped = FALSE,
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     jumbotron(
 #'      title = "Hello, world!",
@@ -655,7 +655,7 @@ jumbotron <- function(..., title = NULL) {
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     alert(
 #'      status = "warning",
@@ -708,7 +708,7 @@ alert <- function(..., title = NULL, status = "primary", dismissible = TRUE, wid
 # #'  library(shiny)
 # #'  library(gentelellaShiny)
 # #'  shinyApp(
-# #'   ui = gentelellaPage(
+# #'   ui = gentelellaPageCustom(
 # #'    gentelellaBody(
 # #'     stars(value = 4)
 # #'    )
@@ -756,7 +756,7 @@ alert <- function(..., title = NULL, status = "primary", dismissible = TRUE, wid
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     box(
 #'      title = "Activity List",
@@ -840,7 +840,7 @@ activityItem <- function(..., title = NULL, img = NULL,
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     tileCountRow(
 #'       lapply(1:4, tileCountElement)
@@ -970,7 +970,7 @@ updateTileCount <- function(input, output, session, value, change_value,
 #'  library(shiny)
 #'  library(gentelellaShiny)
 #'  shinyApp(
-#'   ui = gentelellaPage(
+#'   ui = gentelellaPageCustom(
 #'    gentelellaBody(
 #'     box(
 #'      title = "Labels",
