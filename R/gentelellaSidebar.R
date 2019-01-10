@@ -117,7 +117,7 @@ sidebarItem <- function(..., tabName = NULL, icon = NULL,
         `data-toggle` = "tab",
         `data-value` = tabName,
         tags$p(
-          icon(icon),
+          icon,
           ...,
           if (!is.null(badgeName)) {
             label(

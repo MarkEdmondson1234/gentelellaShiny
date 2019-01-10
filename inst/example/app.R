@@ -13,7 +13,7 @@ shinyApp(
     navbar = gentelellaNavbar(
       navbarItems = notif(
         id = "menunotif",
-        icon = "envelope-o",
+        icon = icon("envelope-o"),
         status = "danger",
         expanded = FALSE,
         lapply(X = 1:5, FUN = function(i) {
@@ -35,10 +35,10 @@ shinyApp(
       sidebarDate(),
       sidebarMenu(
         #title = "test",
-        sidebarItem("Boxes", tabName = "boxes", icon = "clone", badgeName = "New"),
-        sidebarItem("Tabs", tabName = "tabs", icon = "tasks"),
-        sidebarItem("Charts", tabName = "charts", icon = "bar-chart"),
-        sidebarItem("Other Items", tabName = "others", icon = "bug")
+        sidebarItem("Boxes", tabName = "boxes", icon = icon("clone"), badgeName = "New"),
+        sidebarItem("Tabs", tabName = "tabs", icon = icon("tasks")),
+        sidebarItem("Charts", tabName = "charts", icon = icon("bar-chart")),
+        sidebarItem("Other Items", tabName = "others", icon = icon("bug"))
       )
     ),
     body = gentelellaBody(
@@ -91,8 +91,8 @@ shinyApp(
                 footer_left = "Some text",
                 footer_right = pieChart(value = 45, id = "contactChart"),
                 quickList(
-                  quickListItem(icon = "calendar-o", name = "Settings"),
-                  quickListItem(icon = "bars", name = "Subscription")
+                  quickListItem(icon = icon("calendar-o"), name = "Settings"),
+                  quickListItem(icon = icon("bars"), name = "Subscription")
                 )
               )
             ),
@@ -101,13 +101,13 @@ shinyApp(
                 value = 179,
                 title = "New Sign ups",
                 description = "Lorem ipsum psdea itgum rixt",
-                icon = "caret-square-o-right"
+                icon = icon("caret-square-o-right")
               ),
               valueBox(
                 value = 345,
                 title = "New Customers",
                 description = "Lorem ipsum psdea itgum rixt",
-                icon = "comments-o"
+                icon = icon("comments-o")
               )
             )
           )
@@ -258,8 +258,8 @@ shinyApp(
               width = 4,
               title = "Quick Lists",
               quickList(
-                quickListItem(icon = "calendar-o", name = "Settings"),
-                quickListItem(icon = "bars", name = "Subscription")
+                quickListItem(icon = icon("calendar-o"), name = "Settings"),
+                quickListItem(icon = icon("bars"), name = "Subscription")
               )
             ),
             box(

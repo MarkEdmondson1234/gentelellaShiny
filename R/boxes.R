@@ -281,13 +281,13 @@ ribbonBox <- function(..., width = 3, height = 390, ribbon_text = NULL,
 #'      value = 179,
 #'      title = "New Sign ups",
 #'      description = "Lorem ipsum psdea itgum rixt",
-#'      icon = "caret-square-o-right"
+#'      icon = icon("caret-square-o-right")
 #'     ),
 #'     valueBox(
 #'      value = 345,
 #'      title = "New Customers",
 #'      description = "Lorem ipsum psdea itgum rixt",
-#'      icon = "comments-o"
+#'      icon = icon("comments-o")
 #'     )
 #'    )
 #'   ),
@@ -306,7 +306,7 @@ valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width
      class = "tile-stats",
      div(
        class = "icon",
-       icon(icon)
+       icon
      ),
      div(class = "count", value),
      h3(title),
@@ -342,8 +342,8 @@ valueBox <- function(value, title = NULL, description = NULL, icon = NULL, width
 #'      footer_left = "Some text",
 #'      footer_right = pieChart(value = 45, id = "contactChart"),
 #'      quickList(
-#'       quickListItem(icon = "calendar-o", name = "Settings"),
-#'       quickListItem(icon = "bars", name = "Subscription")
+#'       quickListItem(icon = icon("calendar-o"), name = "Settings"),
+#'       quickListItem(icon = icon("bars"), name = "Subscription")
 #'      )
 #'     )
 #'    )

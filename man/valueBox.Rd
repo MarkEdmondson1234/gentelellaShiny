@@ -32,13 +32,13 @@ if (interactive()) {
      value = 179,
      title = "New Sign ups",
      description = "Lorem ipsum psdea itgum rixt",
-     icon = "caret-square-o-right"
+     icon = icon("caret-square-o-right")
     ),
     valueBox(
      value = 345,
      title = "New Customers",
      description = "Lorem ipsum psdea itgum rixt",
-     icon = "comments-o"
+     icon = icon("comments-o")
     )
    )
   ),

@@ -4,7 +4,7 @@
 \alias{notif}
 \title{Create a Gentelella notification menu}
 \usage{
-notif(..., id, icon = "envelope-o", status = "primary",
+notif(..., id, icon = icon("envelope-o"), status = "primary",
   expanded = FALSE)
 }
 \arguments{
@@ -30,7 +30,7 @@ if (interactive()) {
     navbar = gentelellaNavbar(
     navbarItems = notif(
       id = "menunotif",
-      icon = "envelope-o",
+      icon = icon("envelope-o"),
       status = "danger",
       expanded = TRUE,
       lapply(X = 1:5, FUN = function(i) {
