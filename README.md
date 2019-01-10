@@ -1,6 +1,7 @@
 # gentelellaShiny
 
 [![Travis-CI Build Status](https://travis-ci.org/MarkEdmondson1234/gentelellaShiny.svg?branch=master)](https://travis-ci.org/MarkEdmondson1234/gentelellaShiny)
+[![CRAN status](https://www.r-pkg.org/badges/version/gentelellaShiny)](https://cran.r-project.org/package=gentelellaShiny)
 
 > This is an R version of the gentelella admin template
 [gentelella bootstrap theme](https://github.com/puikinsh/gentelella).
