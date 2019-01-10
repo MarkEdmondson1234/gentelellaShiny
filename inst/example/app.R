@@ -35,10 +35,10 @@ shinyApp(
       sidebarDate(),
       sidebarMenu(
         #title = "test",
-        sidebarItem("Boxes", tabName = "boxes", icon = icon("clone"), badgeName = "New"),
-        sidebarItem("Tabs", tabName = "tabs", icon = icon("tasks")),
-        sidebarItem("Charts", tabName = "charts", icon = icon("bar-chart")),
-        sidebarItem("Other Items", tabName = "others", icon = icon("bug"))
+        sidebarItem("Boxes", tabName = "boxes", icon = tags$i(class = "fas fa-clone"), badgeName = "New"),
+        sidebarItem("Tabs", tabName = "tabs", icon = tags$i(class = "fas fa-tasks")),
+        sidebarItem("Charts", tabName = "charts", icon = tags$i(class = "fas fa-chart-bar")),
+        sidebarItem("Other Items", tabName = "others", icon = tags$i(class = "fas fa-bug"))
       )
     ),
     body = gentelellaBody(
