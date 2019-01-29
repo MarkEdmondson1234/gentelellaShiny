@@ -49,7 +49,7 @@ gentelellaNavbar <- function(..., navbarItems = NULL){
 #'     navbar = gentelellaNavbar(
 #'     navbarItems = notif(
 #'       id = "menunotif",
-#'       icon = "envelope-o",
+#'       icon = icon("envelope-o"),
 #'       status = "danger",
 #'       expanded = TRUE,
 #'       lapply(X = 1:5, FUN = function(i) {
@@ -75,7 +75,7 @@ gentelellaNavbar <- function(..., navbarItems = NULL){
 #'
 #' @export
 #' @import shiny
-notif <- function(..., id, icon = "envelope-o",
+notif <- function(..., id, icon = icon("envelope-o"),
                             status = "primary", expanded = FALSE) {
 
   len <- length(...)
@@ -88,7 +88,7 @@ notif <- function(..., id, icon = "envelope-o",
       href = "javascript:;",
       `data-toggle` = "dropdown",
       `aria-expanded` = expanded,
-      icon(icon),
+      icon,
       label(name = len, status = status, mode = "badge")
     ),
     # content

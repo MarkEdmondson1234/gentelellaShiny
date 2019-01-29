@@ -23,8 +23,8 @@ if (interactive()) {
      width = 4,
      title = "Quick Lists",
      quickList(
-      quickListItem(icon = "calendar-o", name = "Settings"),
-      quickListItem(icon = "bars", name = "Subscription")
+      quickListItem(icon = icon("calendar-o"), name = "Settings"),
+      quickListItem(icon = icon("bars"), name = "Subscription")
      )
     )
    )

@@ -37,7 +37,7 @@ if(interactive()){
    navbar = gentelellaNavbar(
     navbarItems = notif(
      id = "menunotif",
-     icon = "envelope-o",
+     icon = icon("envelope-o"),
      status = "primary",
      expanded = FALSE,
      lapply(X = 1:5, FUN = function(i) {

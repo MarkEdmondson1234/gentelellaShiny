@@ -42,8 +42,8 @@ if (interactive()) {
      footer_left = "Some text",
      footer_right = pieChart(value = 45, id = "contactChart"),
      quickList(
-      quickListItem(icon = "calendar-o", name = "Settings"),
-      quickListItem(icon = "bars", name = "Subscription")
+      quickListItem(icon = icon("calendar-o"), name = "Settings"),
+      quickListItem(icon = icon("bars"), name = "Subscription")
      )
     )
    )

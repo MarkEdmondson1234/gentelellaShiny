@@ -354,8 +354,8 @@ timelineItem <- function(..., title = NULL, url = NULL, date = NULL, author = NU
 #'      width = 4,
 #'      title = "Quick Lists",
 #'      quickList(
-#'       quickListItem(icon = "calendar-o", name = "Settings"),
-#'       quickListItem(icon = "bars", name = "Subscription")
+#'       quickListItem(icon = icon("calendar-o"), name = "Settings"),
+#'       quickListItem(icon = icon("bars"), name = "Subscription")
 #'      )
 #'     )
 #'    )
@@ -381,7 +381,7 @@ quickList <- function(...) {
 #'
 #' @export
 quickListItem <- function(icon, name = NULL) {
- shiny::tags$li(shiny::icon(icon), shiny::tags$a(name))
+ shiny::tags$li(icon, shiny::tags$a(name))
 }
 
 

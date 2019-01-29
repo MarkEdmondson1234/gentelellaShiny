@@ -1,6 +1,7 @@
 # gentelellaShiny
 
 [![Travis-CI Build Status](https://travis-ci.org/MarkEdmondson1234/gentelellaShiny.svg?branch=master)](https://travis-ci.org/MarkEdmondson1234/gentelellaShiny)
+[![CRAN status](https://www.r-pkg.org/badges/version/gentelellaShiny)](https://cran.r-project.org/package=gentelellaShiny)
 
 > This is an R version of the gentelella admin template
 [gentelella bootstrap theme](https://github.com/puikinsh/gentelella).
@@ -109,7 +110,7 @@ shinyApp(
    navbar = gentelellaNavbar(
     navbarItems = notif(
      id = "menunotif",
-     icon = "envelope-o",
+     icon = icon("envelope-o"),
      status = "primary",
      expanded = FALSE,
      lapply(X = 1:5, FUN = function(i) {
@@ -130,14 +131,14 @@ shinyApp(
      sidebarItem(
       "Tab 1",
       tabName = "tab1", 
-      icon = "bar-chart", 
+      icon = tags$i(class = "fas fa-chart-bar"), 
       badgeName = "new",
       badgeStatus = "danger"
      ),
      sidebarItem(
       "Tab 2",
       tabName = "tab2", 
-      icon = "info"
+      icon = tags$i(class = "fas fa-info")
      )
     )
    ),
