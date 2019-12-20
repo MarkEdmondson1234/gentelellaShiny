@@ -6,6 +6,15 @@
 > This is an R version of the gentelella admin template
 [gentelella bootstrap theme](https://github.com/puikinsh/gentelella).
 
+## Important Note
+Since shiny 1.4, please set this option before running your app:
+
+```r
+options(shiny.jquery.version=1)
+```
+
+Indeed, gentellelaShiny still depends on an older version of jQuery (1.x...) whereas shiny has 3.x...
+
 ## Install
 
 ```r
